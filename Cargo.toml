@@ -1,0 +1,22 @@
+# SPDX-FileCopyrightText: 2024 Shun Sakai
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+[package]
+name = "favico"
+version = "0.1.0"
+authors = ["Shun Sakai <sorairolake@protonmail.ch>"]
+edition = "2021"
+rust-version = "1.74.0"
+description = "An utility for creating favicons"
+readme = "README.md"
+homepage = "https://sorairolake.github.io/favico/"
+repository = "https://github.com/sorairolake/favico"
+license = "GPL-3.0-or-later"
+keywords = ["favicon", "icon"]
+categories = ["command-line-utilities"]
+include = ["/LICENSES", "/README.md", "/src"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
