@@ -22,13 +22,13 @@ include = ["/LICENSES", "/README.md", "/src"]
 [dependencies]
 anyhow = "1.0.81"
 bat = { version = "0.24.0", default-features = false, features = ["regex-fancy"] }
-clap = { version = "4.5.3", features = ["derive", "wrap_help"] }
+clap = { version = "4.5.4", features = ["derive", "wrap_help"] }
 clap_complete = "4.5.1"
 clap_complete_nushell = "4.5.1"
 csscolorparser = "0.6.2"
 image = "0.25.0"
 indicatif = "0.17.8"
-serde_json = { version = "1.0.114", features = ["preserve_order"] }
+serde_json = { version = "1.0.115", features = ["preserve_order"] }
 sysexits = "0.7.11"
 
 [dev-dependencies]
