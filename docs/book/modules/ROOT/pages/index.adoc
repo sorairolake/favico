@@ -18,3 +18,5 @@ image:{msrv-badge}[MSRV]
 image:{license-badge}[License]
 
 **favico** is a command-line utility for creating favicons.
+
+image::screenshot.webp[Screenshot of favico]
