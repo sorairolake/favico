@@ -10,7 +10,7 @@
 #![warn(clippy::cargo, clippy::nursery, clippy::pedantic)]
 #![allow(clippy::multiple_crate_versions)]
 
-use std::fs;
+use std::{env, fs};
 
 use assert_cmd::Command;
 use predicates::prelude::predicate;
@@ -151,6 +151,25 @@ fn basic_generate() {
         fs::read_to_string(out_dir.join("site.webmanifest")).unwrap(),
         include_str!("data/output/site.webmanifest")
     );
+}
+
+#[test]
+fn generate_without_out_dir() {
+    let current_dir = env::current_dir().unwrap();
+    let out_dir = tempfile::tempdir().unwrap();
+    let out_dir = out_dir.path();
+    command()
+        .arg(current_dir.join("tests/data/input/input.png"))
+        .current_dir(out_dir)
+        .assert()
+        .success();
+    assert!(out_dir.join("android-chrome-192x192.png").exists());
+    assert!(out_dir.join("android-chrome-512x512.png").exists());
+    assert!(out_dir.join("apple-touch-icon.png").exists());
+    assert!(out_dir.join("favicon-16x16.png").exists());
+    assert!(out_dir.join("favicon-32x32.png").exists());
+    assert!(out_dir.join("favicon.ico").exists());
+    assert!(out_dir.join("site.webmanifest").exists());
 }
 
 #[test]
@@ -1469,7 +1488,7 @@ fn generate_from_non_image_file() {
 
 #[allow(clippy::too_many_lines)]
 #[test]
-fn decode_from_bmp() {
+fn generate_from_bmp() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
@@ -1574,11 +1593,26 @@ fn decode_from_bmp() {
         );
         assert!(out_dir.join("favicon.ico").exists());
     }
+
+    {
+        let out_dir = tempfile::tempdir().unwrap();
+        let out_dir = out_dir.path();
+        command()
+            .arg("-o")
+            .arg(out_dir)
+            .arg("-f")
+            .arg("bmp")
+            .arg("data/output/site.webmanifest")
+            .assert()
+            .failure()
+            .code(65)
+            .stderr(predicate::str::contains("could not read the image"));
+    }
 }
 
 #[allow(clippy::too_many_lines)]
 #[test]
-fn decode_from_dds() {
+fn generate_from_dds() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
@@ -1683,11 +1717,26 @@ fn decode_from_dds() {
         );
         assert!(out_dir.join("favicon.ico").exists());
     }
+
+    {
+        let out_dir = tempfile::tempdir().unwrap();
+        let out_dir = out_dir.path();
+        command()
+            .arg("-o")
+            .arg(out_dir)
+            .arg("-f")
+            .arg("dds")
+            .arg("data/output/site.webmanifest")
+            .assert()
+            .failure()
+            .code(65)
+            .stderr(predicate::str::contains("could not read the image"));
+    }
 }
 
 #[allow(clippy::too_many_lines)]
 #[test]
-fn decode_from_farbfeld() {
+fn generate_from_farbfeld() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
@@ -1792,11 +1841,26 @@ fn decode_from_farbfeld() {
         );
         assert!(out_dir.join("favicon.ico").exists());
     }
+
+    {
+        let out_dir = tempfile::tempdir().unwrap();
+        let out_dir = out_dir.path();
+        command()
+            .arg("-o")
+            .arg(out_dir)
+            .arg("-f")
+            .arg("farbfeld")
+            .arg("data/output/site.webmanifest")
+            .assert()
+            .failure()
+            .code(65)
+            .stderr(predicate::str::contains("could not read the image"));
+    }
 }
 
 #[allow(clippy::too_many_lines)]
 #[test]
-fn decode_from_gif() {
+fn generate_from_gif() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
@@ -1901,11 +1965,26 @@ fn decode_from_gif() {
         );
         assert!(out_dir.join("favicon.ico").exists());
     }
+
+    {
+        let out_dir = tempfile::tempdir().unwrap();
+        let out_dir = out_dir.path();
+        command()
+            .arg("-o")
+            .arg(out_dir)
+            .arg("-f")
+            .arg("gif")
+            .arg("data/output/site.webmanifest")
+            .assert()
+            .failure()
+            .code(65)
+            .stderr(predicate::str::contains("could not read the image"));
+    }
 }
 
 #[allow(clippy::too_many_lines)]
 #[test]
-fn decode_from_hdr() {
+fn generate_from_hdr() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
@@ -2010,11 +2089,118 @@ fn decode_from_hdr() {
         );
         assert!(out_dir.join("favicon.ico").exists());
     }
+
+    {
+        let out_dir = tempfile::tempdir().unwrap();
+        let out_dir = out_dir.path();
+        command()
+            .arg("-o")
+            .arg(out_dir)
+            .arg("-f")
+            .arg("hdr")
+            .arg("data/output/site.webmanifest")
+            .assert()
+            .failure()
+            .code(65)
+            .stderr(predicate::str::contains("could not read the image"));
+    }
+}
+
+#[test]
+fn generate_from_cur() {
+    {
+        let out_dir = tempfile::tempdir().unwrap();
+        let out_dir = out_dir.path();
+        command()
+            .arg("-o")
+            .arg(out_dir)
+            .arg("data/input/input.cur")
+            .assert()
+            .success();
+        assert!(out_dir.join("android-chrome-192x192.png").exists());
+        assert!(out_dir.join("android-chrome-512x512.png").exists());
+        assert!(out_dir.join("apple-touch-icon.png").exists());
+        assert!(out_dir.join("favicon-16x16.png").exists());
+        assert!(out_dir.join("favicon-32x32.png").exists());
+        assert!(out_dir.join("favicon.ico").exists());
+    }
+    {
+        let out_dir = tempfile::tempdir().unwrap();
+        let out_dir = out_dir.path();
+        command()
+            .arg("-o")
+            .arg(out_dir)
+            .arg("-f")
+            .arg("ico")
+            .arg("data/input/input.cur")
+            .assert()
+            .success();
+        assert!(out_dir.join("android-chrome-192x192.png").exists());
+        assert!(out_dir.join("android-chrome-512x512.png").exists());
+        assert!(out_dir.join("apple-touch-icon.png").exists());
+        assert!(out_dir.join("favicon-16x16.png").exists());
+        assert!(out_dir.join("favicon-32x32.png").exists());
+        assert!(out_dir.join("favicon.ico").exists());
+    }
+}
+
+#[test]
+fn generate_from_ico() {
+    {
+        let out_dir = tempfile::tempdir().unwrap();
+        let out_dir = out_dir.path();
+        command()
+            .arg("-o")
+            .arg(out_dir)
+            .arg("data/input/input.ico")
+            .assert()
+            .success();
+        assert!(out_dir.join("android-chrome-192x192.png").exists());
+        assert!(out_dir.join("android-chrome-512x512.png").exists());
+        assert!(out_dir.join("apple-touch-icon.png").exists());
+        assert!(out_dir.join("favicon-16x16.png").exists());
+        assert!(out_dir.join("favicon-32x32.png").exists());
+        assert!(out_dir.join("favicon.ico").exists());
+    }
+    {
+        let out_dir = tempfile::tempdir().unwrap();
+        let out_dir = out_dir.path();
+        command()
+            .arg("-o")
+            .arg(out_dir)
+            .arg("-f")
+            .arg("ico")
+            .arg("data/input/input.ico")
+            .assert()
+            .success();
+        assert!(out_dir.join("android-chrome-192x192.png").exists());
+        assert!(out_dir.join("android-chrome-512x512.png").exists());
+        assert!(out_dir.join("apple-touch-icon.png").exists());
+        assert!(out_dir.join("favicon-16x16.png").exists());
+        assert!(out_dir.join("favicon-32x32.png").exists());
+        assert!(out_dir.join("favicon.ico").exists());
+    }
+}
+
+#[test]
+fn generate_from_ico_with_wrong_format() {
+    let out_dir = tempfile::tempdir().unwrap();
+    let out_dir = out_dir.path();
+    command()
+        .arg("-o")
+        .arg(out_dir)
+        .arg("-f")
+        .arg("ico")
+        .arg("data/output/site.webmanifest")
+        .assert()
+        .failure()
+        .code(65)
+        .stderr(predicate::str::contains("could not read the image"));
 }
 
 #[allow(clippy::too_many_lines)]
 #[test]
-fn decode_from_jpeg() {
+fn generate_from_jpeg() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
@@ -2119,11 +2305,26 @@ fn decode_from_jpeg() {
         );
         assert!(out_dir.join("favicon.ico").exists());
     }
+
+    {
+        let out_dir = tempfile::tempdir().unwrap();
+        let out_dir = out_dir.path();
+        command()
+            .arg("-o")
+            .arg(out_dir)
+            .arg("-f")
+            .arg("jpeg")
+            .arg("data/output/site.webmanifest")
+            .assert()
+            .failure()
+            .code(65)
+            .stderr(predicate::str::contains("could not read the image"));
+    }
 }
 
 #[allow(clippy::too_many_lines)]
 #[test]
-fn decode_from_open_exr() {
+fn generate_from_open_exr() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
@@ -2228,66 +2429,316 @@ fn decode_from_open_exr() {
         );
         assert!(out_dir.join("favicon.ico").exists());
     }
+
+    {
+        let out_dir = tempfile::tempdir().unwrap();
+        let out_dir = out_dir.path();
+        command()
+            .arg("-o")
+            .arg(out_dir)
+            .arg("-f")
+            .arg("openexr")
+            .arg("data/output/site.webmanifest")
+            .assert()
+            .failure()
+            .code(65)
+            .stderr(predicate::str::contains("could not read the image"));
+    }
 }
 
 #[test]
-fn decode_from_png() {
-    let out_dir = tempfile::tempdir().unwrap();
-    let out_dir = out_dir.path();
-    command()
-        .arg("-o")
-        .arg(out_dir)
-        .arg("-f")
-        .arg("png")
-        .arg("data/input/input.png")
-        .assert()
-        .success();
-    assert_eq!(
-        image::open(out_dir.join("android-chrome-192x192.png"))
-            .unwrap()
-            .into_rgba8(),
-        image::open("tests/data/output/android-chrome-192x192.png")
-            .unwrap()
-            .into_rgba8()
-    );
-    assert_eq!(
-        image::open(out_dir.join("android-chrome-512x512.png"))
-            .unwrap()
-            .into_rgba8(),
-        image::open("tests/data/output/android-chrome-512x512.png")
-            .unwrap()
-            .into_rgba8()
-    );
-    assert_eq!(
-        image::open(out_dir.join("apple-touch-icon.png"))
-            .unwrap()
-            .into_rgba8(),
-        image::open("tests/data/output/apple-touch-icon.png")
-            .unwrap()
-            .into_rgba8()
-    );
-    assert_eq!(
-        image::open(out_dir.join("favicon-16x16.png"))
-            .unwrap()
-            .into_rgba8(),
-        image::open("tests/data/output/favicon-16x16.png")
-            .unwrap()
-            .into_rgba8()
-    );
-    assert_eq!(
-        image::open(out_dir.join("favicon-32x32.png"))
-            .unwrap()
-            .into_rgba8(),
-        image::open("tests/data/output/favicon-32x32.png")
-            .unwrap()
-            .into_rgba8()
-    );
-    assert!(out_dir.join("favicon.ico").exists());
+fn generate_from_png() {
+    {
+        let out_dir = tempfile::tempdir().unwrap();
+        let out_dir = out_dir.path();
+        command()
+            .arg("-o")
+            .arg(out_dir)
+            .arg("-f")
+            .arg("png")
+            .arg("data/input/input.png")
+            .assert()
+            .success();
+        assert_eq!(
+            image::open(out_dir.join("android-chrome-192x192.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/android-chrome-192x192.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("android-chrome-512x512.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/android-chrome-512x512.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("apple-touch-icon.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/apple-touch-icon.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("favicon-16x16.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/favicon-16x16.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("favicon-32x32.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/favicon-32x32.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert!(out_dir.join("favicon.ico").exists());
+    }
+
+    {
+        let out_dir = tempfile::tempdir().unwrap();
+        let out_dir = out_dir.path();
+        command()
+            .arg("-o")
+            .arg(out_dir)
+            .arg("-f")
+            .arg("png")
+            .arg("data/output/site.webmanifest")
+            .assert()
+            .failure()
+            .code(65)
+            .stderr(predicate::str::contains("could not read the image"));
+    }
 }
 
 #[allow(clippy::too_many_lines)]
 #[test]
-fn decode_from_ppm() {
+fn generate_from_pbm() {
+    {
+        let out_dir = tempfile::tempdir().unwrap();
+        let out_dir = out_dir.path();
+        command()
+            .arg("-o")
+            .arg(out_dir)
+            .arg("data/input/input.pbm")
+            .assert()
+            .success();
+        assert_eq!(
+            image::open(out_dir.join("android-chrome-192x192.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/android-chrome-192x192.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("android-chrome-512x512.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/android-chrome-512x512.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("apple-touch-icon.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/apple-touch-icon.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("favicon-16x16.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/favicon-16x16.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("favicon-32x32.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/favicon-32x32.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert!(out_dir.join("favicon.ico").exists());
+    }
+    {
+        let out_dir = tempfile::tempdir().unwrap();
+        let out_dir = out_dir.path();
+        command()
+            .arg("-o")
+            .arg(out_dir)
+            .arg("-f")
+            .arg("pnm")
+            .arg("data/input/input.pbm")
+            .assert()
+            .success();
+        assert_eq!(
+            image::open(out_dir.join("android-chrome-192x192.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/android-chrome-192x192.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("android-chrome-512x512.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/android-chrome-512x512.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("apple-touch-icon.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/apple-touch-icon.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("favicon-16x16.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/favicon-16x16.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("favicon-32x32.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/favicon-32x32.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert!(out_dir.join("favicon.ico").exists());
+    }
+}
+
+#[allow(clippy::too_many_lines)]
+#[test]
+fn generate_from_pgm() {
+    {
+        let out_dir = tempfile::tempdir().unwrap();
+        let out_dir = out_dir.path();
+        command()
+            .arg("-o")
+            .arg(out_dir)
+            .arg("data/input/input.pgm")
+            .assert()
+            .success();
+        assert_eq!(
+            image::open(out_dir.join("android-chrome-192x192.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/android-chrome-192x192.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("android-chrome-512x512.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/android-chrome-512x512.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("apple-touch-icon.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/apple-touch-icon.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("favicon-16x16.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/favicon-16x16.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("favicon-32x32.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/favicon-32x32.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert!(out_dir.join("favicon.ico").exists());
+    }
+    {
+        let out_dir = tempfile::tempdir().unwrap();
+        let out_dir = out_dir.path();
+        command()
+            .arg("-o")
+            .arg(out_dir)
+            .arg("-f")
+            .arg("pnm")
+            .arg("data/input/input.pgm")
+            .assert()
+            .success();
+        assert_eq!(
+            image::open(out_dir.join("android-chrome-192x192.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/android-chrome-192x192.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("android-chrome-512x512.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/android-chrome-512x512.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("apple-touch-icon.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/apple-touch-icon.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("favicon-16x16.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/favicon-16x16.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("favicon-32x32.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/favicon-32x32.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert!(out_dir.join("favicon.ico").exists());
+    }
+}
+
+#[allow(clippy::too_many_lines)]
+#[test]
+fn generate_from_ppm() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
@@ -2394,9 +2845,25 @@ fn decode_from_ppm() {
     }
 }
 
+#[test]
+fn generate_from_pnm_with_wrong_format() {
+    let out_dir = tempfile::tempdir().unwrap();
+    let out_dir = out_dir.path();
+    command()
+        .arg("-o")
+        .arg(out_dir)
+        .arg("-f")
+        .arg("pnm")
+        .arg("data/output/site.webmanifest")
+        .assert()
+        .failure()
+        .code(65)
+        .stderr(predicate::str::contains("could not read the image"));
+}
+
 #[allow(clippy::too_many_lines)]
 #[test]
-fn decode_from_qoi() {
+fn generate_from_qoi() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
@@ -2501,11 +2968,26 @@ fn decode_from_qoi() {
         );
         assert!(out_dir.join("favicon.ico").exists());
     }
+
+    {
+        let out_dir = tempfile::tempdir().unwrap();
+        let out_dir = out_dir.path();
+        command()
+            .arg("-o")
+            .arg(out_dir)
+            .arg("-f")
+            .arg("qoi")
+            .arg("data/output/site.webmanifest")
+            .assert()
+            .failure()
+            .code(65)
+            .stderr(predicate::str::contains("could not read the image"));
+    }
 }
 
 #[allow(clippy::too_many_lines)]
 #[test]
-fn decode_from_tga() {
+fn generate_from_tga() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
@@ -2610,11 +3092,26 @@ fn decode_from_tga() {
         );
         assert!(out_dir.join("favicon.ico").exists());
     }
+
+    {
+        let out_dir = tempfile::tempdir().unwrap();
+        let out_dir = out_dir.path();
+        command()
+            .arg("-o")
+            .arg(out_dir)
+            .arg("-f")
+            .arg("tga")
+            .arg("data/output/site.webmanifest")
+            .assert()
+            .failure()
+            .code(69)
+            .stderr(predicate::str::contains("could not read the image"));
+    }
 }
 
 #[allow(clippy::too_many_lines)]
 #[test]
-fn decode_from_tiff() {
+fn generate_from_tiff() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
@@ -2719,11 +3216,26 @@ fn decode_from_tiff() {
         );
         assert!(out_dir.join("favicon.ico").exists());
     }
+
+    {
+        let out_dir = tempfile::tempdir().unwrap();
+        let out_dir = out_dir.path();
+        command()
+            .arg("-o")
+            .arg(out_dir)
+            .arg("-f")
+            .arg("tiff")
+            .arg("data/output/site.webmanifest")
+            .assert()
+            .failure()
+            .code(65)
+            .stderr(predicate::str::contains("could not read the image"));
+    }
 }
 
 #[allow(clippy::too_many_lines)]
 #[test]
-fn decode_from_web_p() {
+fn generate_from_web_p() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
@@ -2827,6 +3339,21 @@ fn decode_from_web_p() {
                 .into_rgba8()
         );
         assert!(out_dir.join("favicon.ico").exists());
+    }
+
+    {
+        let out_dir = tempfile::tempdir().unwrap();
+        let out_dir = out_dir.path();
+        command()
+            .arg("-o")
+            .arg(out_dir)
+            .arg("-f")
+            .arg("webp")
+            .arg("data/output/site.webmanifest")
+            .assert()
+            .failure()
+            .code(65)
+            .stderr(predicate::str::contains("could not read the image"));
     }
 }
 
