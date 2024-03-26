@@ -1,0 +1,20 @@
+// SPDX-FileCopyrightText: 2024 Shun Sakai
+//
+// SPDX-License-Identifier: CC-BY-4.0
+
+= favico
+:project-url: https://github.com/sorairolake/favico
+:shields-url: https://img.shields.io
+:ci-badge: {shields-url}/github/actions/workflow/status/sorairolake/favico/CI.yaml?branch=develop&style=for-the-badge&logo=github&label=CI
+:ci-url: {project-url}/actions?query=branch%3Adevelop+workflow%3ACI++
+:version-badge: {shields-url}/crates/v/favico?style=for-the-badge&logo=rust
+:version-url: https://crates.io/crates/favico
+:msrv-badge: {shields-url}/crates/msrv/favico?style=for-the-badge&logo=rust
+:license-badge: {shields-url}/crates/l/favico?style=for-the-badge
+
+image:{ci-badge}[CI,link={ci-url}]
+image:{version-badge}[Version,link={version-url}]
+image:{msrv-badge}[MSRV]
+image:{license-badge}[License]
+
+**favico** is a command-line utility for creating favicons.

@@ -1,0 +1,28 @@
+// SPDX-FileCopyrightText: 2024 Shun Sakai
+//
+// SPDX-License-Identifier: CC-BY-4.0
+
+= License
+:reuse-spec-url: https://reuse.software/spec/
+
+Copyright (C) 2024 Shun Sakai
+
+. This program is distributed under the terms of the _GNU General Public
+  License v3.0 or later_.
+. Some documentations are distributed under the terms of the _Creative Commons
+  Attribution 4.0 International Public License_.
+
+This project is compliant with version 3.0 of the
+{reuse-spec-url}[_REUSE Specification_].
+
+== GNU General Public License v3.0
+
+....
+include::example$LICENSES/GPL-3.0-or-later.txt[]
+....
+
+== Creative Commons Attribution 4.0 International Public License
+
+....
+include::example$LICENSES/CC-BY-4.0.txt[]
+....
