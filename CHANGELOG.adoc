@@ -1,0 +1,21 @@
+// SPDX-FileCopyrightText: 2024 Shun Sakai
+//
+// SPDX-License-Identifier: GPL-3.0-or-later
+
+= Changelog
+:toc: preamble
+:project-url: https://github.com/sorairolake/favico
+:compare-url: {project-url}/compare
+:issue-url: {project-url}/issues
+:pull-request-url: {project-url}/pull
+
+All notable changes to this project will be documented in this file.
+
+The format is based on https://keepachangelog.com/[Keep a Changelog], and this
+project adheres to https://semver.org/[Semantic Versioning].
+
+== {project-url}/releases/tag/v0.1.0[0.1.0] - 2024-03-26
+
+=== Added
+
+* Initial release

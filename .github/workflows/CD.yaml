@@ -1,0 +1,140 @@
+# SPDX-FileCopyrightText: 2024 Shun Sakai
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+name: CD
+
+on:
+  pull_request:
+  push:
+    branches:
+      - "develop"
+    tags:
+      - "v[0-9]+.[0-9]+.[0-9]+"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: Build
+    runs-on: ${{ matrix.os }}
+    outputs:
+      get_version: ${{ steps.get_version.outputs.version-without-v }}
+    strategy:
+      matrix:
+        target:
+          - aarch64-unknown-linux-musl
+          - x86_64-unknown-linux-musl
+          - aarch64-apple-darwin
+          - x86_64-apple-darwin
+          - aarch64-pc-windows-msvc
+          - x86_64-pc-windows-msvc
+        include:
+          - target: aarch64-unknown-linux-musl
+            os: ubuntu-22.04
+            use-cross: true
+          - target: x86_64-unknown-linux-musl
+            os: ubuntu-22.04
+            use-cross: true
+          - target: aarch64-apple-darwin
+            os: macos-12
+          - target: x86_64-apple-darwin
+            os: macos-12
+          - target: aarch64-pc-windows-msvc
+            os: windows-2022
+          - target: x86_64-pc-windows-msvc
+            os: windows-2022
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Setup Rust toolchain
+        uses: dtolnay/rust-toolchain@v1
+        with:
+          toolchain: stable
+          targets: ${{ matrix.target }}
+      - name: Install cross
+        if: ${{ matrix.use-cross }}
+        uses: taiki-e/install-action@v2.29.8
+        with:
+          tool: cross
+      - name: Cache build artifacts
+        uses: Swatinem/rust-cache@v2.7.3
+        with:
+          key: ${{ matrix.target }}
+      - name: Setup Ruby
+        if: matrix.os != 'windows-2022' && !matrix.use-cross
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.2
+      - name: Install Asciidoctor
+        if: matrix.os != 'windows-2022' && !matrix.use-cross
+        run: |
+          gem install asciidoctor
+          asciidoctor -V
+      - name: Build a package
+        if: ${{ !matrix.use-cross }}
+        run: cargo build --release --target ${{ matrix.target }}
+      - name: Build a package with cross
+        if: ${{ matrix.use-cross }}
+        run: cross build --release --target ${{ matrix.target }}
+      - name: Get version
+        id: get_version
+        uses: battila7/get-version-action@v2.3.0
+      - name: Create a package
+        shell: bash
+        run: |
+          if [ "${{ matrix.os }}" != "windows-2022" ] ; then
+            bin="target/${{ matrix.target }}/release/favico"
+          else
+            bin="target/${{ matrix.target }}/release/favico.exe"
+          fi
+          package="favico-${{ steps.get_version.outputs.version }}-${{ matrix.target }}"
+
+          mkdir -p "${package}"/docs
+          cp README.md "${bin}" "${package}"
+          cp -r LICENSES "${package}"
+          cp {AUTHORS,BUILD,CHANGELOG,CONTRIBUTING}.adoc "${package}"/docs
+          if [ "${{ matrix.os }}" != "windows-2022" ] ; then
+            mkdir -p "${package}"/man
+            cp "$(find ./target -path '*/favico-*/out' -type d)"/* "${package}"/man
+          fi
+
+          if [ "${{ matrix.os }}" != "windows-2022" ] ; then
+            tar -cvf "${package}.tar" "${package}"
+            zstd --rm -19 -v "${package}.tar"
+          else
+            7z a -bb -mx=9 -m0=LZMA "${package}.7z" "${package}"
+          fi
+          rm -rv favico-*/
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: "favico-${{ steps.get_version.outputs.version }}-${{ matrix.target }}"
+          path: "favico-*.*"
+
+  release:
+    name: Release
+    needs: build
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+      - name: Calculate checksums
+        run: |
+          mv favico-*/* .
+          rmdir -v favico-*/
+          sha256sum favico-* | tee sha256sums.txt
+          b2sum favico-* | tee b2sums.txt
+      - name: Release
+        uses: softprops/action-gh-release@v2.0.4
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          draft: true
+          files: |
+            favico-*
+            sha256sums.txt
+            b2sums.txt
+          name: "Release version ${{ needs.build.outputs.get_version }}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

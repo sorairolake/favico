@@ -1,0 +1,226 @@
+// SPDX-FileCopyrightText: 2024 Shun Sakai
+//
+// SPDX-License-Identifier: CC-BY-4.0
+
+= favico(1)
+// Specify in UTC.
+:docdate: 2024-03-25
+:doctype: manpage
+ifdef::revnumber[:mansource: favico {revnumber}]
+:manmanual: General Commands Manual
+:includedir: ../include
+
+== NAME
+
+favico - an utility for creating favicons
+
+== SYNOPSIS
+
+*{manname}* [_OPTION_]... [_IMAGE_]
+
+== DESCRIPTION
+
+*{manname}* is a command-line utility for creating favicons.
+
+== POSITIONAL ARGUMENTS
+
+_IMAGE_::
+
+  Input image file. If _IMAGE_ is not specified, or if "-" is specified, the
+  image will be read from stdin. Supported raster image formats are based on
+  the formats supported by the image crate. The format of _IMAGE_ is determined
+  based on the extension or the magic number if possible. If the format cannot
+  be determined, use *--format*. Note that _IMAGE_ must be square.
+
+== OPTIONS
+
+*-o*, *--output* _PATH_::
+
+  Directory to output generated files. If the directory does not exist, it will
+  be created. Default is the current directory.
+
+*--png*::
+
+  Store PNG images instead of BMP images to an ICO image.
+
+*--name* _NAME_::
+
+  Set the name member of the web app manifest.
+
+*--short-name* _NAME_::
+
+  Set the short_name member of the web app manifest. If _NAME_ is not
+  specified, the name specified in *--name* will be set.
+
+*--theme-color* _COLOR_::
+
+  Set the theme_color member of the web app manifest. _COLOR_ takes a CSS color
+  string. Default is "#ffffff".
+
+*--background-color* _COLOR_::
+
+  Set the background_color member of the web app manifest. _COLOR_ takes a CSS
+  color string. Default is "#ffffff".
+
+*--filter* _FILTER_::
+
+  Sampling filter used to resize the input image.
+
+  The possible values are:{blank}:::
+
+    *nearest*::::
+
+      Nearest Neighbor.
+
+    *triangle*::::
+
+      Linear Filter.
+
+    *catmullrom*::::
+
+      Cubic Filter. This is the default value.
+
+    *gaussian*::::
+
+      Gaussian Filter.
+
+    *lanczos3*::::
+
+      Lanczos with window 3.
+
+*-f*, *--format* _FORMAT_::
+
+  The format of the input. If _FORMAT_ is not specified, the format is
+  determined based on the extension or the magic number.
+
+  The possible values are:{blank}:::
+
+    *bmp*::::
+
+      Windows Bitmap.
+
+    *dds*::::
+
+      DirectDraw Surface.
+
+    *farbfeld*::::
+
+      Farbfeld.
+
+    *gif*::::
+
+      Graphics Interchange Format.
+
+    *hdr*::::
+
+      Radiance RGBE.
+
+    *ico*::::
+
+      ICO file format. This value also includes the CUR file format.
+
+    *jpeg*::::
+
+      JPEG.
+
+    *openexr*::::
+
+      OpenEXR.
+
+    *png*::::
+
+      Portable Network Graphics.
+
+    *pnm*::::
+
+      Portable Anymap Format.
+
+    *qoi*::::
+
+      Quite OK Image Format.
+
+    *tga*::::
+
+      Truevision TGA.
+
+    *tiff*::::
+
+      Tag Image File Format.
+
+    *webp*::::
+
+      WebP.
+
+*-h*, *--help*::
+
+  Print help message. The short flag (*-h*) will print a condensed help message
+  while the long flag (*--help*) will print a detailed help message.
+
+*-V*, *--version*::
+
+  Print version number. The long flag (*--version*) will also print the
+  copyright notice, the license notice and where to report bugs.
+
+*--generate-completion* _SHELL_::
+
+  Generate shell completion. The completion is output to stdout.
+
+  The possible values are:{blank}:::
+
+    *bash*::::
+
+      Bash.
+
+    *elvish*::::
+
+      Elvish.
+
+    *fish*::::
+
+      fish.
+
+    *nushell*::::
+
+      Nushell.
+
+    *powershell*::::
+
+      PowerShell.
+
+    *zsh*::::
+
+      Zsh.
+
+include::{includedir}/section-exit-status.adoc[]
+
+== NOTES
+
+Source repository:{blank}::
+
+  https://github.com/sorairolake/favico
+
+image crate:{blank}::
+
+  https://crates.io/crates/image
+
+Web App Manifest:{blank}::
+
+  https://developer.mozilla.org/en-US/docs/Web/Manifest
+
+CSS Color Module Level 4:{blank}::
+
+  https://www.w3.org/TR/css-color-4/
+
+== EXAMPLES
+
+Generate favicons in the current directory:{blank}::
+
+  $ *favico input.png*
+
+include::{includedir}/section-reporting-bugs.adoc[]
+
+include::{includedir}/section-copyright.adoc[]
+
+== SEE ALSO
+
+*magick*(1)

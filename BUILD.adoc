@@ -1,0 +1,34 @@
+// SPDX-FileCopyrightText: 2024 Shun Sakai
+//
+// SPDX-License-Identifier: GPL-3.0-or-later
+
+= How to Build
+
+== Prerequisites
+
+.To build *favico*, you will need the following dependencies
+* https://doc.rust-lang.org/stable/cargo/[Cargo] (v1.74.0 or later)
+
+.To build man pages, you will need the following additional dependencies
+* https://asciidoctor.org/[Asciidoctor]
+
+== Building from source
+
+.To clone the repository
+[source,sh]
+----
+git clone https://github.com/sorairolake/favico.git
+cd favico
+----
+
+.To build a package
+[source,sh]
+----
+just build
+----
+
+.To find the directory where manual pages are generated
+[source,sh]
+----
+fd -t directory out ./target/*/build/favico-*
+----

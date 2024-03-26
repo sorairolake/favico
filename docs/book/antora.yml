@@ -1,0 +1,9 @@
+# SPDX-FileCopyrightText: 2024 Shun Sakai
+#
+# SPDX-License-Identifier: CC-BY-4.0
+
+name: book
+title: favico
+version: ~
+nav:
+  - modules/ROOT/nav.adoc
