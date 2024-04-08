@@ -13,6 +13,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 **favico** is a command-line utility for creating favicons.
 
+![Screenshot of favico](assets/screenshot.webp)
+
 ## Installation
 
 ### From source
