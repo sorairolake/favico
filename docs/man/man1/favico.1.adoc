@@ -4,7 +4,7 @@
 
 = favico(1)
 // Specify in UTC.
-:docdate: 2024-03-25
+:docdate: 2024-04-15
 :doctype: manpage
 ifdef::revnumber[:mansource: favico {revnumber}]
 ifndef::revnumber[:mansource: favico]
