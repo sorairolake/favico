@@ -4,11 +4,12 @@
 
 = favico(1)
 // Specify in UTC.
-:docdate: 2024-03-25
+:docdate: 2024-04-15
 :doctype: manpage
 ifdef::revnumber[:mansource: favico {revnumber}]
+ifndef::revnumber[:mansource: favico]
 :manmanual: General Commands Manual
-:includedir: ../include
+:includedir: ./include
 
 == NAME
 
@@ -216,6 +217,22 @@ CSS Color Module Level 4:{blank}::
 Generate favicons in the current directory:{blank}::
 
   $ *favico input.png*
+
+Generate favicons in the specified directory:{blank}::
+
+  $ *favico -o out input.png*
+
+Generate favicons with the specified member:{blank}::
+
+  $ *favico --name app --theme-color "#a52a2a" input.png*
+
+Generate favicons with the specified sampling filter:{blank}::
+
+  $ *favico --filter nearest input.png*
+
+Generate favicons from a WebP image:{blank}::
+
+  $ *favico -f webp input.webp*
 
 include::{includedir}/section-reporting-bugs.adoc[]
 
