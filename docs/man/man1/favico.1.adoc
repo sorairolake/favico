@@ -9,7 +9,7 @@
 ifdef::revnumber[:mansource: favico {revnumber}]
 ifndef::revnumber[:mansource: favico]
 :manmanual: General Commands Manual
-:includedir: ./include
+ifndef::site-gen-antora[:includedir: ./include]
 
 == NAME
 
@@ -192,7 +192,8 @@ _IMAGE_::
 
       Zsh.
 
-include::{includedir}/section-exit-status.adoc[]
+ifndef::site-gen-antora[include::{includedir}/section-exit-status.adoc[]]
+ifdef::site-gen-antora[include::partial$man/man1/include/section-exit-status.adoc[]]
 
 == NOTES
 
@@ -234,9 +235,11 @@ Generate favicons from a WebP image:{blank}::
 
   $ *favico -f webp input.webp*
 
-include::{includedir}/section-reporting-bugs.adoc[]
+ifndef::site-gen-antora[include::{includedir}/section-reporting-bugs.adoc[]]
+ifdef::site-gen-antora[include::partial$man/man1/include/section-reporting-bugs.adoc[]]
 
-include::{includedir}/section-copyright.adoc[]
+ifndef::site-gen-antora[include::{includedir}/section-copyright.adoc[]]
+ifdef::site-gen-antora[include::partial$man/man1/include/section-copyright.adoc[]]
 
 == SEE ALSO
 
