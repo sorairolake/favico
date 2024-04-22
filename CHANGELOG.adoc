@@ -20,6 +20,7 @@ project adheres to https://semver.org/[Semantic Versioning].
 
 * Allow input image formats other than PNG to be disabled
   ({pull-request-url}/38[#38])
+* Re-enable BMP and ICO ({pull-request-url}/39[#39])
 
 == {compare-url}/v0.1.2\...v0.1.3[0.1.3] - 2024-04-18
 
