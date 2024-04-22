@@ -20,8 +20,6 @@ fn generate_man_page(out_dir: &str) -> io::Result<ExitStatus> {
     command
         .args(["-b", "manpage"])
         .args(["-a", concat!("revnumber=", env!("CARGO_PKG_VERSION"))]);
-    #[cfg(feature = "bmp")]
-    command.args(["-a", "bmp"]);
     #[cfg(feature = "dds")]
     command.args(["-a", "dds"]);
     #[cfg(feature = "ff")]
@@ -30,8 +28,6 @@ fn generate_man_page(out_dir: &str) -> io::Result<ExitStatus> {
     command.args(["-a", "gif"]);
     #[cfg(feature = "hdr")]
     command.args(["-a", "hdr"]);
-    #[cfg(feature = "ico")]
-    command.args(["-a", "ico"]);
     #[cfg(feature = "jpeg")]
     command.args(["-a", "jpeg"]);
     #[cfg(feature = "exr")]

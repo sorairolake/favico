@@ -96,11 +96,9 @@ _IMAGE_::
 
   The possible values are:{blank}:::
 
-ifdef::bmp,env-github,site-gen-antora[]
     *bmp*::::
 
       Windows Bitmap.
-endif::[]
 
 ifdef::dds,env-github,site-gen-antora[]
     *dds*::::
@@ -126,11 +124,9 @@ ifdef::hdr,env-github,site-gen-antora[]
       Radiance RGBE.
 endif::[]
 
-ifdef::ico,env-github,site-gen-antora[]
     *ico*::::
 
       ICO file format. This value also includes the CUR file format.
-endif::[]
 
 ifdef::jpeg,env-github,site-gen-antora[]
     *jpeg*::::

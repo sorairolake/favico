@@ -52,6 +52,8 @@ jobs:
           key: ${{ matrix.target }}
       - name: Run tests
         run: cargo test --target ${{ matrix.target }}
+      - name: Run tests (no default features)
+        run: cargo test --target ${{ matrix.target }} --no-default-features
 
   rustfmt:
     name: Rustfmt
@@ -84,3 +86,5 @@ jobs:
         uses: Swatinem/rust-cache@v2.7.3
       - name: Check no lint warnings
         run: cargo clippy -- -D warnings
+      - name: Check no lint warnings (no default features)
+        run: cargo clippy --no-default-features -- -D warnings

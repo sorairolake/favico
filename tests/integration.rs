@@ -1488,7 +1488,6 @@ fn generate_from_non_image_file() {
 
 #[allow(clippy::too_many_lines)]
 #[test]
-#[cfg(feature = "bmp")]
 fn generate_from_bmp() {
     {
         let out_dir = tempfile::tempdir().unwrap();
@@ -2112,7 +2111,6 @@ fn generate_from_hdr() {
 }
 
 #[test]
-#[cfg(feature = "ico")]
 fn generate_from_cur() {
     {
         let out_dir = tempfile::tempdir().unwrap();
@@ -2151,7 +2149,6 @@ fn generate_from_cur() {
 }
 
 #[test]
-#[cfg(feature = "ico")]
 fn generate_from_ico() {
     {
         let out_dir = tempfile::tempdir().unwrap();
@@ -2190,7 +2187,6 @@ fn generate_from_ico() {
 }
 
 #[test]
-#[cfg(feature = "ico")]
 fn generate_from_ico_with_wrong_format() {
     let out_dir = tempfile::tempdir().unwrap();
     let out_dir = out_dir.path();

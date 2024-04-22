@@ -206,7 +206,6 @@ impl From<Filter> for FilterType {
 #[value(rename_all = "lower")]
 pub enum Format {
     /// Windows Bitmap.
-    #[cfg(feature = "bmp")]
     Bmp,
 
     /// DirectDraw Surface.
@@ -228,7 +227,6 @@ pub enum Format {
     /// ICO file format.
     ///
     /// This value also includes the CUR file format.
-    #[cfg(feature = "ico")]
     Ico,
 
     /// JPEG.
@@ -266,7 +264,6 @@ pub enum Format {
 impl From<Format> for ImageFormat {
     fn from(format: Format) -> Self {
         match format {
-            #[cfg(feature = "bmp")]
             Format::Bmp => Self::Bmp,
             #[cfg(feature = "dds")]
             Format::Dds => Self::Dds,
@@ -276,7 +273,6 @@ impl From<Format> for ImageFormat {
             Format::Gif => Self::Gif,
             #[cfg(feature = "hdr")]
             Format::Hdr => Self::Hdr,
-            #[cfg(feature = "ico")]
             Format::Ico => Self::Ico,
             #[cfg(feature = "jpeg")]
             Format::Jpeg => Self::Jpeg,
@@ -332,7 +328,6 @@ mod tests {
 
     #[test]
     fn from_format_to_image_format() {
-        #[cfg(feature = "bmp")]
         assert_eq!(ImageFormat::from(Format::Bmp), ImageFormat::Bmp);
         #[cfg(feature = "dds")]
         assert_eq!(ImageFormat::from(Format::Dds), ImageFormat::Dds);
@@ -342,7 +337,6 @@ mod tests {
         assert_eq!(ImageFormat::from(Format::Gif), ImageFormat::Gif);
         #[cfg(feature = "hdr")]
         assert_eq!(ImageFormat::from(Format::Hdr), ImageFormat::Hdr);
-        #[cfg(feature = "ico")]
         assert_eq!(ImageFormat::from(Format::Ico), ImageFormat::Ico);
         #[cfg(feature = "jpeg")]
         assert_eq!(ImageFormat::from(Format::Jpeg), ImageFormat::Jpeg);

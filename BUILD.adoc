@@ -35,10 +35,6 @@ fd -t directory out ./target/*/build/favico-*
 
 == Crate features
 
-`bmp`::
-
-  Enable generating from the BMP image. This is enabled by default.
-
 `dds`::
 
   Enable generating from the DDS image. This is enabled by default.
@@ -54,10 +50,6 @@ fd -t directory out ./target/*/build/favico-*
 `hdr`::
 
   Enable generating from the Radiance RGBE image. This is enabled by default.
-
-`ico`::
-
-  Enable generating from the ICO image. This is enabled by default.
 
 `jpeg`::
 
