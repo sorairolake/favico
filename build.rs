@@ -19,7 +19,34 @@ fn generate_man_page(out_dir: &str) -> io::Result<ExitStatus> {
     let mut command = Command::new("asciidoctor");
     command
         .args(["-b", "manpage"])
-        .args(["-a", concat!("revnumber=", env!("CARGO_PKG_VERSION"))])
+        .args(["-a", concat!("revnumber=", env!("CARGO_PKG_VERSION"))]);
+    #[cfg(feature = "bmp")]
+    command.args(["-a", "bmp"]);
+    #[cfg(feature = "dds")]
+    command.args(["-a", "dds"]);
+    #[cfg(feature = "ff")]
+    command.args(["-a", "ff"]);
+    #[cfg(feature = "gif")]
+    command.args(["-a", "gif"]);
+    #[cfg(feature = "hdr")]
+    command.args(["-a", "hdr"]);
+    #[cfg(feature = "ico")]
+    command.args(["-a", "ico"]);
+    #[cfg(feature = "jpeg")]
+    command.args(["-a", "jpeg"]);
+    #[cfg(feature = "exr")]
+    command.args(["-a", "exr"]);
+    #[cfg(feature = "pnm")]
+    command.args(["-a", "pnm"]);
+    #[cfg(feature = "qoi")]
+    command.args(["-a", "qoi"]);
+    #[cfg(feature = "tga")]
+    command.args(["-a", "tga"]);
+    #[cfg(feature = "tiff")]
+    command.args(["-a", "tiff"]);
+    #[cfg(feature = "webp")]
+    command.args(["-a", "webp"]);
+    command
         .args(["-D", out_dir])
         .arg(man_dir.join("*.1.adoc"))
         .status()

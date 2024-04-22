@@ -26,7 +26,7 @@ clap = { version = "4.5.4", features = ["derive", "wrap_help"] }
 clap_complete = "4.5.2"
 clap_complete_nushell = "4.5.1"
 csscolorparser = "0.6.2"
-image = "0.25.1"
+image = { version = "0.25.1", default-features = false, features = ["png", "rayon"] }
 indicatif = "0.17.8"
 serde_json = { version = "1.0.116", features = ["preserve_order"] }
 sysexits = "0.7.13"
@@ -35,6 +35,36 @@ sysexits = "0.7.13"
 assert_cmd = "2.0.14"
 predicates = "3.1.0"
 tempfile = "3.10.1"
+
+[features]
+default = [
+  "bmp",
+  "dds",
+  "ff",
+  "gif",
+  "hdr",
+  "ico",
+  "jpeg",
+  "exr",
+  "pnm",
+  "qoi",
+  "tga",
+  "tiff",
+  "webp",
+]
+bmp = ["image/bmp"]
+dds = ["image/dds"]
+ff = ["image/ff"]
+gif = ["image/gif"]
+hdr = ["image/hdr"]
+ico = ["image/ico"]
+jpeg = ["image/jpeg"]
+exr = ["image/exr"]
+pnm = ["image/pnm"]
+qoi = ["image/qoi"]
+tga = ["image/tga"]
+tiff = ["image/tiff"]
+webp = ["image/webp"]
 
 [profile.release]
 codegen-units = 1
