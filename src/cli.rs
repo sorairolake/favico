@@ -209,15 +209,19 @@ pub enum Format {
     Bmp,
 
     /// DirectDraw Surface.
+    #[cfg(feature = "dds")]
     Dds,
 
     /// Farbfeld.
+    #[cfg(feature = "ff")]
     Farbfeld,
 
     /// Graphics Interchange Format.
+    #[cfg(feature = "gif")]
     Gif,
 
     /// Radiance RGBE.
+    #[cfg(feature = "hdr")]
     Hdr,
 
     /// ICO file format.
@@ -226,27 +230,34 @@ pub enum Format {
     Ico,
 
     /// JPEG.
+    #[cfg(feature = "jpeg")]
     Jpeg,
 
     /// OpenEXR.
+    #[cfg(feature = "exr")]
     OpenExr,
 
     /// Portable Network Graphics.
     Png,
 
     /// Portable Anymap Format.
+    #[cfg(feature = "pnm")]
     Pnm,
 
     /// Quite OK Image Format.
+    #[cfg(feature = "qoi")]
     Qoi,
 
     /// Truevision TGA.
+    #[cfg(feature = "tga")]
     Tga,
 
     /// Tag Image File Format.
+    #[cfg(feature = "tiff")]
     Tiff,
 
     /// WebP.
+    #[cfg(feature = "webp")]
     WebP,
 }
 
@@ -254,18 +265,29 @@ impl From<Format> for ImageFormat {
     fn from(format: Format) -> Self {
         match format {
             Format::Bmp => Self::Bmp,
+            #[cfg(feature = "dds")]
             Format::Dds => Self::Dds,
+            #[cfg(feature = "ff")]
             Format::Farbfeld => Self::Farbfeld,
+            #[cfg(feature = "gif")]
             Format::Gif => Self::Gif,
+            #[cfg(feature = "hdr")]
             Format::Hdr => Self::Hdr,
             Format::Ico => Self::Ico,
+            #[cfg(feature = "jpeg")]
             Format::Jpeg => Self::Jpeg,
+            #[cfg(feature = "exr")]
             Format::OpenExr => Self::OpenExr,
             Format::Png => Self::Png,
+            #[cfg(feature = "pnm")]
             Format::Pnm => Self::Pnm,
+            #[cfg(feature = "qoi")]
             Format::Qoi => Self::Qoi,
+            #[cfg(feature = "tga")]
             Format::Tga => Self::Tga,
+            #[cfg(feature = "tiff")]
             Format::Tiff => Self::Tiff,
+            #[cfg(feature = "webp")]
             Format::WebP => Self::WebP,
         }
     }
@@ -307,18 +329,29 @@ mod tests {
     #[test]
     fn from_format_to_image_format() {
         assert_eq!(ImageFormat::from(Format::Bmp), ImageFormat::Bmp);
+        #[cfg(feature = "dds")]
         assert_eq!(ImageFormat::from(Format::Dds), ImageFormat::Dds);
+        #[cfg(feature = "ff")]
         assert_eq!(ImageFormat::from(Format::Farbfeld), ImageFormat::Farbfeld);
+        #[cfg(feature = "gif")]
         assert_eq!(ImageFormat::from(Format::Gif), ImageFormat::Gif);
+        #[cfg(feature = "hdr")]
         assert_eq!(ImageFormat::from(Format::Hdr), ImageFormat::Hdr);
         assert_eq!(ImageFormat::from(Format::Ico), ImageFormat::Ico);
+        #[cfg(feature = "jpeg")]
         assert_eq!(ImageFormat::from(Format::Jpeg), ImageFormat::Jpeg);
+        #[cfg(feature = "exr")]
         assert_eq!(ImageFormat::from(Format::OpenExr), ImageFormat::OpenExr);
         assert_eq!(ImageFormat::from(Format::Png), ImageFormat::Png);
+        #[cfg(feature = "pnm")]
         assert_eq!(ImageFormat::from(Format::Pnm), ImageFormat::Pnm);
+        #[cfg(feature = "qoi")]
         assert_eq!(ImageFormat::from(Format::Qoi), ImageFormat::Qoi);
+        #[cfg(feature = "tga")]
         assert_eq!(ImageFormat::from(Format::Tga), ImageFormat::Tga);
+        #[cfg(feature = "tiff")]
         assert_eq!(ImageFormat::from(Format::Tiff), ImageFormat::Tiff);
+        #[cfg(feature = "webp")]
         assert_eq!(ImageFormat::from(Format::WebP), ImageFormat::WebP);
     }
 }

@@ -23,6 +23,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
 cargo install favico
 ```
 
+### Via a package manager
+
+| OS    | Package manager | Command                               |
+| ----- | --------------- | ------------------------------------- |
+| _Any_ | [Homebrew]      | `brew install sorairolake/tap/favico` |
+
 ### From binaries
 
 The [release page] contains pre-built binaries for Linux, macOS and Windows.
@@ -104,6 +110,7 @@ licensing information.
 [version-url]: https://crates.io/crates/favico
 [msrv-badge]: https://img.shields.io/crates/msrv/favico?style=for-the-badge&logo=rust
 [license-badge]: https://img.shields.io/crates/l/favico?style=for-the-badge
+[Homebrew]: https://brew.sh/
 [release page]: https://github.com/sorairolake/favico/releases
 [BUILD.adoc]: BUILD.adoc
 [`favico(1)`]: https://sorairolake.github.io/favico/book/man/man1/favico.1.html

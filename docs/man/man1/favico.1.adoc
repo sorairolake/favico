@@ -100,57 +100,79 @@ _IMAGE_::
 
       Windows Bitmap.
 
+ifdef::dds,env-github,site-gen-antora[]
     *dds*::::
 
       DirectDraw Surface.
+endif::[]
 
+ifdef::ff,env-github,site-gen-antora[]
     *farbfeld*::::
 
       Farbfeld.
+endif::[]
 
+ifdef::gif,env-github,site-gen-antora[]
     *gif*::::
 
       Graphics Interchange Format.
+endif::[]
 
+ifdef::hdr,env-github,site-gen-antora[]
     *hdr*::::
 
       Radiance RGBE.
+endif::[]
 
     *ico*::::
 
       ICO file format. This value also includes the CUR file format.
 
+ifdef::jpeg,env-github,site-gen-antora[]
     *jpeg*::::
 
       JPEG.
+endif::[]
 
+ifdef::exr,env-github,site-gen-antora[]
     *openexr*::::
 
       OpenEXR.
+endif::[]
 
     *png*::::
 
       Portable Network Graphics.
 
+ifdef::pnm,env-github,site-gen-antora[]
     *pnm*::::
 
       Portable Anymap Format.
+endif::[]
 
+ifdef::qoi,env-github,site-gen-antora[]
     *qoi*::::
 
       Quite OK Image Format.
+endif::[]
 
+ifdef::tga,env-github,site-gen-antora[]
     *tga*::::
 
       Truevision TGA.
+endif::[]
 
+ifdef::tiff,env-github,site-gen-antora[]
     *tiff*::::
 
       Tag Image File Format.
+endif::[]
 
+ifdef::webp,env-github,site-gen-antora[]
     *webp*::::
 
       WebP.
+endif::[]
 
 *-h*, *--help*::
 

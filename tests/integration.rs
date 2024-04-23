@@ -1612,6 +1612,7 @@ fn generate_from_bmp() {
 
 #[allow(clippy::too_many_lines)]
 #[test]
+#[cfg(feature = "dds")]
 fn generate_from_dds() {
     {
         let out_dir = tempfile::tempdir().unwrap();
@@ -1736,6 +1737,7 @@ fn generate_from_dds() {
 
 #[allow(clippy::too_many_lines)]
 #[test]
+#[cfg(feature = "ff")]
 fn generate_from_farbfeld() {
     {
         let out_dir = tempfile::tempdir().unwrap();
@@ -1860,6 +1862,7 @@ fn generate_from_farbfeld() {
 
 #[allow(clippy::too_many_lines)]
 #[test]
+#[cfg(feature = "gif")]
 fn generate_from_gif() {
     {
         let out_dir = tempfile::tempdir().unwrap();
@@ -1984,6 +1987,7 @@ fn generate_from_gif() {
 
 #[allow(clippy::too_many_lines)]
 #[test]
+#[cfg(feature = "hdr")]
 fn generate_from_hdr() {
     {
         let out_dir = tempfile::tempdir().unwrap();
@@ -2200,6 +2204,7 @@ fn generate_from_ico_with_wrong_format() {
 
 #[allow(clippy::too_many_lines)]
 #[test]
+#[cfg(feature = "jpeg")]
 fn generate_from_jpeg() {
     {
         let out_dir = tempfile::tempdir().unwrap();
@@ -2324,6 +2329,7 @@ fn generate_from_jpeg() {
 
 #[allow(clippy::too_many_lines)]
 #[test]
+#[cfg(feature = "exr")]
 fn generate_from_open_exr() {
     {
         let out_dir = tempfile::tempdir().unwrap();
@@ -2520,6 +2526,7 @@ fn generate_from_png() {
 
 #[allow(clippy::too_many_lines)]
 #[test]
+#[cfg(feature = "pnm")]
 fn generate_from_pbm() {
     {
         let out_dir = tempfile::tempdir().unwrap();
@@ -2629,6 +2636,7 @@ fn generate_from_pbm() {
 
 #[allow(clippy::too_many_lines)]
 #[test]
+#[cfg(feature = "pnm")]
 fn generate_from_pgm() {
     {
         let out_dir = tempfile::tempdir().unwrap();
@@ -2738,6 +2746,7 @@ fn generate_from_pgm() {
 
 #[allow(clippy::too_many_lines)]
 #[test]
+#[cfg(feature = "pnm")]
 fn generate_from_ppm() {
     {
         let out_dir = tempfile::tempdir().unwrap();
@@ -2846,6 +2855,7 @@ fn generate_from_ppm() {
 }
 
 #[test]
+#[cfg(feature = "pnm")]
 fn generate_from_pnm_with_wrong_format() {
     let out_dir = tempfile::tempdir().unwrap();
     let out_dir = out_dir.path();
@@ -2863,6 +2873,7 @@ fn generate_from_pnm_with_wrong_format() {
 
 #[allow(clippy::too_many_lines)]
 #[test]
+#[cfg(feature = "qoi")]
 fn generate_from_qoi() {
     {
         let out_dir = tempfile::tempdir().unwrap();
@@ -2987,6 +2998,7 @@ fn generate_from_qoi() {
 
 #[allow(clippy::too_many_lines)]
 #[test]
+#[cfg(feature = "tga")]
 fn generate_from_tga() {
     {
         let out_dir = tempfile::tempdir().unwrap();
@@ -3111,6 +3123,7 @@ fn generate_from_tga() {
 
 #[allow(clippy::too_many_lines)]
 #[test]
+#[cfg(feature = "tiff")]
 fn generate_from_tiff() {
     {
         let out_dir = tempfile::tempdir().unwrap();
@@ -3235,6 +3248,7 @@ fn generate_from_tiff() {
 
 #[allow(clippy::too_many_lines)]
 #[test]
+#[cfg(feature = "webp")]
 fn generate_from_web_p() {
     {
         let out_dir = tempfile::tempdir().unwrap();

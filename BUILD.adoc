@@ -32,3 +32,49 @@ just build
 ----
 fd -t directory out ./target/*/build/favico-*
 ----
+
+== Crate features
+
+`dds`::
+
+  Enable generating from the DDS image. This is enabled by default.
+
+`ff`::
+
+  Enable generating from the Farbfeld image. This is enabled by default.
+
+`gif`::
+
+  Enable generating from the GIF image. This is enabled by default.
+
+`hdr`::
+
+  Enable generating from the Radiance RGBE image. This is enabled by default.
+
+`jpeg`::
+
+  Enable generating from the JPEG image. This is enabled by default.
+
+`exr`::
+
+  Enable generating from the OpenEXR image. This is enabled by default.
+
+`pnm`::
+
+  Enable generating from the PNM image. This is enabled by default.
+
+`qoi`::
+
+  Enable generating from the QOI image. This is enabled by default.
+
+`tga`::
+
+  Enable generating from the TGA image. This is enabled by default.
+
+`tiff`::
+
+  Enable generating from the TIFF image. This is enabled by default.
+
+`webp`::
+
+  Enable generating from the WebP image. This is enabled by default.
