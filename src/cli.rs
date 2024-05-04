@@ -28,7 +28,7 @@ const LONG_VERSION: &str = concat!(
 
 const AFTER_LONG_HELP: &str = "See `favico(1)` for more details.";
 
-#[allow(clippy::struct_excessive_bools)]
+#[allow(clippy::doc_markdown, clippy::struct_excessive_bools)]
 #[derive(Debug, Parser)]
 #[command(
     version,
@@ -123,6 +123,7 @@ impl Opt {
     }
 }
 
+#[allow(clippy::doc_markdown)]
 #[derive(Clone, Debug, ValueEnum)]
 #[value(rename_all = "lower")]
 pub enum Shell {
@@ -202,6 +203,7 @@ impl From<Filter> for FilterType {
     }
 }
 
+#[allow(clippy::doc_markdown)]
 #[derive(Clone, Debug, ValueEnum)]
 #[value(rename_all = "lower")]
 pub enum Format {
