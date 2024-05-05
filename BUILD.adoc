@@ -9,7 +9,7 @@
 .To build *favico*, you will need the following dependencies
 * https://doc.rust-lang.org/stable/cargo/[Cargo] (v1.74.0 or later)
 
-.To build man pages, you will need the following additional dependencies
+.To build a man page, you will need the following additional dependencies
 * https://asciidoctor.org/[Asciidoctor]
 
 == Building from source
@@ -27,7 +27,7 @@ cd favico
 just build
 ----
 
-.To find the directory where manual pages are generated
+.To find the directory where a man page are generated
 [source,sh]
 ----
 fd -t directory out ./target/*/build/favico-*
