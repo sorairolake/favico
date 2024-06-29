@@ -32,8 +32,8 @@ fn generate_from_non_image_file() {
         ));
 }
 
-#[allow(clippy::too_many_lines)]
 #[test]
+#[allow(clippy::too_many_lines)]
 fn generate_from_bmp() {
     {
         let out_dir = tempfile::tempdir().unwrap();
@@ -156,9 +156,9 @@ fn generate_from_bmp() {
     }
 }
 
-#[allow(clippy::too_many_lines)]
-#[test]
 #[cfg(feature = "dds")]
+#[test]
+#[allow(clippy::too_many_lines)]
 fn generate_from_dds() {
     {
         let out_dir = tempfile::tempdir().unwrap();
@@ -281,9 +281,9 @@ fn generate_from_dds() {
     }
 }
 
-#[allow(clippy::too_many_lines)]
-#[test]
 #[cfg(feature = "ff")]
+#[test]
+#[allow(clippy::too_many_lines)]
 fn generate_from_farbfeld() {
     {
         let out_dir = tempfile::tempdir().unwrap();
@@ -406,9 +406,9 @@ fn generate_from_farbfeld() {
     }
 }
 
-#[allow(clippy::too_many_lines)]
-#[test]
 #[cfg(feature = "gif")]
+#[test]
+#[allow(clippy::too_many_lines)]
 fn generate_from_gif() {
     {
         let out_dir = tempfile::tempdir().unwrap();
@@ -531,9 +531,9 @@ fn generate_from_gif() {
     }
 }
 
-#[allow(clippy::too_many_lines)]
-#[test]
 #[cfg(feature = "hdr")]
+#[test]
+#[allow(clippy::too_many_lines)]
 fn generate_from_hdr() {
     {
         let out_dir = tempfile::tempdir().unwrap();
@@ -748,9 +748,9 @@ fn generate_from_ico_with_wrong_format() {
         .stderr(predicate::str::contains("could not read the image"));
 }
 
-#[allow(clippy::too_many_lines)]
-#[test]
 #[cfg(feature = "jpeg")]
+#[test]
+#[allow(clippy::too_many_lines)]
 fn generate_from_jpeg() {
     {
         let out_dir = tempfile::tempdir().unwrap();
@@ -873,9 +873,9 @@ fn generate_from_jpeg() {
     }
 }
 
-#[allow(clippy::too_many_lines)]
-#[test]
 #[cfg(feature = "exr")]
+#[test]
+#[allow(clippy::too_many_lines)]
 fn generate_from_open_exr() {
     {
         let out_dir = tempfile::tempdir().unwrap();
@@ -1070,9 +1070,9 @@ fn generate_from_png() {
     }
 }
 
-#[allow(clippy::too_many_lines)]
-#[test]
 #[cfg(feature = "pnm")]
+#[test]
+#[allow(clippy::too_many_lines)]
 fn generate_from_pbm() {
     {
         let out_dir = tempfile::tempdir().unwrap();
@@ -1180,9 +1180,9 @@ fn generate_from_pbm() {
     }
 }
 
-#[allow(clippy::too_many_lines)]
-#[test]
 #[cfg(feature = "pnm")]
+#[test]
+#[allow(clippy::too_many_lines)]
 fn generate_from_pgm() {
     {
         let out_dir = tempfile::tempdir().unwrap();
@@ -1290,9 +1290,9 @@ fn generate_from_pgm() {
     }
 }
 
-#[allow(clippy::too_many_lines)]
-#[test]
 #[cfg(feature = "pnm")]
+#[test]
+#[allow(clippy::too_many_lines)]
 fn generate_from_ppm() {
     {
         let out_dir = tempfile::tempdir().unwrap();
@@ -1400,8 +1400,8 @@ fn generate_from_ppm() {
     }
 }
 
-#[test]
 #[cfg(feature = "pnm")]
+#[test]
 fn generate_from_pnm_with_wrong_format() {
     let out_dir = tempfile::tempdir().unwrap();
     let out_dir = out_dir.path();
@@ -1417,9 +1417,9 @@ fn generate_from_pnm_with_wrong_format() {
         .stderr(predicate::str::contains("could not read the image"));
 }
 
-#[allow(clippy::too_many_lines)]
-#[test]
 #[cfg(feature = "qoi")]
+#[test]
+#[allow(clippy::too_many_lines)]
 fn generate_from_qoi() {
     {
         let out_dir = tempfile::tempdir().unwrap();
@@ -1542,9 +1542,9 @@ fn generate_from_qoi() {
     }
 }
 
-#[allow(clippy::too_many_lines)]
-#[test]
 #[cfg(feature = "tga")]
+#[test]
+#[allow(clippy::too_many_lines)]
 fn generate_from_tga() {
     {
         let out_dir = tempfile::tempdir().unwrap();
@@ -1667,9 +1667,9 @@ fn generate_from_tga() {
     }
 }
 
-#[allow(clippy::too_many_lines)]
-#[test]
 #[cfg(feature = "tiff")]
+#[test]
+#[allow(clippy::too_many_lines)]
 fn generate_from_tiff() {
     {
         let out_dir = tempfile::tempdir().unwrap();
@@ -1792,9 +1792,9 @@ fn generate_from_tiff() {
     }
 }
 
-#[allow(clippy::too_many_lines)]
-#[test]
 #[cfg(feature = "webp")]
+#[test]
+#[allow(clippy::too_many_lines)]
 fn generate_from_web_p() {
     {
         let out_dir = tempfile::tempdir().unwrap();
