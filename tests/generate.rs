@@ -106,7 +106,7 @@ fn generate_from_non_existent_file() {
         .failure()
         .code(66)
         .stderr(predicate::str::contains(
-            r#"could not read data from "non_existent.txt""#,
+            "could not read data from non_existent.txt",
         ));
     if cfg!(windows) {
         command.stderr(predicate::str::contains(
