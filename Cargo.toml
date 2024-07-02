@@ -28,7 +28,7 @@ clap_complete_nushell = "4.5.2"
 csscolorparser = "0.6.2"
 image = { version = "0.25.1", default-features = false, features = ["bmp", "ico", "png", "rayon"] }
 indicatif = "0.17.8"
-serde_json = { version = "1.0.118", features = ["preserve_order"] }
+serde_json = { version = "1.0.120", features = ["preserve_order"] }
 sysexits = "0.8.0"
 
 [dev-dependencies]
