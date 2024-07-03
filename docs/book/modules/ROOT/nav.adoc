@@ -6,7 +6,7 @@
 * xref:build.adoc[]
 * xref:usage.adoc[]
 
-.Manual pages
+.Man page
 * xref:man/man1/favico.1.adoc[`favico(1)`]
 
 .Resources

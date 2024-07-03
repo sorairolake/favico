@@ -39,9 +39,8 @@ pub fn run() -> anyhow::Result<()> {
     }
 
     let input = match opt.input {
-        Some(ref path) if path.to_str().unwrap_or_default() != "-" => {
-            fs::read(path).with_context(|| format!("could not read data from {path:?}"))?
-        }
+        Some(ref path) if path.to_str().unwrap_or_default() != "-" => fs::read(path)
+            .with_context(|| format!("could not read data from {}", path.display()))?,
         _ => {
             let mut buf = Vec::new();
             io::stdin()
@@ -110,13 +109,13 @@ pub fn run() -> anyhow::Result<()> {
         ));
         favicon
             .save(&file)
-            .with_context(|| format!("could not write the image to {file:?}"))?;
+            .with_context(|| format!("could not write the image to {}", file.display()))?;
     }
 
     let apple_file = out_dir.join("apple-touch-icon.png");
     apple_favicon
         .save(&apple_file)
-        .with_context(|| format!("could not write the image to {apple_file:?}"))?;
+        .with_context(|| format!("could not write the image to {}", apple_file.display()))?;
 
     for favicon in png_favicons {
         let file = out_dir.join(format!(
@@ -126,20 +125,27 @@ pub fn run() -> anyhow::Result<()> {
         ));
         favicon
             .save(&file)
-            .with_context(|| format!("could not write the image to {file:?}"))?;
+            .with_context(|| format!("could not write the image to {}", file.display()))?;
     }
 
     let ico_file = out_dir.join("favicon.ico");
     fs::write(&ico_file, ico_favicon)
-        .with_context(|| format!("could not write the image to {ico_file:?}"))?;
+        .with_context(|| format!("could not write the image to {}", ico_file.display()))?;
 
     let webmanifest =
         serde_json::to_string_pretty(&webmanifest).context("could not serialize as JSON")?;
     let webmanifest_file = out_dir.join("site.webmanifest");
-    fs::write(&webmanifest_file, webmanifest)
-        .with_context(|| format!("could not write the web app manifest to {webmanifest_file:?}"))?;
+    fs::write(&webmanifest_file, webmanifest).with_context(|| {
+        format!(
+            "could not write the web app manifest to {}",
+            webmanifest_file.display()
+        )
+    })?;
 
-    pb.finish_with_message(format!("Saved the generated files to {out_dir:?}."));
+    pb.finish_with_message(format!(
+        "Saved the generated files to {}.",
+        out_dir.display()
+    ));
 
     println!("\n");
     println!("Copy the following and paste them into the <head> of your HTML.");
