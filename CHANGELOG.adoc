@@ -14,6 +14,12 @@ All notable changes to this project will be documented in this file.
 The format is based on https://keepachangelog.com/[Keep a Changelog], and this
 project adheres to https://semver.org/[Semantic Versioning].
 
+== {compare-url}/v0.1.4\...v0.1.5[0.1.5] - 2024-07-03
+
+=== Changed
+
+* Change to use `Display` to display path ({pull-request-url}/106[#106])
+
 == {compare-url}/v0.1.3\...v0.1.4[0.1.4] - 2024-04-23
 
 === Changed
