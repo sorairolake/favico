@@ -4,7 +4,7 @@
 
 [package]
 name = "favico"
-version = "0.1.4"
+version = "0.1.5"
 authors = ["Shun Sakai <sorairolake@protonmail.ch>"]
 edition = "2021"
 rust-version = "1.74.0"
@@ -29,7 +29,7 @@ csscolorparser = "0.6.2"
 image = { version = "0.25.1", default-features = false, features = ["bmp", "ico", "png", "rayon"] }
 indicatif = "0.17.8"
 serde_json = { version = "1.0.120", features = ["preserve_order"] }
-sysexits = "0.8.0"
+sysexits = "0.8.1"
 
 [dev-dependencies]
 assert_cmd = "2.0.14"
