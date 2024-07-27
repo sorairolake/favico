@@ -26,7 +26,7 @@ clap = { version = "4.5.9", features = ["derive", "wrap_help"] }
 clap_complete = "4.5.8"
 clap_complete_nushell = "4.5.2"
 csscolorparser = "0.6.2"
-image = { version = "0.25.1", default-features = false, features = ["bmp", "ico", "png", "rayon"] }
+image = { version = "0.25.2", default-features = false, features = ["bmp", "ico", "png", "rayon"] }
 indicatif = "0.17.8"
 serde_json = { version = "1.0.120", features = ["preserve_order"] }
 sysexits = "0.8.1"
