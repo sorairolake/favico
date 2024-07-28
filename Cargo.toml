@@ -23,7 +23,7 @@ include = ["/LICENSES", "/README.md", "/src"]
 anyhow = "1.0.86"
 bat = { version = "0.24.0", default-features = false, features = ["regex-fancy"] }
 clap = { version = "4.5.11", features = ["derive", "wrap_help"] }
-clap_complete = "4.5.8"
+clap_complete = "4.5.11"
 clap_complete_nushell = "4.5.3"
 csscolorparser = "0.6.2"
 image = { version = "0.25.2", default-features = false, features = ["bmp", "ico", "png", "rayon"] }
