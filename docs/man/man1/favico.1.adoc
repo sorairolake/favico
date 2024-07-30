@@ -4,12 +4,15 @@
 
 = favico(1)
 // Specify in UTC.
-:docdate: 2024-04-15
+:docdate: 2024-07-30
 :doctype: manpage
 ifdef::revnumber[:mansource: favico {revnumber}]
 ifndef::revnumber[:mansource: favico]
 :manmanual: General Commands Manual
 ifndef::site-gen-antora[:includedir: ./include]
+:image-crates-url: https://crates.io/crates/image
+:web-app-manifest-url: https://developer.mozilla.org/en-US/docs/Web/Manifest
+:css-color-url: https://www.w3.org/TR/css-color-4/
 
 == NAME
 
@@ -29,9 +32,10 @@ _IMAGE_::
 
   Input image file. If _IMAGE_ is not specified, or if "-" is specified, the
   image will be read from stdin. Supported raster image formats are based on
-  the formats supported by the image crate. The format of _IMAGE_ is determined
-  based on the extension or the magic number if possible. If the format cannot
-  be determined, use *--format*. Note that _IMAGE_ must be square.
+  the formats supported by the {image-crates-url}[image] crate. The format of
+  _IMAGE_ is determined based on the extension or the magic number if possible.
+  If the format cannot be determined, use *--format*. Note that _IMAGE_ must be
+  square.
 
 == OPTIONS
 
@@ -46,7 +50,7 @@ _IMAGE_::
 
 *--name* _NAME_::
 
-  Set the name member of the web app manifest.
+  Set the name member of the {web-app-manifest-url}[web app manifest].
 
 *--short-name* _NAME_::
 
@@ -55,8 +59,8 @@ _IMAGE_::
 
 *--theme-color* _COLOR_::
 
-  Set the theme_color member of the web app manifest. _COLOR_ takes a CSS color
-  string. Default is "#ffffff".
+  Set the theme_color member of the web app manifest. _COLOR_ takes a
+  {css-color-url}[CSS color string]. Default is "#ffffff".
 
 *--background-color* _COLOR_::
 
@@ -222,18 +226,6 @@ ifdef::site-gen-antora[include::partial$man/man1/include/section-exit-status.ado
 Source repository:{blank}::
 
   https://github.com/sorairolake/favico
-
-image crate:{blank}::
-
-  https://crates.io/crates/image
-
-Web App Manifest:{blank}::
-
-  https://developer.mozilla.org/en-US/docs/Web/Manifest
-
-CSS Color Module Level 4:{blank}::
-
-  https://www.w3.org/TR/css-color-4/
 
 == EXAMPLES
 
