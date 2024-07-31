@@ -1388,6 +1388,7 @@ fn generate_from_open_exr() {
 }
 
 #[test]
+#[allow(clippy::too_many_lines)]
 fn generate_from_png() {
     {
         let out_dir = tempfile::tempdir().unwrap();
