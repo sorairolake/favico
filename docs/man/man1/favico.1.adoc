@@ -4,7 +4,7 @@
 
 = favico(1)
 // Specify in UTC.
-:docdate: 2024-08-01
+:docdate: 2024-08-02
 :doctype: manpage
 ifdef::revnumber[:mansource: favico {revnumber}]
 ifndef::revnumber[:mansource: favico]
@@ -177,11 +177,11 @@ the image format is determined based on the extension or the magic number.
 _IMAGE_::
 
   Input image file. If _IMAGE_ is not specified, or if "-" is specified, the
-  image will be read from stdin. Supported raster image formats are based on
-  the formats supported by the {image-crates-url}[`image`] crate. The format of
-  _IMAGE_ is determined based on the extension or the magic number if possible.
-  If the format cannot be determined, use *--format*. Note that _IMAGE_ must be
-  square.
+  image will be read from standard input. Supported raster image formats are
+  based on the formats supported by the {image-crates-url}[`image`] crate. The
+  format of _IMAGE_ is determined based on the extension or the magic number if
+  possible. If the format cannot be determined, use *--format*. Note that
+  _IMAGE_ must be square.
 
 == OPTIONS
 
@@ -336,7 +336,7 @@ endif::[]
 
 *--generate-completion* _SHELL_::
 
-  Generate shell completion. The completion is output to stdout.
+  Generate shell completion. The completion is output to standard output.
 
   The possible values are:{blank}:::
 

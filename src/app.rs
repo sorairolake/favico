@@ -45,7 +45,7 @@ pub fn run() -> anyhow::Result<()> {
             let mut buf = Vec::new();
             io::stdin()
                 .read_to_end(&mut buf)
-                .context("could not read data from stdin")?;
+                .context("could not read data from standard input")?;
             buf
         }
     };
