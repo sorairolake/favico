@@ -4,12 +4,56 @@
 
 = favico(1)
 // Specify in UTC.
-:docdate: 2024-04-15
+:docdate: 2024-08-02
 :doctype: manpage
 ifdef::revnumber[:mansource: favico {revnumber}]
 ifndef::revnumber[:mansource: favico]
 :manmanual: General Commands Manual
 ifndef::site-gen-antora[:includedir: ./include]
+:enwp-url: https://en.wikipedia.org
+:enwp-article-url: {enwp-url}/wiki
+:png-url: {enwp-article-url}/PNG
+:ico-url: {enwp-article-url}/ICO_(file_format)
+:bmp-url: {enwp-article-url}/BMP_file_format
+:mdn-url: https://developer.mozilla.org
+:mdn-refs-url: {mdn-url}/en-US/docs/Web
+:web-app-manifest-url: {mdn-refs-url}/Manifest
+:pwa-url: {mdn-refs-url}/Progressive_web_apps
+ifdef::dds,env-github,site-gen-antora[]
+:dds-url: {enwp-article-url}/DirectDraw_Surface
+endif::[]
+ifdef::ff,env-github,site-gen-antora[]
+:farbfeld-url: https://tools.suckless.org/farbfeld/
+endif::[]
+ifdef::gif,env-github,site-gen-antora[]
+:gif-url: {enwp-article-url}/GIF
+endif::[]
+ifdef::hdr,env-github,site-gen-antora[]
+:radiance-rgbe-url: {enwp-article-url}/RGBE_image_format
+endif::[]
+ifdef::jpeg,env-github,site-gen-antora[]
+:jpeg-url: https://jpeg.org/jpeg/
+endif::[]
+ifdef::exr,env-github,site-gen-antora[]
+:openexr-url: https://openexr.com/
+endif::[]
+ifdef::pnm,env-github,site-gen-antora[]
+:pnm-url: https://netpbm.sourceforge.net/doc/pnm.html
+endif::[]
+ifdef::qoi,env-github,site-gen-antora[]
+:qoi-url: https://qoiformat.org/
+endif::[]
+ifdef::tga,env-github,site-gen-antora[]
+:tga-url: {enwp-article-url}/Truevision_TGA
+endif::[]
+ifdef::tiff,env-github,site-gen-antora[]
+:tiff-url: {enwp-article-url}/TIFF
+endif::[]
+ifdef::webp,env-github,site-gen-antora[]
+:webp-url: https://developers.google.com/speed/webp/
+endif::[]
+:image-crates-url: https://crates.io/crates/image
+:css-color-url: https://www.w3.org/TR/css-color-4/
 
 == NAME
 
@@ -23,15 +67,121 @@ favico - an utility for creating favicons
 
 *{manname}* is a command-line utility for creating favicons.
 
+*{manname}* will generate favicons in the {png-url}[PNG] format and the
+{ico-url}[ICO] format which contains images in the {bmp-url}[BMP] format or the
+PNG format from the input image file, and outputs them to the specified
+directory or the current directory. *{manname}* also generates the
+{web-app-manifest-url}[web app manifest] for a {pwa-url}[progressive web app]
+(PWA) in the same directory where the favicons are output.
+
+.List of the generated files
+|===
+|Filename |Description
+
+|`android-chrome-192x192.png`
+|For Android Chrome
+
+|`android-chrome-512x512.png`
+|For Android Chrome
+
+|`apple-touch-icon.png`
+|For Safari on iOS and iPadOS
+
+|`favicon-16x16.png`
+|The classic favicon
+
+|`favicon-32x32.png`
+|For Safari on macOS
+
+|`favicon.ico`
+|The original favicon
+
+|`site.webmanifest`
+|Web app manifest
+|===
+
+Some members of the web app manifest can be configured via options.
+
+.List of the configurable members
+* `name` (*--name*)
+* `short_name` (*--short-name*)
+* `theme_color` (*--theme-color*)
+* `background_color` (*--background-color*)
+
+The {css-color-url}[CSS color string] can be specified as a value for
+*--theme-color* and/or *--background-color*.
+
+.List of methods to specify a color
+|===
+|Format |Examples
+
+|Named colors
+|`brown`, `lightslategray`
+
+|Hexadecimal notations
+|`#111`, `#eee8`, `#a52a2a`, `#7788997f`
+
+|RGB functions
+|`rgb(165 42 42)`, `rgb(119 136 153 / 49.8%)`
+
+|HSL functions
+|`hsl(248 39% 39.2%)`, `hsl(0 0% 66.3% / 49.8%)`
+
+|HWB function
+|`hwb(50.6 0% 0%)`, `hwb(0 66.3% 33.7% / 49.8%)`
+|===
+
+.Supported input image file formats
+* {bmp-url}[BMP]
+ifdef::dds,env-github,site-gen-antora[]
+* {dds-url}[DDS]
+endif::[]
+ifdef::ff,env-github,site-gen-antora[]
+* {farbfeld-url}[Farbfeld]
+endif::[]
+ifdef::gif,env-github,site-gen-antora[]
+* {gif-url}[GIF]
+endif::[]
+ifdef::hdr,env-github,site-gen-antora[]
+* {radiance-rgbe-url}[Radiance RGBE]
+endif::[]
+* {ico-url}[ICO]
+ifdef::jpeg,env-github,site-gen-antora[]
+* {jpeg-url}[JPEG]
+endif::[]
+ifdef::exr,env-github,site-gen-antora[]
+* {openexr-url}[OpenEXR]
+endif::[]
+* {png-url}[PNG]
+ifdef::pnm,env-github,site-gen-antora[]
+* {pnm-url}[PNM]
+endif::[]
+ifdef::qoi,env-github,site-gen-antora[]
+* {qoi-url}[QOI]
+endif::[]
+ifdef::tga,env-github,site-gen-antora[]
+* {tga-url}[TGA]
+endif::[]
+ifdef::tiff,env-github,site-gen-antora[]
+* {tiff-url}[TIFF]
+endif::[]
+ifdef::webp,env-github,site-gen-antora[]
+* {webp-url}[WebP]
+endif::[]
+
+Use *-t* option to specify the image format. If this option is not specified,
+the image format is determined based on the extension or the magic number.
+
 == POSITIONAL ARGUMENTS
 
 _IMAGE_::
 
   Input image file. If _IMAGE_ is not specified, or if "-" is specified, the
-  image will be read from stdin. Supported raster image formats are based on
-  the formats supported by the image crate. The format of _IMAGE_ is determined
-  based on the extension or the magic number if possible. If the format cannot
-  be determined, use *--format*. Note that _IMAGE_ must be square.
+  image will be read from standard input. Supported raster image formats are
+  based on the formats supported by the {image-crates-url}[`image`] crate. The
+  format of _IMAGE_ is determined based on the extension or the magic number if
+  possible. If the format cannot be determined, use *--format*. Note that
+  _IMAGE_ must be square.
 
 == OPTIONS
 
@@ -55,8 +205,8 @@ _IMAGE_::
 
 *--theme-color* _COLOR_::
 
-  Set the theme_color member of the web app manifest. _COLOR_ takes a CSS color
-  string. Default is "#ffffff".
+  Set the theme_color member of the web app manifest. _COLOR_ takes a
+  {css-color-url}[CSS color string]. Default is "#ffffff".
 
 *--background-color* _COLOR_::
 
@@ -186,7 +336,7 @@ endif::[]
 
 *--generate-completion* _SHELL_::
 
-  Generate shell completion. The completion is output to stdout.
+  Generate shell completion. The completion is output to standard output.
 
   The possible values are:{blank}:::
 
@@ -222,18 +372,6 @@ ifdef::site-gen-antora[include::partial$man/man1/include/section-exit-status.ado
 Source repository:{blank}::
 
   https://github.com/sorairolake/favico
-
-image crate:{blank}::
-
-  https://crates.io/crates/image
-
-Web App Manifest:{blank}::
-
-  https://developer.mozilla.org/en-US/docs/Web/Manifest
-
-CSS Color Module Level 4:{blank}::
-
-  https://www.w3.org/TR/css-color-4/
 
 == EXAMPLES
 

@@ -23,12 +23,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 cargo install favico
 ```
 
-### Via a package manager
-
-| OS    | Package manager | Command                               |
-| ----- | --------------- | ------------------------------------- |
-| _Any_ | [Homebrew]      | `brew install sorairolake/tap/favico` |
-
 ### From binaries
 
 The [release page] contains pre-built binaries for Linux, macOS and Windows.
@@ -60,7 +54,7 @@ The following files will be generated in the current directory:
 
 ### Generate shell completion
 
-`--generate-completion` option generates shell completions to stdout.
+`--generate-completion` option generates shell completions to standard output.
 
 The following shells are supported:
 
@@ -100,7 +94,7 @@ Copyright &copy; 2024 Shun Sakai (see [AUTHORS.adoc])
 2. Some files are distributed under the terms of the _Creative Commons
    Attribution 4.0 International Public License_.
 
-This project is compliant with version 3.0 of the [_REUSE Specification_]. See
+This project is compliant with version 3.2 of the [_REUSE Specification_]. See
 copyright notices of individual files for more details on copyright and
 licensing information.
 
@@ -110,7 +104,6 @@ licensing information.
 [version-url]: https://crates.io/crates/favico
 [msrv-badge]: https://img.shields.io/crates/msrv/favico?style=for-the-badge&logo=rust
 [license-badge]: https://img.shields.io/crates/l/favico?style=for-the-badge
-[Homebrew]: https://brew.sh/
 [release page]: https://github.com/sorairolake/favico/releases
 [BUILD.adoc]: BUILD.adoc
 [`favico(1)`]: https://sorairolake.github.io/favico/book/man/man1/favico.1.html

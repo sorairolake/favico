@@ -92,6 +92,57 @@ fn generate_from_bmp() {
         utils::command::command()
             .arg("-o")
             .arg(out_dir)
+            .write_stdin(include_bytes!("data/input/input.bmp"))
+            .assert()
+            .success();
+        assert_eq!(
+            image::open(out_dir.join("android-chrome-192x192.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/android-chrome-192x192.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("android-chrome-512x512.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/android-chrome-512x512.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("apple-touch-icon.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/apple-touch-icon.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("favicon-16x16.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/favicon-16x16.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("favicon-32x32.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/favicon-32x32.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert!(out_dir.join("favicon.ico").exists());
+    }
+    {
+        let out_dir = tempfile::tempdir().unwrap();
+        let out_dir = out_dir.path();
+        utils::command::command()
+            .arg("-o")
+            .arg(out_dir)
             .arg("-f")
             .arg("bmp")
             .arg("data/input/input.bmp")
@@ -167,6 +218,57 @@ fn generate_from_dds() {
             .arg("-o")
             .arg(out_dir)
             .arg("data/input/input.dds")
+            .assert()
+            .success();
+        assert_eq!(
+            image::open(out_dir.join("android-chrome-192x192.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/android-chrome-192x192.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("android-chrome-512x512.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/android-chrome-512x512.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("apple-touch-icon.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/apple-touch-icon.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("favicon-16x16.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/favicon-16x16.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("favicon-32x32.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/favicon-32x32.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert!(out_dir.join("favicon.ico").exists());
+    }
+    {
+        let out_dir = tempfile::tempdir().unwrap();
+        let out_dir = out_dir.path();
+        utils::command::command()
+            .arg("-o")
+            .arg(out_dir)
+            .write_stdin(include_bytes!("data/input/input.dds"))
             .assert()
             .success();
         assert_eq!(
@@ -342,6 +444,57 @@ fn generate_from_farbfeld() {
         utils::command::command()
             .arg("-o")
             .arg(out_dir)
+            .write_stdin(include_bytes!("data/input/input.ff"))
+            .assert()
+            .success();
+        assert_eq!(
+            image::open(out_dir.join("android-chrome-192x192.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/android-chrome-192x192.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("android-chrome-512x512.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/android-chrome-512x512.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("apple-touch-icon.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/apple-touch-icon.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("favicon-16x16.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/favicon-16x16.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("favicon-32x32.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/favicon-32x32.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert!(out_dir.join("favicon.ico").exists());
+    }
+    {
+        let out_dir = tempfile::tempdir().unwrap();
+        let out_dir = out_dir.path();
+        utils::command::command()
+            .arg("-o")
+            .arg(out_dir)
             .arg("-f")
             .arg("farbfeld")
             .arg("data/input/input.ff")
@@ -417,6 +570,57 @@ fn generate_from_gif() {
             .arg("-o")
             .arg(out_dir)
             .arg("data/input/input.gif")
+            .assert()
+            .success();
+        assert_eq!(
+            image::open(out_dir.join("android-chrome-192x192.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/android-chrome-192x192.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("android-chrome-512x512.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/android-chrome-512x512.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("apple-touch-icon.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/apple-touch-icon.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("favicon-16x16.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/favicon-16x16.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("favicon-32x32.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/favicon-32x32.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert!(out_dir.join("favicon.ico").exists());
+    }
+    {
+        let out_dir = tempfile::tempdir().unwrap();
+        let out_dir = out_dir.path();
+        utils::command::command()
+            .arg("-o")
+            .arg(out_dir)
+            .write_stdin(include_bytes!("data/input/input.gif"))
             .assert()
             .success();
         assert_eq!(
@@ -592,6 +796,57 @@ fn generate_from_hdr() {
         utils::command::command()
             .arg("-o")
             .arg(out_dir)
+            .write_stdin(include_bytes!("data/input/input.hdr"))
+            .assert()
+            .success();
+        assert_eq!(
+            image::open(out_dir.join("android-chrome-192x192.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/android-chrome-192x192.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("android-chrome-512x512.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/android-chrome-512x512.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("apple-touch-icon.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/apple-touch-icon.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("favicon-16x16.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/favicon-16x16.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("favicon-32x32.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/favicon-32x32.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert!(out_dir.join("favicon.ico").exists());
+    }
+    {
+        let out_dir = tempfile::tempdir().unwrap();
+        let out_dir = out_dir.path();
+        utils::command::command()
+            .arg("-o")
+            .arg(out_dir)
             .arg("-f")
             .arg("hdr")
             .arg("data/input/input.hdr")
@@ -680,6 +935,22 @@ fn generate_from_cur() {
         utils::command::command()
             .arg("-o")
             .arg(out_dir)
+            .write_stdin(include_bytes!("data/input/input.cur"))
+            .assert()
+            .success();
+        assert!(out_dir.join("android-chrome-192x192.png").exists());
+        assert!(out_dir.join("android-chrome-512x512.png").exists());
+        assert!(out_dir.join("apple-touch-icon.png").exists());
+        assert!(out_dir.join("favicon-16x16.png").exists());
+        assert!(out_dir.join("favicon-32x32.png").exists());
+        assert!(out_dir.join("favicon.ico").exists());
+    }
+    {
+        let out_dir = tempfile::tempdir().unwrap();
+        let out_dir = out_dir.path();
+        utils::command::command()
+            .arg("-o")
+            .arg(out_dir)
             .arg("-f")
             .arg("ico")
             .arg("data/input/input.cur")
@@ -703,6 +974,22 @@ fn generate_from_ico() {
             .arg("-o")
             .arg(out_dir)
             .arg("data/input/input.ico")
+            .assert()
+            .success();
+        assert!(out_dir.join("android-chrome-192x192.png").exists());
+        assert!(out_dir.join("android-chrome-512x512.png").exists());
+        assert!(out_dir.join("apple-touch-icon.png").exists());
+        assert!(out_dir.join("favicon-16x16.png").exists());
+        assert!(out_dir.join("favicon-32x32.png").exists());
+        assert!(out_dir.join("favicon.ico").exists());
+    }
+    {
+        let out_dir = tempfile::tempdir().unwrap();
+        let out_dir = out_dir.path();
+        utils::command::command()
+            .arg("-o")
+            .arg(out_dir)
+            .write_stdin(include_bytes!("data/input/input.ico"))
             .assert()
             .success();
         assert!(out_dir.join("android-chrome-192x192.png").exists());
@@ -759,6 +1046,57 @@ fn generate_from_jpeg() {
             .arg("-o")
             .arg(out_dir)
             .arg("data/input/input.jpeg")
+            .assert()
+            .success();
+        assert_eq!(
+            image::open(out_dir.join("android-chrome-192x192.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/android-chrome-192x192.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("android-chrome-512x512.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/android-chrome-512x512.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("apple-touch-icon.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/apple-touch-icon.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("favicon-16x16.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/favicon-16x16.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("favicon-32x32.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/favicon-32x32.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert!(out_dir.join("favicon.ico").exists());
+    }
+    {
+        let out_dir = tempfile::tempdir().unwrap();
+        let out_dir = out_dir.path();
+        utils::command::command()
+            .arg("-o")
+            .arg(out_dir)
+            .write_stdin(include_bytes!("data/input/input.jpeg"))
             .assert()
             .success();
         assert_eq!(
@@ -934,6 +1272,57 @@ fn generate_from_open_exr() {
         utils::command::command()
             .arg("-o")
             .arg(out_dir)
+            .write_stdin(include_bytes!("data/input/input.exr"))
+            .assert()
+            .success();
+        assert_eq!(
+            image::open(out_dir.join("android-chrome-192x192.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/android-chrome-192x192.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("android-chrome-512x512.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/android-chrome-512x512.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("apple-touch-icon.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/apple-touch-icon.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("favicon-16x16.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/favicon-16x16.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("favicon-32x32.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/favicon-32x32.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert!(out_dir.join("favicon.ico").exists());
+    }
+    {
+        let out_dir = tempfile::tempdir().unwrap();
+        let out_dir = out_dir.path();
+        utils::command::command()
+            .arg("-o")
+            .arg(out_dir)
             .arg("-f")
             .arg("openexr")
             .arg("data/input/input.exr")
@@ -999,7 +1388,110 @@ fn generate_from_open_exr() {
 }
 
 #[test]
+#[allow(clippy::too_many_lines)]
 fn generate_from_png() {
+    {
+        let out_dir = tempfile::tempdir().unwrap();
+        let out_dir = out_dir.path();
+        utils::command::command()
+            .arg("-o")
+            .arg(out_dir)
+            .arg("data/input/input.png")
+            .assert()
+            .success();
+        assert_eq!(
+            image::open(out_dir.join("android-chrome-192x192.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/android-chrome-192x192.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("android-chrome-512x512.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/android-chrome-512x512.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("apple-touch-icon.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/apple-touch-icon.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("favicon-16x16.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/favicon-16x16.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("favicon-32x32.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/favicon-32x32.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert!(out_dir.join("favicon.ico").exists());
+    }
+    {
+        let out_dir = tempfile::tempdir().unwrap();
+        let out_dir = out_dir.path();
+        utils::command::command()
+            .arg("-o")
+            .arg(out_dir)
+            .write_stdin(include_bytes!("data/input/input.png"))
+            .assert()
+            .success();
+        assert_eq!(
+            image::open(out_dir.join("android-chrome-192x192.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/android-chrome-192x192.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("android-chrome-512x512.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/android-chrome-512x512.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("apple-touch-icon.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/apple-touch-icon.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("favicon-16x16.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/favicon-16x16.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("favicon-32x32.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/favicon-32x32.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert!(out_dir.join("favicon.ico").exists());
+    }
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
@@ -1081,6 +1573,57 @@ fn generate_from_pbm() {
             .arg("-o")
             .arg(out_dir)
             .arg("data/input/input.pbm")
+            .assert()
+            .success();
+        assert_eq!(
+            image::open(out_dir.join("android-chrome-192x192.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/android-chrome-192x192.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("android-chrome-512x512.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/android-chrome-512x512.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("apple-touch-icon.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/apple-touch-icon.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("favicon-16x16.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/favicon-16x16.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("favicon-32x32.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/favicon-32x32.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert!(out_dir.join("favicon.ico").exists());
+    }
+    {
+        let out_dir = tempfile::tempdir().unwrap();
+        let out_dir = out_dir.path();
+        utils::command::command()
+            .arg("-o")
+            .arg(out_dir)
+            .write_stdin(include_bytes!("data/input/input.pbm"))
             .assert()
             .success();
         assert_eq!(
@@ -1241,6 +1784,57 @@ fn generate_from_pgm() {
         utils::command::command()
             .arg("-o")
             .arg(out_dir)
+            .write_stdin(include_bytes!("data/input/input.pgm"))
+            .assert()
+            .success();
+        assert_eq!(
+            image::open(out_dir.join("android-chrome-192x192.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/android-chrome-192x192.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("android-chrome-512x512.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/android-chrome-512x512.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("apple-touch-icon.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/apple-touch-icon.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("favicon-16x16.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/favicon-16x16.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("favicon-32x32.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/favicon-32x32.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert!(out_dir.join("favicon.ico").exists());
+    }
+    {
+        let out_dir = tempfile::tempdir().unwrap();
+        let out_dir = out_dir.path();
+        utils::command::command()
+            .arg("-o")
+            .arg(out_dir)
             .arg("-f")
             .arg("pnm")
             .arg("data/input/input.pgm")
@@ -1301,6 +1895,57 @@ fn generate_from_ppm() {
             .arg("-o")
             .arg(out_dir)
             .arg("data/input/input.ppm")
+            .assert()
+            .success();
+        assert_eq!(
+            image::open(out_dir.join("android-chrome-192x192.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/android-chrome-192x192.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("android-chrome-512x512.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/android-chrome-512x512.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("apple-touch-icon.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/apple-touch-icon.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("favicon-16x16.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/favicon-16x16.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("favicon-32x32.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/favicon-32x32.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert!(out_dir.join("favicon.ico").exists());
+    }
+    {
+        let out_dir = tempfile::tempdir().unwrap();
+        let out_dir = out_dir.path();
+        utils::command::command()
+            .arg("-o")
+            .arg(out_dir)
+            .write_stdin(include_bytes!("data/input/input.ppm"))
             .assert()
             .success();
         assert_eq!(
@@ -1478,6 +2123,57 @@ fn generate_from_qoi() {
         utils::command::command()
             .arg("-o")
             .arg(out_dir)
+            .write_stdin(include_bytes!("data/input/input.qoi"))
+            .assert()
+            .success();
+        assert_eq!(
+            image::open(out_dir.join("android-chrome-192x192.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/android-chrome-192x192.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("android-chrome-512x512.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/android-chrome-512x512.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("apple-touch-icon.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/apple-touch-icon.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("favicon-16x16.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/favicon-16x16.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("favicon-32x32.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/favicon-32x32.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert!(out_dir.join("favicon.ico").exists());
+    }
+    {
+        let out_dir = tempfile::tempdir().unwrap();
+        let out_dir = out_dir.path();
+        utils::command::command()
+            .arg("-o")
+            .arg(out_dir)
             .arg("-f")
             .arg("qoi")
             .arg("data/input/input.qoi")
@@ -1596,6 +2292,20 @@ fn generate_from_tga() {
                 .into_rgba8()
         );
         assert!(out_dir.join("favicon.ico").exists());
+    }
+    {
+        let out_dir = tempfile::tempdir().unwrap();
+        let out_dir = out_dir.path();
+        utils::command::command()
+            .arg("-o")
+            .arg(out_dir)
+            .write_stdin(include_bytes!("data/input/input.tga"))
+            .assert()
+            .failure()
+            .code(69)
+            .stderr(predicate::str::contains(
+                "could not determine the image format",
+            ));
     }
     {
         let out_dir = tempfile::tempdir().unwrap();
@@ -1728,6 +2438,57 @@ fn generate_from_tiff() {
         utils::command::command()
             .arg("-o")
             .arg(out_dir)
+            .write_stdin(include_bytes!("data/input/input.tiff"))
+            .assert()
+            .success();
+        assert_eq!(
+            image::open(out_dir.join("android-chrome-192x192.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/android-chrome-192x192.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("android-chrome-512x512.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/android-chrome-512x512.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("apple-touch-icon.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/apple-touch-icon.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("favicon-16x16.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/favicon-16x16.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("favicon-32x32.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/favicon-32x32.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert!(out_dir.join("favicon.ico").exists());
+    }
+    {
+        let out_dir = tempfile::tempdir().unwrap();
+        let out_dir = out_dir.path();
+        utils::command::command()
+            .arg("-o")
+            .arg(out_dir)
             .arg("-f")
             .arg("tiff")
             .arg("data/input/input.tiff")
@@ -1803,6 +2564,57 @@ fn generate_from_web_p() {
             .arg("-o")
             .arg(out_dir)
             .arg("data/input/input.webp")
+            .assert()
+            .success();
+        assert_eq!(
+            image::open(out_dir.join("android-chrome-192x192.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/android-chrome-192x192.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("android-chrome-512x512.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/android-chrome-512x512.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("apple-touch-icon.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/apple-touch-icon.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("favicon-16x16.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/favicon-16x16.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("favicon-32x32.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/favicon-32x32.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert!(out_dir.join("favicon.ico").exists());
+    }
+    {
+        let out_dir = tempfile::tempdir().unwrap();
+        let out_dir = out_dir.path();
+        utils::command::command()
+            .arg("-o")
+            .arg(out_dir)
+            .write_stdin(include_bytes!("data/input/input.webp"))
             .assert()
             .success();
         assert_eq!(

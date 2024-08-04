@@ -96,17 +96,18 @@ pub struct Opt {
 
     /// Generate shell completion.
     ///
-    /// The completion is output to stdout.
+    /// The completion is output to standard output.
     #[arg(long, value_enum, value_name("SHELL"))]
     pub generate_completion: Option<Shell>,
 
     /// Input image file.
     ///
     /// If [IMAGE] is not specified, or if "-" is specified, the image will be
-    /// read from stdin. Supported raster image formats are based on the formats
-    /// supported by the image crate. The format of [IMAGE] is determined based
-    /// on the extension or the magic number if possible. If the format cannot
-    /// be determined, use '--format'. Note that [IMAGE] must be square.
+    /// read from standard input. Supported raster image formats are based on
+    /// the formats supported by the image crate. The format of [IMAGE] is
+    /// determined based on the extension or the magic number if possible. If
+    /// the format cannot be determined, use '--format'. Note that [IMAGE] must
+    /// be square.
     #[arg(value_name("IMAGE"), value_hint(ValueHint::FilePath))]
     pub input: Option<PathBuf>,
 }
