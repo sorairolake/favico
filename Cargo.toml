@@ -4,7 +4,7 @@
 
 [package]
 name = "favico"
-version = "0.1.5"
+version = "0.1.6"
 authors = ["Shun Sakai <sorairolake@protonmail.ch>"]
 edition = "2021"
 rust-version = "1.74.0"
@@ -34,7 +34,7 @@ sysexits = "0.8.1"
 [dev-dependencies]
 assert_cmd = "2.0.15"
 predicates = "3.1.2"
-tempfile = "3.10.1"
+tempfile = "3.11.0"
 
 [features]
 default = [
