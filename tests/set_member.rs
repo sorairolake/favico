@@ -1097,6 +1097,242 @@ fn set_background_color_member_from_invalid_hwb_color() {
 }
 
 #[test]
+fn set_theme_color_member_from_oklab_color() {
+    let out_dir = tempfile::tempdir().unwrap();
+    let out_dir = out_dir.path();
+    utils::command::command()
+        .arg("-o")
+        .arg(out_dir)
+        .arg("--theme-color")
+        .arg("oklab(50.4% -0.0906 0.0069)")
+        .arg("--filter")
+        .arg("nearest")
+        .arg("data/input/input.png")
+        .assert()
+        .success();
+    assert!(fs::read_to_string(out_dir.join("site.webmanifest"))
+        .unwrap()
+        .contains(r##""theme_color": "#0f7562","##));
+}
+
+#[test]
+fn set_background_color_member_from_oklab_color() {
+    let out_dir = tempfile::tempdir().unwrap();
+    let out_dir = out_dir.path();
+    utils::command::command()
+        .arg("-o")
+        .arg(out_dir)
+        .arg("--background-color")
+        .arg("oklab(61.9% -0.0120 -0.0302)")
+        .arg("--filter")
+        .arg("nearest")
+        .arg("data/input/input.png")
+        .assert()
+        .success();
+    assert!(fs::read_to_string(out_dir.join("site.webmanifest"))
+        .unwrap()
+        .contains(r##""background_color": "#778899","##));
+}
+
+#[test]
+fn set_theme_color_member_from_oklab_color_with_alpha() {
+    let out_dir = tempfile::tempdir().unwrap();
+    let out_dir = out_dir.path();
+    utils::command::command()
+        .arg("-o")
+        .arg(out_dir)
+        .arg("--theme-color")
+        .arg("oklab(50.4% -0.0906 0.0069 / 0.5)")
+        .arg("--filter")
+        .arg("nearest")
+        .arg("data/input/input.png")
+        .assert()
+        .success();
+    assert!(fs::read_to_string(out_dir.join("site.webmanifest"))
+        .unwrap()
+        .contains(r##""theme_color": "#0f756280","##));
+}
+
+#[test]
+fn set_background_color_member_from_oklab_color_with_alpha() {
+    let out_dir = tempfile::tempdir().unwrap();
+    let out_dir = out_dir.path();
+    utils::command::command()
+        .arg("-o")
+        .arg(out_dir)
+        .arg("--background-color")
+        .arg("oklab(61.9% -0.0120 -0.0302 / 0.5)")
+        .arg("--filter")
+        .arg("nearest")
+        .arg("data/input/input.png")
+        .assert()
+        .success();
+    assert!(fs::read_to_string(out_dir.join("site.webmanifest"))
+        .unwrap()
+        .contains(r##""background_color": "#77889980","##));
+}
+
+#[test]
+fn set_theme_color_member_from_invalid_oklab_color() {
+    let out_dir = tempfile::tempdir().unwrap();
+    let out_dir = out_dir.path();
+    utils::command::command()
+        .arg("-o")
+        .arg(out_dir)
+        .arg("--theme-color")
+        .arg("oklab(0)")
+        .arg("--filter")
+        .arg("nearest")
+        .arg("data/input/input.png")
+        .assert()
+        .failure()
+        .code(2)
+        .stderr(predicate::str::contains(
+            "invalid value 'oklab(0)' for '--theme-color <COLOR>'",
+        ))
+        .stderr(predicate::str::contains("invalid oklab format"));
+}
+
+#[test]
+fn set_background_color_member_from_invalid_oklab_color() {
+    let out_dir = tempfile::tempdir().unwrap();
+    let out_dir = out_dir.path();
+    utils::command::command()
+        .arg("-o")
+        .arg(out_dir)
+        .arg("--background-color")
+        .arg("oklab(0)")
+        .arg("--filter")
+        .arg("nearest")
+        .arg("data/input/input.png")
+        .assert()
+        .failure()
+        .code(2)
+        .stderr(predicate::str::contains(
+            "invalid value 'oklab(0)' for '--background-color <COLOR>'",
+        ))
+        .stderr(predicate::str::contains("invalid oklab format"));
+}
+
+#[test]
+fn set_theme_color_member_from_oklch_color() {
+    let out_dir = tempfile::tempdir().unwrap();
+    let out_dir = out_dir.path();
+    utils::command::command()
+        .arg("-o")
+        .arg(out_dir)
+        .arg("--theme-color")
+        .arg("oklch(59.41% 0.16 301.29)")
+        .arg("--filter")
+        .arg("nearest")
+        .arg("data/input/input.png")
+        .assert()
+        .success();
+    assert!(fs::read_to_string(out_dir.join("site.webmanifest"))
+        .unwrap()
+        .contains(r##""theme_color": "#9063cd","##));
+}
+
+#[test]
+fn set_background_color_member_from_oklch_color() {
+    let out_dir = tempfile::tempdir().unwrap();
+    let out_dir = out_dir.path();
+    utils::command::command()
+        .arg("-o")
+        .arg(out_dir)
+        .arg("--background-color")
+        .arg("oklch(61.9% 0.032 248.35)")
+        .arg("--filter")
+        .arg("nearest")
+        .arg("data/input/input.png")
+        .assert()
+        .success();
+    assert!(fs::read_to_string(out_dir.join("site.webmanifest"))
+        .unwrap()
+        .contains(r##""background_color": "#778899","##));
+}
+
+#[test]
+fn set_theme_color_member_from_oklch_color_with_alpha() {
+    let out_dir = tempfile::tempdir().unwrap();
+    let out_dir = out_dir.path();
+    utils::command::command()
+        .arg("-o")
+        .arg(out_dir)
+        .arg("--theme-color")
+        .arg("oklch(59.41% 0.16 301.29 / 49.8%)")
+        .arg("--filter")
+        .arg("nearest")
+        .arg("data/input/input.png")
+        .assert()
+        .success();
+    assert!(fs::read_to_string(out_dir.join("site.webmanifest"))
+        .unwrap()
+        .contains(r##""theme_color": "#9063cd7f","##));
+}
+
+#[test]
+fn set_background_color_member_from_oklch_color_with_alpha() {
+    let out_dir = tempfile::tempdir().unwrap();
+    let out_dir = out_dir.path();
+    utils::command::command()
+        .arg("-o")
+        .arg(out_dir)
+        .arg("--background-color")
+        .arg("oklch(61.9% 0.032 248.35 / 49.8%)")
+        .arg("--filter")
+        .arg("nearest")
+        .arg("data/input/input.png")
+        .assert()
+        .success();
+    assert!(fs::read_to_string(out_dir.join("site.webmanifest"))
+        .unwrap()
+        .contains(r##""background_color": "#7788997f","##));
+}
+
+#[test]
+fn set_theme_color_member_from_invalid_oklch_color() {
+    let out_dir = tempfile::tempdir().unwrap();
+    let out_dir = out_dir.path();
+    utils::command::command()
+        .arg("-o")
+        .arg(out_dir)
+        .arg("--theme-color")
+        .arg("oklch(0)")
+        .arg("--filter")
+        .arg("nearest")
+        .arg("data/input/input.png")
+        .assert()
+        .failure()
+        .code(2)
+        .stderr(predicate::str::contains(
+            "invalid value 'oklch(0)' for '--theme-color <COLOR>'",
+        ))
+        .stderr(predicate::str::contains("invalid oklch format"));
+}
+
+#[test]
+fn set_background_color_member_from_invalid_oklch_color() {
+    let out_dir = tempfile::tempdir().unwrap();
+    let out_dir = out_dir.path();
+    utils::command::command()
+        .arg("-o")
+        .arg(out_dir)
+        .arg("--background-color")
+        .arg("oklch(0)")
+        .arg("--filter")
+        .arg("nearest")
+        .arg("data/input/input.png")
+        .assert()
+        .failure()
+        .code(2)
+        .stderr(predicate::str::contains(
+            "invalid value 'oklch(0)' for '--background-color <COLOR>'",
+        ))
+        .stderr(predicate::str::contains("invalid oklch format"));
+}
+
+#[test]
 fn set_theme_color_member_from_invalid_color_function() {
     let out_dir = tempfile::tempdir().unwrap();
     let out_dir = out_dir.path();
