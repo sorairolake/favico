@@ -77,6 +77,16 @@ Please see the following:
 
 - [`favico(1)`]
 
+## Source code
+
+The upstream repository is available at
+<https://github.com/sorairolake/favico.git>.
+
+The source code is also available at:
+
+- <https://gitlab.com/sorairolake/favico.git>
+- <https://codeberg.org/sorairolake/favico.git>
+
 ## Changelog
 
 Please see [CHANGELOG.adoc].
