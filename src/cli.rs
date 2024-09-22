@@ -67,13 +67,15 @@ pub struct Opt {
 
     /// Set the theme_color member of the web app manifest.
     ///
-    /// <COLOR> takes a CSS color string.
+    /// <COLOR> takes a CSS color string. Note that <COLOR> is converted to the
+    /// sRGB color space, so a lossy conversion may be performed.
     #[arg(long, default_value("#ffffff"), value_name("COLOR"))]
     pub theme_color: Color,
 
     /// Set the background_color member of the web app manifest.
     ///
-    /// <COLOR> takes a CSS color string.
+    /// <COLOR> takes a CSS color string. Note that <COLOR> is converted to the
+    /// sRGB color space, so a lossy conversion may be performed.
     #[arg(long, default_value("#ffffff"), value_name("COLOR"))]
     pub background_color: Color,
 
