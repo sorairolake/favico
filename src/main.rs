@@ -2,9 +2,6 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-// Lint levels of Clippy.
-#![allow(clippy::multiple_crate_versions)]
-
 mod app;
 mod cli;
 mod generate;
