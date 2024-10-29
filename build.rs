@@ -35,6 +35,8 @@ fn generate_man_page(out_dir: &str) -> io::Result<ExitStatus> {
     command.args(["-a", "tiff"]);
     #[cfg(feature = "webp")]
     command.args(["-a", "webp"]);
+    #[cfg(feature = "xbm")]
+    command.args(["-a", "xbm"]);
     command
         .args(["-D", out_dir])
         .arg(man_dir.join("*.1.adoc"))

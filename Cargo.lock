@@ -482,6 +482,7 @@ dependencies = [
  "serde_json",
  "sysexits",
  "tempfile",
+ "xbm",
 ]
 
 [[package]]
@@ -1483,6 +1484,16 @@ name = "windows_x86_64_msvc"
 version = "0.52.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "589f6da84c646204747d1270a2a5661ea66ed1cced2631d546fdfb155959f9ec"
+
+[[package]]
+name = "xbm"
+version = "0.1.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "5e414c0b98f4a06e7a00d8f4fb70ca1e77749cc73e0fa2fca3c984d2c6c387d2"
+dependencies = [
+ "image",
+ "unicode-ident",
+]
 
 [[package]]
 name = "zune-core"

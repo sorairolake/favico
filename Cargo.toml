@@ -30,6 +30,7 @@ image = { version = "0.25.4", default-features = false, features = ["bmp", "ico"
 indicatif = "0.17.8"
 serde_json = { version = "1.0.132", features = ["preserve_order"] }
 sysexits = "0.8.2"
+xbm = { version = "0.1.2", optional = true }
 
 [dev-dependencies]
 assert_cmd = "2.0.16"
@@ -49,6 +50,7 @@ default = [
   "tga",
   "tiff",
   "webp",
+  "xbm",
 ]
 dds = ["image/dds"]
 ff = ["image/ff"]
@@ -61,6 +63,7 @@ qoi = ["image/qoi"]
 tga = ["image/tga"]
 tiff = ["image/tiff"]
 webp = ["image/webp"]
+xbm = ["dep:xbm"]
 
 [lints.clippy]
 cargo = { level = "warn", priority = -1 }

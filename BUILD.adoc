@@ -78,3 +78,7 @@ fd -t directory out ./target/*/build/favico-*
 `webp`::
 
   Enable generating from the WebP image. This is enabled by default.
+
+`xbm`::
+
+  Enable generating from the XBM image. This is enabled by default.

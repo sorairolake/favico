@@ -2721,6 +2721,145 @@ fn generate_from_web_p() {
     }
 }
 
+#[cfg(feature = "xbm")]
+#[test]
+#[allow(clippy::too_many_lines)]
+fn generate_from_xbm() {
+    {
+        let out_dir = tempfile::tempdir().unwrap();
+        let out_dir = out_dir.path();
+        utils::command::command()
+            .arg("-o")
+            .arg(out_dir)
+            .arg("data/input/input.xbm")
+            .assert()
+            .success();
+        assert_eq!(
+            image::open(out_dir.join("android-chrome-192x192.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/android-chrome-192x192.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("android-chrome-512x512.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/android-chrome-512x512.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("apple-touch-icon.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/apple-touch-icon.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("favicon-16x16.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/favicon-16x16.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("favicon-32x32.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/favicon-32x32.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert!(out_dir.join("favicon.ico").exists());
+    }
+    {
+        let out_dir = tempfile::tempdir().unwrap();
+        let out_dir = out_dir.path();
+        utils::command::command()
+            .arg("-o")
+            .arg(out_dir)
+            .write_stdin(include_bytes!("data/input/input.xbm"))
+            .assert()
+            .failure()
+            .code(69)
+            .stderr(predicate::str::contains(
+                "could not determine the image format",
+            ));
+    }
+    {
+        let out_dir = tempfile::tempdir().unwrap();
+        let out_dir = out_dir.path();
+        utils::command::command()
+            .arg("-o")
+            .arg(out_dir)
+            .arg("-f")
+            .arg("xbm")
+            .arg("data/input/input.xbm")
+            .assert()
+            .success();
+        assert_eq!(
+            image::open(out_dir.join("android-chrome-192x192.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/android-chrome-192x192.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("android-chrome-512x512.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/android-chrome-512x512.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("apple-touch-icon.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/apple-touch-icon.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("favicon-16x16.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/favicon-16x16.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert_eq!(
+            image::open(out_dir.join("favicon-32x32.png"))
+                .unwrap()
+                .into_rgba8(),
+            image::open("tests/data/output/favicon-32x32.png")
+                .unwrap()
+                .into_rgba8()
+        );
+        assert!(out_dir.join("favicon.ico").exists());
+    }
+
+    {
+        let out_dir = tempfile::tempdir().unwrap();
+        let out_dir = out_dir.path();
+        utils::command::command()
+            .arg("-o")
+            .arg(out_dir)
+            .arg("-f")
+            .arg("xbm")
+            .arg("data/output/site.webmanifest")
+            .assert()
+            .failure()
+            .code(1)
+            .stderr(predicate::str::contains("could not create new XBM decoder"));
+    }
+}
+
 #[test]
 fn generate_from_invalid_input_format() {
     let out_dir = tempfile::tempdir().unwrap();
