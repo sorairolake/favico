@@ -51,14 +51,10 @@ pub fn run() -> anyhow::Result<()> {
     };
     let format = opt.format;
     #[cfg(feature = "xbm")]
-    #[allow(clippy::option_if_let_else)]
     let format = format.or_else(|| {
-        if let Some(ref path) = opt.input {
-            path.extension() == Some(std::ffi::OsStr::new("xbm"))
-        } else {
-            bool::default()
-        }
-        .then_some(crate::cli::Format::Xbm)
+        input
+            .starts_with(b"#define")
+            .then_some(crate::cli::Format::Xbm)
     });
     #[allow(clippy::option_if_let_else)]
     let image = match format {
