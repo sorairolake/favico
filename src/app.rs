@@ -49,16 +49,33 @@ pub fn run() -> anyhow::Result<()> {
             buf
         }
     };
-    let format = if let Some(f) = opt.format {
-        f.into()
-    } else {
-        image::guess_format(&input)
-            .or_else(|err| opt.input.map_or_else(|| Err(err), ImageFormat::from_path))
-            .context("could not determine the image format")?
-    };
-    let image = image::load_from_memory_with_format(&input, format)
-        .map_err(anyhow::Error::from)
-        .context("could not read the image")?;
+    let format = opt.format;
+    #[cfg(feature = "xbm")]
+    let format = format.or_else(|| {
+        input
+            .starts_with(b"#define")
+            .then_some(crate::cli::Format::Xbm)
+    });
+    #[allow(clippy::option_if_let_else)]
+    let image = match format {
+        #[cfg(feature = "xbm")]
+        Some(crate::cli::Format::Xbm) => {
+            let decoder = xbm::Decoder::new(std::io::Cursor::new(input))
+                .context("could not create new XBM decoder")?;
+            image::DynamicImage::from_decoder(decoder).map_err(anyhow::Error::from)
+        }
+        format => {
+            let format = if let Some(f) = format {
+                f.try_into()
+            } else {
+                image::guess_format(&input)
+                    .or_else(|err| opt.input.map_or_else(|| Err(err), ImageFormat::from_path))
+            }
+            .context("could not determine the image format")?;
+            image::load_from_memory_with_format(&input, format).map_err(anyhow::Error::from)
+        }
+    }
+    .context("could not read the image")?;
     if image.width() != image.height() {
         bail!("image is not square");
     }

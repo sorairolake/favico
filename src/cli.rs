@@ -10,7 +10,7 @@ use std::{
 use clap::{CommandFactory, Parser, ValueEnum, ValueHint};
 use clap_complete::Generator;
 use csscolorparser::Color;
-use image::{imageops::FilterType, ImageFormat};
+use image::{imageops::FilterType, ImageError, ImageFormat};
 
 const LONG_VERSION: &str = concat!(
     env!("CARGO_PKG_VERSION"),
@@ -264,36 +264,46 @@ pub enum Format {
     /// WebP.
     #[cfg(feature = "webp")]
     WebP,
+
+    /// X BitMap.
+    #[cfg(feature = "xbm")]
+    Xbm,
 }
 
-impl From<Format> for ImageFormat {
-    fn from(format: Format) -> Self {
+impl TryFrom<Format> for ImageFormat {
+    type Error = ImageError;
+
+    fn try_from(format: Format) -> Result<Self, Self::Error> {
         match format {
-            Format::Bmp => Self::Bmp,
+            Format::Bmp => Ok(Self::Bmp),
             #[cfg(feature = "dds")]
-            Format::Dds => Self::Dds,
+            Format::Dds => Ok(Self::Dds),
             #[cfg(feature = "ff")]
-            Format::Farbfeld => Self::Farbfeld,
+            Format::Farbfeld => Ok(Self::Farbfeld),
             #[cfg(feature = "gif")]
-            Format::Gif => Self::Gif,
+            Format::Gif => Ok(Self::Gif),
             #[cfg(feature = "hdr")]
-            Format::Hdr => Self::Hdr,
-            Format::Ico => Self::Ico,
+            Format::Hdr => Ok(Self::Hdr),
+            Format::Ico => Ok(Self::Ico),
             #[cfg(feature = "jpeg")]
-            Format::Jpeg => Self::Jpeg,
+            Format::Jpeg => Ok(Self::Jpeg),
             #[cfg(feature = "exr")]
-            Format::OpenExr => Self::OpenExr,
-            Format::Png => Self::Png,
+            Format::OpenExr => Ok(Self::OpenExr),
+            Format::Png => Ok(Self::Png),
             #[cfg(feature = "pnm")]
-            Format::Pnm => Self::Pnm,
+            Format::Pnm => Ok(Self::Pnm),
             #[cfg(feature = "qoi")]
-            Format::Qoi => Self::Qoi,
+            Format::Qoi => Ok(Self::Qoi),
             #[cfg(feature = "tga")]
-            Format::Tga => Self::Tga,
+            Format::Tga => Ok(Self::Tga),
             #[cfg(feature = "tiff")]
-            Format::Tiff => Self::Tiff,
+            Format::Tiff => Ok(Self::Tiff),
             #[cfg(feature = "webp")]
-            Format::WebP => Self::WebP,
+            Format::WebP => Ok(Self::WebP),
+            #[cfg(feature = "xbm")]
+            Format::Xbm => Err(Self::Error::Unsupported(
+                image::error::ImageFormatHint::Unknown.into(),
+            )),
         }
     }
 }
@@ -332,31 +342,75 @@ mod tests {
     }
 
     #[test]
-    fn from_format_to_image_format() {
-        assert_eq!(ImageFormat::from(Format::Bmp), ImageFormat::Bmp);
+    fn try_from_format_to_image_format() {
+        assert_eq!(
+            ImageFormat::try_from(Format::Bmp).unwrap(),
+            ImageFormat::Bmp
+        );
         #[cfg(feature = "dds")]
-        assert_eq!(ImageFormat::from(Format::Dds), ImageFormat::Dds);
+        assert_eq!(
+            ImageFormat::try_from(Format::Dds).unwrap(),
+            ImageFormat::Dds
+        );
         #[cfg(feature = "ff")]
-        assert_eq!(ImageFormat::from(Format::Farbfeld), ImageFormat::Farbfeld);
+        assert_eq!(
+            ImageFormat::try_from(Format::Farbfeld).unwrap(),
+            ImageFormat::Farbfeld
+        );
         #[cfg(feature = "gif")]
-        assert_eq!(ImageFormat::from(Format::Gif), ImageFormat::Gif);
+        assert_eq!(
+            ImageFormat::try_from(Format::Gif).unwrap(),
+            ImageFormat::Gif
+        );
         #[cfg(feature = "hdr")]
-        assert_eq!(ImageFormat::from(Format::Hdr), ImageFormat::Hdr);
-        assert_eq!(ImageFormat::from(Format::Ico), ImageFormat::Ico);
+        assert_eq!(
+            ImageFormat::try_from(Format::Hdr).unwrap(),
+            ImageFormat::Hdr
+        );
+        assert_eq!(
+            ImageFormat::try_from(Format::Ico).unwrap(),
+            ImageFormat::Ico
+        );
         #[cfg(feature = "jpeg")]
-        assert_eq!(ImageFormat::from(Format::Jpeg), ImageFormat::Jpeg);
+        assert_eq!(
+            ImageFormat::try_from(Format::Jpeg).unwrap(),
+            ImageFormat::Jpeg
+        );
         #[cfg(feature = "exr")]
-        assert_eq!(ImageFormat::from(Format::OpenExr), ImageFormat::OpenExr);
-        assert_eq!(ImageFormat::from(Format::Png), ImageFormat::Png);
+        assert_eq!(
+            ImageFormat::try_from(Format::OpenExr).unwrap(),
+            ImageFormat::OpenExr
+        );
+        assert_eq!(
+            ImageFormat::try_from(Format::Png).unwrap(),
+            ImageFormat::Png
+        );
         #[cfg(feature = "pnm")]
-        assert_eq!(ImageFormat::from(Format::Pnm), ImageFormat::Pnm);
+        assert_eq!(
+            ImageFormat::try_from(Format::Pnm).unwrap(),
+            ImageFormat::Pnm
+        );
         #[cfg(feature = "qoi")]
-        assert_eq!(ImageFormat::from(Format::Qoi), ImageFormat::Qoi);
+        assert_eq!(
+            ImageFormat::try_from(Format::Qoi).unwrap(),
+            ImageFormat::Qoi
+        );
         #[cfg(feature = "tga")]
-        assert_eq!(ImageFormat::from(Format::Tga), ImageFormat::Tga);
+        assert_eq!(
+            ImageFormat::try_from(Format::Tga).unwrap(),
+            ImageFormat::Tga
+        );
         #[cfg(feature = "tiff")]
-        assert_eq!(ImageFormat::from(Format::Tiff), ImageFormat::Tiff);
+        assert_eq!(
+            ImageFormat::try_from(Format::Tiff).unwrap(),
+            ImageFormat::Tiff
+        );
         #[cfg(feature = "webp")]
-        assert_eq!(ImageFormat::from(Format::WebP), ImageFormat::WebP);
+        assert_eq!(
+            ImageFormat::try_from(Format::WebP).unwrap(),
+            ImageFormat::WebP
+        );
+        #[cfg(feature = "xbm")]
+        assert!(ImageFormat::try_from(Format::Xbm).is_err());
     }
 }

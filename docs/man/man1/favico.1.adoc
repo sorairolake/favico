@@ -4,7 +4,7 @@
 
 = favico(1)
 // Specify in UTC.
-:docdate: 2024-09-20
+:docdate: 2024-10-29
 :doctype: manpage
 ifdef::revnumber[:mansource: favico {revnumber}]
 ifndef::revnumber[:mansource: favico]
@@ -51,6 +51,9 @@ ifdef::tiff,env-github,site-gen-antora[]
 endif::[]
 ifdef::webp,env-github,site-gen-antora[]
 :webp-url: https://developers.google.com/speed/webp/
+endif::[]
+ifdef::xbm,env-github,site-gen-antora[]
+:xbm-url: {enwp-article-url}/X_BitMap
 endif::[]
 :image-crates-url: https://crates.io/crates/image
 :css-color-url: https://www.w3.org/TR/css-color-4/
@@ -173,6 +176,9 @@ ifdef::tiff,env-github,site-gen-antora[]
 endif::[]
 ifdef::webp,env-github,site-gen-antora[]
 * {webp-url}[WebP]
+endif::[]
+ifdef::xbm,env-github,site-gen-antora[]
+* {xbm-url}[XBM]
 endif::[]
 
 Use *-t* option to specify the image format. If this option is not specified,
@@ -330,6 +336,12 @@ ifdef::webp,env-github,site-gen-antora[]
     *webp*::::
 
       WebP.
+endif::[]
+
+ifdef::xbm,env-github,site-gen-antora[]
+    *xbm*::::
+
+      X BitMap.
 endif::[]
 
 *-h*, *--help*::
