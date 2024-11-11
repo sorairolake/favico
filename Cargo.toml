@@ -20,7 +20,7 @@ include = ["/LICENSES", "/README.md", "/src"]
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-anyhow = "1.0.92"
+anyhow = "1.0.93"
 bat = { version = "0.24.0", default-features = false, features = ["regex-fancy"] }
 clap = { version = "4.5.20", features = ["derive", "wrap_help"] }
 clap_complete = "4.5.37"
