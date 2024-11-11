@@ -35,7 +35,7 @@ xbm = { version = "0.1.2", optional = true }
 [dev-dependencies]
 assert_cmd = "2.0.16"
 predicates = "3.1.2"
-tempfile = "3.13.0"
+tempfile = "3.14.0"
 
 [features]
 default = [
