@@ -30,7 +30,7 @@ image = { version = "0.25.5", default-features = false, features = ["bmp", "ico"
 indicatif = "0.17.9"
 serde_json = { version = "1.0.132", features = ["preserve_order"] }
 sysexits = "0.8.5"
-xbm = { version = "0.1.2", optional = true }
+xbm = { version = "0.1.3", optional = true }
 
 [dev-dependencies]
 assert_cmd = "2.0.16"
