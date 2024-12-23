@@ -29,7 +29,7 @@ const LONG_VERSION: &str = concat!(
 const AFTER_LONG_HELP: &str = "See `favico(1)` for more details.";
 
 #[derive(Debug, Parser)]
-#[allow(clippy::doc_markdown, clippy::struct_excessive_bools)]
+#[allow(clippy::doc_markdown)]
 #[command(
     version,
     long_version(LONG_VERSION),
