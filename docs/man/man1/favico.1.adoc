@@ -5,7 +5,7 @@
 = favico(1)
 // Specify in UTC.
 :docdate: 2025-01-07
-:revnumber: 0.1.8
+:revnumber: 0.1.9
 :doctype: manpage
 :mansource: favico {revnumber}
 :manmanual: General Commands Manual

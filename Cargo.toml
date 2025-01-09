@@ -4,10 +4,10 @@
 
 [package]
 name = "favico"
-version = "0.1.8"
+version = "0.1.9"
 authors = ["Shun Sakai <sorairolake@protonmail.ch>"]
 edition = "2021"
-rust-version = "1.74.0"
+rust-version = "1.81.0"
 description = "An utility for creating favicons"
 readme = "README.md"
 homepage = "https://sorairolake.github.io/favico/"
@@ -21,9 +21,9 @@ include = ["/LICENSES", "/README.md", "/src"]
 
 [dependencies]
 anyhow = "1.0.95"
-bat = { version = "0.24.0", default-features = false, features = ["regex-fancy"] }
-clap = { version = "4.5.23", features = ["derive", "wrap_help"] }
-clap_complete = "4.5.40"
+bat = { version = "0.25.0", default-features = false, features = ["regex-fancy"] }
+clap = { version = "4.5.24", features = ["derive", "wrap_help"] }
+clap_complete = "4.5.41"
 clap_complete_nushell = "4.5.5"
 csscolorparser = "0.7.0"
 image = { version = "0.25.5", default-features = false, features = ["bmp", "ico", "png", "rayon"] }
