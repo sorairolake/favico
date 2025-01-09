@@ -7,7 +7,7 @@
 == Prerequisites
 
 .To build *favico*, you will need the following dependencies
-* https://doc.rust-lang.org/stable/cargo/[Cargo] (v1.74.0 or later)
+* https://doc.rust-lang.org/stable/cargo/[Cargo] (v1.81.0 or later)
 
 .To build a man page, you will need the following additional dependencies
 * https://asciidoctor.org/[Asciidoctor]

@@ -4,10 +4,10 @@
 
 [package]
 name = "favico"
-version = "0.1.8"
+version = "0.1.9"
 authors = ["Shun Sakai <sorairolake@protonmail.ch>"]
 edition = "2021"
-rust-version = "1.74.0"
+rust-version = "1.81.0"
 description = "An utility for creating favicons"
 readme = "README.md"
 homepage = "https://sorairolake.github.io/favico/"
@@ -20,22 +20,22 @@ include = ["/LICENSES", "/README.md", "/src"]
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-anyhow = "1.0.91"
-bat = { version = "0.24.0", default-features = false, features = ["regex-fancy"] }
-clap = { version = "4.5.20", features = ["derive", "wrap_help"] }
-clap_complete = "4.5.36"
-clap_complete_nushell = "4.5.4"
+anyhow = "1.0.95"
+bat = { version = "0.25.0", default-features = false, features = ["regex-fancy"] }
+clap = { version = "4.5.24", features = ["derive", "wrap_help"] }
+clap_complete = "4.5.41"
+clap_complete_nushell = "4.5.5"
 csscolorparser = "0.7.0"
-image = { version = "0.25.4", default-features = false, features = ["bmp", "ico", "png", "rayon"] }
-indicatif = "0.17.8"
-serde_json = { version = "1.0.132", features = ["preserve_order"] }
-sysexits = "0.8.2"
-xbm = { version = "0.1.2", optional = true }
+image = { version = "0.25.5", default-features = false, features = ["bmp", "ico", "png", "rayon"] }
+indicatif = "0.17.9"
+serde_json = { version = "1.0.135", features = ["preserve_order"] }
+sysexits = "0.8.5"
+xbm = { version = "0.1.3", optional = true }
 
 [dev-dependencies]
 assert_cmd = "2.0.16"
-predicates = "3.1.2"
-tempfile = "3.13.0"
+predicates = "3.1.3"
+tempfile = "3.15.0"
 
 [features]
 default = [
