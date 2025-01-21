@@ -40,11 +40,11 @@ tempfile = "3.15.0"
 [features]
 default = [
   "dds",
+  "exr",
   "ff",
   "gif",
   "hdr",
   "jpeg",
-  "exr",
   "pnm",
   "qoi",
   "tga",
@@ -53,11 +53,11 @@ default = [
   "xbm",
 ]
 dds = ["image/dds"]
+exr = ["image/exr"]
 ff = ["image/ff"]
 gif = ["image/gif"]
 hdr = ["image/hdr"]
 jpeg = ["image/jpeg"]
-exr = ["image/exr"]
 pnm = ["image/pnm"]
 qoi = ["image/qoi"]
 tga = ["image/tga"]
