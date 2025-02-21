@@ -10,7 +10,7 @@ use std::{
 use clap::{CommandFactory, Parser, ValueEnum, ValueHint};
 use clap_complete::Generator;
 use csscolorparser::Color;
-use image::{imageops::FilterType, ImageError, ImageFormat};
+use image::{ImageError, ImageFormat, imageops::FilterType};
 
 const LONG_VERSION: &str = concat!(
     env!("CARGO_PKG_VERSION"),
@@ -116,9 +116,9 @@ pub struct Opt {
 
 impl Opt {
     /// Generates shell completion and print it.
-    pub fn print_completion(gen: impl Generator) {
+    pub fn print_completion(generator: impl Generator) {
         clap_complete::generate(
-            gen,
+            generator,
             &mut Self::command(),
             Self::command().get_name(),
             &mut io::stdout(),

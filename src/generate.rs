@@ -5,9 +5,9 @@
 use std::io::Cursor;
 
 use image::{
+    ColorType, DynamicImage, ImageFormat, ImageResult,
     codecs::ico::{IcoEncoder, IcoFrame},
     imageops::FilterType,
-    ColorType, DynamicImage, ImageFormat, ImageResult,
 };
 
 /// Creates favicons for Android.

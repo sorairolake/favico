@@ -60,9 +60,11 @@ fn set_theme_color_member_from_named_color() {
         .arg("data/input/input.png")
         .assert()
         .success();
-    assert!(fs::read_to_string(out_dir.join("site.webmanifest"))
-        .unwrap()
-        .contains(r##""theme_color": "#a52a2a","##));
+    assert!(
+        fs::read_to_string(out_dir.join("site.webmanifest"))
+            .unwrap()
+            .contains(r##""theme_color": "#a52a2a","##)
+    );
 }
 
 #[test]
@@ -79,9 +81,11 @@ fn set_background_color_member_from_named_color() {
         .arg("data/input/input.png")
         .assert()
         .success();
-    assert!(fs::read_to_string(out_dir.join("site.webmanifest"))
-        .unwrap()
-        .contains(r##""background_color": "#778899","##));
+    assert!(
+        fs::read_to_string(out_dir.join("site.webmanifest"))
+            .unwrap()
+            .contains(r##""background_color": "#778899","##)
+    );
 }
 
 #[test]
@@ -99,9 +103,11 @@ fn set_theme_color_member_from_hex_color() {
             .arg("data/input/input.png")
             .assert()
             .success();
-        assert!(fs::read_to_string(out_dir.join("site.webmanifest"))
-            .unwrap()
-            .contains(r##""theme_color": "#a52a2a","##));
+        assert!(
+            fs::read_to_string(out_dir.join("site.webmanifest"))
+                .unwrap()
+                .contains(r##""theme_color": "#a52a2a","##)
+        );
     }
     {
         let out_dir = tempfile::tempdir().unwrap();
@@ -116,9 +122,11 @@ fn set_theme_color_member_from_hex_color() {
             .arg("data/input/input.png")
             .assert()
             .success();
-        assert!(fs::read_to_string(out_dir.join("site.webmanifest"))
-            .unwrap()
-            .contains(r##""theme_color": "#a52a2a","##));
+        assert!(
+            fs::read_to_string(out_dir.join("site.webmanifest"))
+                .unwrap()
+                .contains(r##""theme_color": "#a52a2a","##)
+        );
     }
 }
 
@@ -137,9 +145,11 @@ fn set_background_color_member_from_hex_color() {
             .arg("data/input/input.png")
             .assert()
             .success();
-        assert!(fs::read_to_string(out_dir.join("site.webmanifest"))
-            .unwrap()
-            .contains(r##""background_color": "#778899","##));
+        assert!(
+            fs::read_to_string(out_dir.join("site.webmanifest"))
+                .unwrap()
+                .contains(r##""background_color": "#778899","##)
+        );
     }
     {
         let out_dir = tempfile::tempdir().unwrap();
@@ -154,9 +164,11 @@ fn set_background_color_member_from_hex_color() {
             .arg("data/input/input.png")
             .assert()
             .success();
-        assert!(fs::read_to_string(out_dir.join("site.webmanifest"))
-            .unwrap()
-            .contains(r##""background_color": "#778899","##));
+        assert!(
+            fs::read_to_string(out_dir.join("site.webmanifest"))
+                .unwrap()
+                .contains(r##""background_color": "#778899","##)
+        );
     }
 }
 
@@ -175,9 +187,11 @@ fn set_theme_color_member_from_hex_color_with_alpha() {
             .arg("data/input/input.png")
             .assert()
             .success();
-        assert!(fs::read_to_string(out_dir.join("site.webmanifest"))
-            .unwrap()
-            .contains(r##""theme_color": "#a52a2a7f","##));
+        assert!(
+            fs::read_to_string(out_dir.join("site.webmanifest"))
+                .unwrap()
+                .contains(r##""theme_color": "#a52a2a7f","##)
+        );
     }
     {
         let out_dir = tempfile::tempdir().unwrap();
@@ -192,9 +206,11 @@ fn set_theme_color_member_from_hex_color_with_alpha() {
             .arg("data/input/input.png")
             .assert()
             .success();
-        assert!(fs::read_to_string(out_dir.join("site.webmanifest"))
-            .unwrap()
-            .contains(r##""theme_color": "#a52a2a7f","##));
+        assert!(
+            fs::read_to_string(out_dir.join("site.webmanifest"))
+                .unwrap()
+                .contains(r##""theme_color": "#a52a2a7f","##)
+        );
     }
 }
 
@@ -213,9 +229,11 @@ fn set_background_color_member_from_hex_color_with_alpha() {
             .arg("data/input/input.png")
             .assert()
             .success();
-        assert!(fs::read_to_string(out_dir.join("site.webmanifest"))
-            .unwrap()
-            .contains(r##""background_color": "#7788997f","##));
+        assert!(
+            fs::read_to_string(out_dir.join("site.webmanifest"))
+                .unwrap()
+                .contains(r##""background_color": "#7788997f","##)
+        );
     }
     {
         let out_dir = tempfile::tempdir().unwrap();
@@ -230,9 +248,11 @@ fn set_background_color_member_from_hex_color_with_alpha() {
             .arg("data/input/input.png")
             .assert()
             .success();
-        assert!(fs::read_to_string(out_dir.join("site.webmanifest"))
-            .unwrap()
-            .contains(r##""background_color": "#7788997f","##));
+        assert!(
+            fs::read_to_string(out_dir.join("site.webmanifest"))
+                .unwrap()
+                .contains(r##""background_color": "#7788997f","##)
+        );
     }
 }
 
@@ -251,9 +271,11 @@ fn set_theme_color_member_from_hex_short_color() {
             .arg("data/input/input.png")
             .assert()
             .success();
-        assert!(fs::read_to_string(out_dir.join("site.webmanifest"))
-            .unwrap()
-            .contains(r##""theme_color": "#111111","##));
+        assert!(
+            fs::read_to_string(out_dir.join("site.webmanifest"))
+                .unwrap()
+                .contains(r##""theme_color": "#111111","##)
+        );
     }
     {
         let out_dir = tempfile::tempdir().unwrap();
@@ -268,9 +290,11 @@ fn set_theme_color_member_from_hex_short_color() {
             .arg("data/input/input.png")
             .assert()
             .success();
-        assert!(fs::read_to_string(out_dir.join("site.webmanifest"))
-            .unwrap()
-            .contains(r##""theme_color": "#111111","##));
+        assert!(
+            fs::read_to_string(out_dir.join("site.webmanifest"))
+                .unwrap()
+                .contains(r##""theme_color": "#111111","##)
+        );
     }
 }
 
@@ -289,9 +313,11 @@ fn set_background_color_member_from_hex_short_color() {
             .arg("data/input/input.png")
             .assert()
             .success();
-        assert!(fs::read_to_string(out_dir.join("site.webmanifest"))
-            .unwrap()
-            .contains(r##""background_color": "#eeeeee","##));
+        assert!(
+            fs::read_to_string(out_dir.join("site.webmanifest"))
+                .unwrap()
+                .contains(r##""background_color": "#eeeeee","##)
+        );
     }
     {
         let out_dir = tempfile::tempdir().unwrap();
@@ -306,9 +332,11 @@ fn set_background_color_member_from_hex_short_color() {
             .arg("data/input/input.png")
             .assert()
             .success();
-        assert!(fs::read_to_string(out_dir.join("site.webmanifest"))
-            .unwrap()
-            .contains(r##""background_color": "#eeeeee","##));
+        assert!(
+            fs::read_to_string(out_dir.join("site.webmanifest"))
+                .unwrap()
+                .contains(r##""background_color": "#eeeeee","##)
+        );
     }
 }
 
@@ -327,9 +355,11 @@ fn set_theme_color_member_from_short_hex_color_with_alpha() {
             .arg("data/input/input.png")
             .assert()
             .success();
-        assert!(fs::read_to_string(out_dir.join("site.webmanifest"))
-            .unwrap()
-            .contains(r##""theme_color": "#11111188","##));
+        assert!(
+            fs::read_to_string(out_dir.join("site.webmanifest"))
+                .unwrap()
+                .contains(r##""theme_color": "#11111188","##)
+        );
     }
     {
         let out_dir = tempfile::tempdir().unwrap();
@@ -344,9 +374,11 @@ fn set_theme_color_member_from_short_hex_color_with_alpha() {
             .arg("data/input/input.png")
             .assert()
             .success();
-        assert!(fs::read_to_string(out_dir.join("site.webmanifest"))
-            .unwrap()
-            .contains(r##""theme_color": "#11111188","##));
+        assert!(
+            fs::read_to_string(out_dir.join("site.webmanifest"))
+                .unwrap()
+                .contains(r##""theme_color": "#11111188","##)
+        );
     }
 }
 
@@ -365,9 +397,11 @@ fn set_background_color_member_from_short_hex_color_with_alpha() {
             .arg("data/input/input.png")
             .assert()
             .success();
-        assert!(fs::read_to_string(out_dir.join("site.webmanifest"))
-            .unwrap()
-            .contains(r##""background_color": "#eeeeee88","##));
+        assert!(
+            fs::read_to_string(out_dir.join("site.webmanifest"))
+                .unwrap()
+                .contains(r##""background_color": "#eeeeee88","##)
+        );
     }
     {
         let out_dir = tempfile::tempdir().unwrap();
@@ -382,9 +416,11 @@ fn set_background_color_member_from_short_hex_color_with_alpha() {
             .arg("data/input/input.png")
             .assert()
             .success();
-        assert!(fs::read_to_string(out_dir.join("site.webmanifest"))
-            .unwrap()
-            .contains(r##""background_color": "#eeeeee88","##));
+        assert!(
+            fs::read_to_string(out_dir.join("site.webmanifest"))
+                .unwrap()
+                .contains(r##""background_color": "#eeeeee88","##)
+        );
     }
 }
 
@@ -445,9 +481,11 @@ fn set_theme_color_member_from_rgb_color() {
             .arg("data/input/input.png")
             .assert()
             .success();
-        assert!(fs::read_to_string(out_dir.join("site.webmanifest"))
-            .unwrap()
-            .contains(r##""theme_color": "#a52a2a","##));
+        assert!(
+            fs::read_to_string(out_dir.join("site.webmanifest"))
+                .unwrap()
+                .contains(r##""theme_color": "#a52a2a","##)
+        );
     }
     {
         let out_dir = tempfile::tempdir().unwrap();
@@ -462,9 +500,11 @@ fn set_theme_color_member_from_rgb_color() {
             .arg("data/input/input.png")
             .assert()
             .success();
-        assert!(fs::read_to_string(out_dir.join("site.webmanifest"))
-            .unwrap()
-            .contains(r##""theme_color": "#a52a2a","##));
+        assert!(
+            fs::read_to_string(out_dir.join("site.webmanifest"))
+                .unwrap()
+                .contains(r##""theme_color": "#a52a2a","##)
+        );
     }
 }
 
@@ -483,9 +523,11 @@ fn set_background_color_member_from_rgb_color() {
             .arg("data/input/input.png")
             .assert()
             .success();
-        assert!(fs::read_to_string(out_dir.join("site.webmanifest"))
-            .unwrap()
-            .contains(r##""background_color": "#778899","##));
+        assert!(
+            fs::read_to_string(out_dir.join("site.webmanifest"))
+                .unwrap()
+                .contains(r##""background_color": "#778899","##)
+        );
     }
     {
         let out_dir = tempfile::tempdir().unwrap();
@@ -500,9 +542,11 @@ fn set_background_color_member_from_rgb_color() {
             .arg("data/input/input.png")
             .assert()
             .success();
-        assert!(fs::read_to_string(out_dir.join("site.webmanifest"))
-            .unwrap()
-            .contains(r##""background_color": "#778899","##));
+        assert!(
+            fs::read_to_string(out_dir.join("site.webmanifest"))
+                .unwrap()
+                .contains(r##""background_color": "#778899","##)
+        );
     }
 }
 
@@ -521,9 +565,11 @@ fn set_theme_color_member_from_rgb_color_with_alpha() {
             .arg("data/input/input.png")
             .assert()
             .success();
-        assert!(fs::read_to_string(out_dir.join("site.webmanifest"))
-            .unwrap()
-            .contains(r##""theme_color": "#a52a2a7f","##));
+        assert!(
+            fs::read_to_string(out_dir.join("site.webmanifest"))
+                .unwrap()
+                .contains(r##""theme_color": "#a52a2a7f","##)
+        );
     }
     {
         let out_dir = tempfile::tempdir().unwrap();
@@ -538,9 +584,11 @@ fn set_theme_color_member_from_rgb_color_with_alpha() {
             .arg("data/input/input.png")
             .assert()
             .success();
-        assert!(fs::read_to_string(out_dir.join("site.webmanifest"))
-            .unwrap()
-            .contains(r##""theme_color": "#a52a2a7f","##));
+        assert!(
+            fs::read_to_string(out_dir.join("site.webmanifest"))
+                .unwrap()
+                .contains(r##""theme_color": "#a52a2a7f","##)
+        );
     }
 }
 
@@ -559,9 +607,11 @@ fn set_background_color_member_from_rgb_color_with_alpha() {
             .arg("data/input/input.png")
             .assert()
             .success();
-        assert!(fs::read_to_string(out_dir.join("site.webmanifest"))
-            .unwrap()
-            .contains(r##""background_color": "#7788997f","##));
+        assert!(
+            fs::read_to_string(out_dir.join("site.webmanifest"))
+                .unwrap()
+                .contains(r##""background_color": "#7788997f","##)
+        );
     }
     {
         let out_dir = tempfile::tempdir().unwrap();
@@ -576,9 +626,11 @@ fn set_background_color_member_from_rgb_color_with_alpha() {
             .arg("data/input/input.png")
             .assert()
             .success();
-        assert!(fs::read_to_string(out_dir.join("site.webmanifest"))
-            .unwrap()
-            .contains(r##""background_color": "#7788997f","##));
+        assert!(
+            fs::read_to_string(out_dir.join("site.webmanifest"))
+                .unwrap()
+                .contains(r##""background_color": "#7788997f","##)
+        );
     }
 }
 
@@ -597,9 +649,11 @@ fn set_theme_color_member_from_rgba_color() {
             .arg("data/input/input.png")
             .assert()
             .success();
-        assert!(fs::read_to_string(out_dir.join("site.webmanifest"))
-            .unwrap()
-            .contains(r##""theme_color": "#a52a2a7f","##));
+        assert!(
+            fs::read_to_string(out_dir.join("site.webmanifest"))
+                .unwrap()
+                .contains(r##""theme_color": "#a52a2a7f","##)
+        );
     }
     {
         let out_dir = tempfile::tempdir().unwrap();
@@ -614,9 +668,11 @@ fn set_theme_color_member_from_rgba_color() {
             .arg("data/input/input.png")
             .assert()
             .success();
-        assert!(fs::read_to_string(out_dir.join("site.webmanifest"))
-            .unwrap()
-            .contains(r##""theme_color": "#a52a2a7f","##));
+        assert!(
+            fs::read_to_string(out_dir.join("site.webmanifest"))
+                .unwrap()
+                .contains(r##""theme_color": "#a52a2a7f","##)
+        );
     }
 }
 
@@ -635,9 +691,11 @@ fn set_background_color_member_from_rgba_color() {
             .arg("data/input/input.png")
             .assert()
             .success();
-        assert!(fs::read_to_string(out_dir.join("site.webmanifest"))
-            .unwrap()
-            .contains(r##""background_color": "#7788997f","##));
+        assert!(
+            fs::read_to_string(out_dir.join("site.webmanifest"))
+                .unwrap()
+                .contains(r##""background_color": "#7788997f","##)
+        );
     }
     {
         let out_dir = tempfile::tempdir().unwrap();
@@ -652,9 +710,11 @@ fn set_background_color_member_from_rgba_color() {
             .arg("data/input/input.png")
             .assert()
             .success();
-        assert!(fs::read_to_string(out_dir.join("site.webmanifest"))
-            .unwrap()
-            .contains(r##""background_color": "#7788997f","##));
+        assert!(
+            fs::read_to_string(out_dir.join("site.webmanifest"))
+                .unwrap()
+                .contains(r##""background_color": "#7788997f","##)
+        );
     }
 }
 
@@ -715,9 +775,11 @@ fn set_theme_color_member_from_hsl_color() {
             .arg("data/input/input.png")
             .assert()
             .success();
-        assert!(fs::read_to_string(out_dir.join("site.webmanifest"))
-            .unwrap()
-            .contains(r##""theme_color": "#473d8b","##));
+        assert!(
+            fs::read_to_string(out_dir.join("site.webmanifest"))
+                .unwrap()
+                .contains(r##""theme_color": "#473d8b","##)
+        );
     }
     {
         let out_dir = tempfile::tempdir().unwrap();
@@ -732,9 +794,11 @@ fn set_theme_color_member_from_hsl_color() {
             .arg("data/input/input.png")
             .assert()
             .success();
-        assert!(fs::read_to_string(out_dir.join("site.webmanifest"))
-            .unwrap()
-            .contains(r##""theme_color": "#473d8b","##));
+        assert!(
+            fs::read_to_string(out_dir.join("site.webmanifest"))
+                .unwrap()
+                .contains(r##""theme_color": "#473d8b","##)
+        );
     }
 }
 
@@ -753,9 +817,11 @@ fn set_background_color_member_from_hsl_color() {
             .arg("data/input/input.png")
             .assert()
             .success();
-        assert!(fs::read_to_string(out_dir.join("site.webmanifest"))
-            .unwrap()
-            .contains(r##""background_color": "#a9a9a9","##));
+        assert!(
+            fs::read_to_string(out_dir.join("site.webmanifest"))
+                .unwrap()
+                .contains(r##""background_color": "#a9a9a9","##)
+        );
     }
     {
         let out_dir = tempfile::tempdir().unwrap();
@@ -770,9 +836,11 @@ fn set_background_color_member_from_hsl_color() {
             .arg("data/input/input.png")
             .assert()
             .success();
-        assert!(fs::read_to_string(out_dir.join("site.webmanifest"))
-            .unwrap()
-            .contains(r##""background_color": "#a9a9a9","##));
+        assert!(
+            fs::read_to_string(out_dir.join("site.webmanifest"))
+                .unwrap()
+                .contains(r##""background_color": "#a9a9a9","##)
+        );
     }
 }
 
@@ -791,9 +859,11 @@ fn set_theme_color_member_from_hsl_color_with_alpha() {
             .arg("data/input/input.png")
             .assert()
             .success();
-        assert!(fs::read_to_string(out_dir.join("site.webmanifest"))
-            .unwrap()
-            .contains(r##""theme_color": "#473d8b7f","##));
+        assert!(
+            fs::read_to_string(out_dir.join("site.webmanifest"))
+                .unwrap()
+                .contains(r##""theme_color": "#473d8b7f","##)
+        );
     }
     {
         let out_dir = tempfile::tempdir().unwrap();
@@ -808,9 +878,11 @@ fn set_theme_color_member_from_hsl_color_with_alpha() {
             .arg("data/input/input.png")
             .assert()
             .success();
-        assert!(fs::read_to_string(out_dir.join("site.webmanifest"))
-            .unwrap()
-            .contains(r##""theme_color": "#473d8b7f","##));
+        assert!(
+            fs::read_to_string(out_dir.join("site.webmanifest"))
+                .unwrap()
+                .contains(r##""theme_color": "#473d8b7f","##)
+        );
     }
 }
 
@@ -829,9 +901,11 @@ fn set_background_color_member_from_hsl_color_with_alpha() {
             .arg("data/input/input.png")
             .assert()
             .success();
-        assert!(fs::read_to_string(out_dir.join("site.webmanifest"))
-            .unwrap()
-            .contains(r##""background_color": "#a9a9a97f","##));
+        assert!(
+            fs::read_to_string(out_dir.join("site.webmanifest"))
+                .unwrap()
+                .contains(r##""background_color": "#a9a9a97f","##)
+        );
     }
     {
         let out_dir = tempfile::tempdir().unwrap();
@@ -846,9 +920,11 @@ fn set_background_color_member_from_hsl_color_with_alpha() {
             .arg("data/input/input.png")
             .assert()
             .success();
-        assert!(fs::read_to_string(out_dir.join("site.webmanifest"))
-            .unwrap()
-            .contains(r##""background_color": "#a9a9a97f","##));
+        assert!(
+            fs::read_to_string(out_dir.join("site.webmanifest"))
+                .unwrap()
+                .contains(r##""background_color": "#a9a9a97f","##)
+        );
     }
 }
 
@@ -867,9 +943,11 @@ fn set_theme_color_member_from_hsla_color() {
             .arg("data/input/input.png")
             .assert()
             .success();
-        assert!(fs::read_to_string(out_dir.join("site.webmanifest"))
-            .unwrap()
-            .contains(r##""theme_color": "#473d8b7f","##));
+        assert!(
+            fs::read_to_string(out_dir.join("site.webmanifest"))
+                .unwrap()
+                .contains(r##""theme_color": "#473d8b7f","##)
+        );
     }
     {
         let out_dir = tempfile::tempdir().unwrap();
@@ -884,9 +962,11 @@ fn set_theme_color_member_from_hsla_color() {
             .arg("data/input/input.png")
             .assert()
             .success();
-        assert!(fs::read_to_string(out_dir.join("site.webmanifest"))
-            .unwrap()
-            .contains(r##""theme_color": "#473d8b7f","##));
+        assert!(
+            fs::read_to_string(out_dir.join("site.webmanifest"))
+                .unwrap()
+                .contains(r##""theme_color": "#473d8b7f","##)
+        );
     }
 }
 
@@ -905,9 +985,11 @@ fn set_background_color_member_from_hsla_color() {
             .arg("data/input/input.png")
             .assert()
             .success();
-        assert!(fs::read_to_string(out_dir.join("site.webmanifest"))
-            .unwrap()
-            .contains(r##""background_color": "#a9a9a97f","##));
+        assert!(
+            fs::read_to_string(out_dir.join("site.webmanifest"))
+                .unwrap()
+                .contains(r##""background_color": "#a9a9a97f","##)
+        );
     }
     {
         let out_dir = tempfile::tempdir().unwrap();
@@ -922,9 +1004,11 @@ fn set_background_color_member_from_hsla_color() {
             .arg("data/input/input.png")
             .assert()
             .success();
-        assert!(fs::read_to_string(out_dir.join("site.webmanifest"))
-            .unwrap()
-            .contains(r##""background_color": "#a9a9a97f","##));
+        assert!(
+            fs::read_to_string(out_dir.join("site.webmanifest"))
+                .unwrap()
+                .contains(r##""background_color": "#a9a9a97f","##)
+        );
     }
 }
 
@@ -984,9 +1068,11 @@ fn set_theme_color_member_from_hwb_color() {
         .arg("data/input/input.png")
         .assert()
         .success();
-    assert!(fs::read_to_string(out_dir.join("site.webmanifest"))
-        .unwrap()
-        .contains(r##""theme_color": "#ffd700","##));
+    assert!(
+        fs::read_to_string(out_dir.join("site.webmanifest"))
+            .unwrap()
+            .contains(r##""theme_color": "#ffd700","##)
+    );
 }
 
 #[test]
@@ -1003,9 +1089,11 @@ fn set_background_color_member_from_hwb_color() {
         .arg("data/input/input.png")
         .assert()
         .success();
-    assert!(fs::read_to_string(out_dir.join("site.webmanifest"))
-        .unwrap()
-        .contains(r##""background_color": "#a9a9a9","##));
+    assert!(
+        fs::read_to_string(out_dir.join("site.webmanifest"))
+            .unwrap()
+            .contains(r##""background_color": "#a9a9a9","##)
+    );
 }
 
 #[test]
@@ -1022,9 +1110,11 @@ fn set_theme_color_member_from_hwb_color_with_alpha() {
         .arg("data/input/input.png")
         .assert()
         .success();
-    assert!(fs::read_to_string(out_dir.join("site.webmanifest"))
-        .unwrap()
-        .contains(r##""theme_color": "#ffd7007f","##));
+    assert!(
+        fs::read_to_string(out_dir.join("site.webmanifest"))
+            .unwrap()
+            .contains(r##""theme_color": "#ffd7007f","##)
+    );
 }
 
 #[test]
@@ -1041,9 +1131,11 @@ fn set_background_color_member_from_hwb_color_with_alpha() {
         .arg("data/input/input.png")
         .assert()
         .success();
-    assert!(fs::read_to_string(out_dir.join("site.webmanifest"))
-        .unwrap()
-        .contains(r##""background_color": "#a9a9a97f","##));
+    assert!(
+        fs::read_to_string(out_dir.join("site.webmanifest"))
+            .unwrap()
+            .contains(r##""background_color": "#a9a9a97f","##)
+    );
 }
 
 #[test]
@@ -1102,9 +1194,11 @@ fn set_theme_color_member_from_oklab_color() {
         .arg("data/input/input.png")
         .assert()
         .success();
-    assert!(fs::read_to_string(out_dir.join("site.webmanifest"))
-        .unwrap()
-        .contains(r##""theme_color": "#0f7562","##));
+    assert!(
+        fs::read_to_string(out_dir.join("site.webmanifest"))
+            .unwrap()
+            .contains(r##""theme_color": "#0f7562","##)
+    );
 }
 
 #[test]
@@ -1121,9 +1215,11 @@ fn set_background_color_member_from_oklab_color() {
         .arg("data/input/input.png")
         .assert()
         .success();
-    assert!(fs::read_to_string(out_dir.join("site.webmanifest"))
-        .unwrap()
-        .contains(r##""background_color": "#778899","##));
+    assert!(
+        fs::read_to_string(out_dir.join("site.webmanifest"))
+            .unwrap()
+            .contains(r##""background_color": "#778899","##)
+    );
 }
 
 #[test]
@@ -1140,9 +1236,11 @@ fn set_theme_color_member_from_oklab_color_with_alpha() {
         .arg("data/input/input.png")
         .assert()
         .success();
-    assert!(fs::read_to_string(out_dir.join("site.webmanifest"))
-        .unwrap()
-        .contains(r##""theme_color": "#0f756280","##));
+    assert!(
+        fs::read_to_string(out_dir.join("site.webmanifest"))
+            .unwrap()
+            .contains(r##""theme_color": "#0f756280","##)
+    );
 }
 
 #[test]
@@ -1159,9 +1257,11 @@ fn set_background_color_member_from_oklab_color_with_alpha() {
         .arg("data/input/input.png")
         .assert()
         .success();
-    assert!(fs::read_to_string(out_dir.join("site.webmanifest"))
-        .unwrap()
-        .contains(r##""background_color": "#77889980","##));
+    assert!(
+        fs::read_to_string(out_dir.join("site.webmanifest"))
+            .unwrap()
+            .contains(r##""background_color": "#77889980","##)
+    );
 }
 
 #[test]
@@ -1220,9 +1320,11 @@ fn set_theme_color_member_from_oklch_color() {
         .arg("data/input/input.png")
         .assert()
         .success();
-    assert!(fs::read_to_string(out_dir.join("site.webmanifest"))
-        .unwrap()
-        .contains(r##""theme_color": "#9063cd","##));
+    assert!(
+        fs::read_to_string(out_dir.join("site.webmanifest"))
+            .unwrap()
+            .contains(r##""theme_color": "#9063cd","##)
+    );
 }
 
 #[test]
@@ -1239,9 +1341,11 @@ fn set_background_color_member_from_oklch_color() {
         .arg("data/input/input.png")
         .assert()
         .success();
-    assert!(fs::read_to_string(out_dir.join("site.webmanifest"))
-        .unwrap()
-        .contains(r##""background_color": "#778899","##));
+    assert!(
+        fs::read_to_string(out_dir.join("site.webmanifest"))
+            .unwrap()
+            .contains(r##""background_color": "#778899","##)
+    );
 }
 
 #[test]
@@ -1258,9 +1362,11 @@ fn set_theme_color_member_from_oklch_color_with_alpha() {
         .arg("data/input/input.png")
         .assert()
         .success();
-    assert!(fs::read_to_string(out_dir.join("site.webmanifest"))
-        .unwrap()
-        .contains(r##""theme_color": "#9063cd7f","##));
+    assert!(
+        fs::read_to_string(out_dir.join("site.webmanifest"))
+            .unwrap()
+            .contains(r##""theme_color": "#9063cd7f","##)
+    );
 }
 
 #[test]
@@ -1277,9 +1383,11 @@ fn set_background_color_member_from_oklch_color_with_alpha() {
         .arg("data/input/input.png")
         .assert()
         .success();
-    assert!(fs::read_to_string(out_dir.join("site.webmanifest"))
-        .unwrap()
-        .contains(r##""background_color": "#7788997f","##));
+    assert!(
+        fs::read_to_string(out_dir.join("site.webmanifest"))
+            .unwrap()
+            .contains(r##""background_color": "#7788997f","##)
+    );
 }
 
 #[test]
