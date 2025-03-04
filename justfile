@@ -2,11 +2,11 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-alias all := default
 alias lint := clippy
 
 # Run default recipe
-default: build
+@_default:
+    just -l
 
 # Build a package
 @build:
