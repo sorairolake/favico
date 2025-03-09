@@ -9,7 +9,6 @@
 :doctype: manpage
 :mansource: favico {revnumber}
 :manmanual: General Commands Manual
-ifndef::site-gen-antora[:includedir: ./include]
 :enwp-url: https://en.wikipedia.org
 :enwp-article-url: {enwp-url}/wiki
 :png-url: {enwp-article-url}/PNG
@@ -33,6 +32,7 @@ ifndef::site-gen-antora[:includedir: ./include]
 :xbm-url: {enwp-article-url}/X_BitMap
 :image-crates-url: https://crates.io/crates/image
 :css-color-url: https://www.w3.org/TR/css-color-4/
+:repo-url: https://github.com/sorairolake/favico
 
 == NAME
 
@@ -324,14 +324,49 @@ _IMAGE_::
 
       Zsh.
 
-ifndef::site-gen-antora[include::{includedir}/section-exit-status.adoc[]]
-ifdef::site-gen-antora[include::partial$man/man1/include/section-exit-status.adoc[]]
+== EXIT STATUS
+
+*0*::
+
+  Successful program execution.
+
+*1*::
+
+  An error occurred.
+
+*2*::
+
+  An error occurred while parsing command-line arguments.
+
+*65*::
+
+  The input data was incorrect in some way.
+
+*66*::
+
+  An input file did not exist or was not readable.
+
+*69*::
+
+  A service is unavailable.
+
+*71*::
+
+  An operating system error has been detected.
+
+*74*::
+
+  An error occurred while doing I/O on some file.
+
+*77*::
+
+  You did not have sufficient permission to perform the operation.
 
 == NOTES
 
 Source repository:{blank}::
 
-  https://github.com/sorairolake/favico
+  {repo-url}
 
 == EXAMPLES
 
@@ -355,11 +390,23 @@ Generate favicons from a WebP image:{blank}::
 
   $ *favico -f webp input.webp*
 
-ifndef::site-gen-antora[include::{includedir}/section-reporting-bugs.adoc[]]
-ifdef::site-gen-antora[include::partial$man/man1/include/section-reporting-bugs.adoc[]]
+== REPORTING BUGS
 
-ifndef::site-gen-antora[include::{includedir}/section-copyright.adoc[]]
-ifdef::site-gen-antora[include::partial$man/man1/include/section-copyright.adoc[]]
+Report bugs to:{blank}::
+
+  {repo-url}/issues
+
+== COPYRIGHT
+
+Copyright (C) 2024 Shun Sakai
+
+. This program is distributed under the terms of the GNU General Public License
+  v3.0 or later.
+. This manual page is distributed under the terms of the Creative Commons
+  Attribution 4.0 International Public License.
+
+This is free software: you are free to change and redistribute it. There is NO
+WARRANTY, to the extent permitted by law.
 
 == SEE ALSO
 
