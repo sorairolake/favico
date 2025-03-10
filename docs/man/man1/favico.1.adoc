@@ -4,7 +4,7 @@
 
 = favico(1)
 // Specify in UTC.
-:docdate: 2025-01-07
+:docdate: 2025-03-10
 :revnumber: 0.1.9
 :doctype: manpage
 :mansource: favico {revnumber}
@@ -32,6 +32,7 @@
 :xbm-url: {enwp-article-url}/X_BitMap
 :image-crates-url: https://crates.io/crates/image
 :css-color-url: https://www.w3.org/TR/css-color-4/
+:sysexits-man-page-url: https://man.openbsd.org/sysexits
 :repo-url: https://github.com/sorairolake/favico
 
 == NAME
@@ -338,29 +339,8 @@ _IMAGE_::
 
   An error occurred while parsing command-line arguments.
 
-*65*::
-
-  The input data was incorrect in some way.
-
-*66*::
-
-  An input file did not exist or was not readable.
-
-*69*::
-
-  A service is unavailable.
-
-*71*::
-
-  An operating system error has been detected.
-
-*74*::
-
-  An error occurred while doing I/O on some file.
-
-*77*::
-
-  You did not have sufficient permission to perform the operation.
+Exit statuses other than these are defined by
+{sysexits-man-page-url}[`<sysexits.h>`].
 
 == NOTES
 
