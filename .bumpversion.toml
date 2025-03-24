@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 [tool.bumpversion]
-current_version = "0.1.9"
+current_version = "0.1.10"
 
 [[tool.bumpversion.files]]
 filename = "docs/man/man1/favico.1.adoc"
