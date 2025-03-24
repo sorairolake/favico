@@ -7,7 +7,7 @@
 == Prerequisites
 
 .To build *favico*, you will need the following dependencies
-* https://doc.rust-lang.org/stable/cargo/[Cargo] (v1.81.0 or later)
+* https://doc.rust-lang.org/stable/cargo/[Cargo] (v1.85.0 or later)
 
 .To build a man page, you will need the following additional dependencies
 * https://asciidoctor.org/[Asciidoctor]
@@ -39,6 +39,10 @@ fd -t directory out ./target/*/build/favico-*
 
   Enable generating from the DDS image. This is enabled by default.
 
+`exr`::
+
+  Enable generating from the OpenEXR image. This is enabled by default.
+
 `ff`::
 
   Enable generating from the Farbfeld image. This is enabled by default.
@@ -54,10 +58,6 @@ fd -t directory out ./target/*/build/favico-*
 `jpeg`::
 
   Enable generating from the JPEG image. This is enabled by default.
-
-`exr`::
-
-  Enable generating from the OpenEXR image. This is enabled by default.
 
 `pnm`::
 

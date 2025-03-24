@@ -8,7 +8,7 @@ use std::{
     time::Duration,
 };
 
-use anyhow::{bail, Context};
+use anyhow::{Context, bail};
 use bat::PrettyPrinter;
 use clap::Parser;
 use image::ImageFormat;

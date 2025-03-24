@@ -2,9 +2,10 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-edition = "2021"
+edition = "2024"
 format_code_in_doc_comments = true
 format_macro_matchers = true
 group_imports = "StdExternalCrate"
 imports_granularity = "Crate"
+style_edition = "2024"
 wrap_comments = true
