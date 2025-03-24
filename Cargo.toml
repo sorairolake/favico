@@ -4,7 +4,7 @@
 
 [package]
 name = "favico"
-version = "0.1.9"
+version = "0.1.10"
 authors = ["Shun Sakai <sorairolake@protonmail.ch>"]
 edition = "2024"
 rust-version = "1.85.0"
