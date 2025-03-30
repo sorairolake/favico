@@ -1,0 +1,28 @@
+# SPDX-FileCopyrightText: 2025 Shun Sakai
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+settings:
+  width: 120
+  height: 30
+  title: favico demo
+
+instructions:
+  - !Command
+    command: rsync -ac ../tests/data/input/input.webp .
+    hidden: true
+
+  - !Marker Basic usage
+  - !Command
+    command: favico -o output input.webp
+  - !Wait 1s
+  - !Command
+    command: eza -T output
+  - !Wait 1s
+  - !Command
+    command: file output/*
+  - !Wait 3s
+
+  - !Command
+    command: git clean -df
+    hidden: true
