@@ -58,25 +58,3 @@ fn generate_completion_with_invalid_shell() {
             "invalid value 'a' for '--generate-completion <SHELL>'",
         ));
 }
-
-#[test]
-fn long_version() {
-    utils::command::command()
-        .arg("--version")
-        .assert()
-        .success()
-        .stdout(predicate::str::contains(include_str!(
-            "assets/long-version.md"
-        )));
-}
-
-#[test]
-fn after_long_help() {
-    utils::command::command()
-        .arg("--help")
-        .assert()
-        .success()
-        .stdout(predicate::str::contains(include_str!(
-            "assets/after-long-help.md"
-        )));
-}

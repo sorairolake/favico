@@ -4,7 +4,7 @@
 
 = favico(1)
 // Specify in UTC.
-:docdate: 2025-03-10
+:docdate: 2025-05-12
 :revnumber: 0.1.10
 :doctype: manpage
 :mansource: favico {revnumber}
@@ -292,8 +292,7 @@ _IMAGE_::
 
 *-V*, *--version*::
 
-  Print version number. The long flag (*--version*) will also print the
-  copyright notice, the license notice and where to report bugs.
+  Print version number.
 
 *--generate-completion* _SHELL_::
 

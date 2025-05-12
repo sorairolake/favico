@@ -12,32 +12,9 @@ use clap_complete::Generator;
 use csscolorparser::Color;
 use image::{ImageError, ImageFormat, imageops::FilterType};
 
-const LONG_VERSION: &str = concat!(
-    env!("CARGO_PKG_VERSION"),
-    '\n',
-    "Copyright (C) 2024 Shun Sakai\n",
-    '\n',
-    "This program is distributed under the terms of the GNU General Public License\n",
-    "v3.0 or later.\n",
-    '\n',
-    "This is free software: you are free to change and redistribute it. There is NO\n",
-    "WARRANTY, to the extent permitted by law.\n",
-    '\n',
-    "Report bugs to <https://github.com/sorairolake/favico/issues>."
-);
-
-const AFTER_LONG_HELP: &str = "See `favico(1)` for more details.";
-
 #[derive(Debug, Parser)]
 #[allow(clippy::doc_markdown)]
-#[command(
-    version,
-    long_version(LONG_VERSION),
-    about,
-    max_term_width(100),
-    after_long_help(AFTER_LONG_HELP),
-    arg_required_else_help(true)
-)]
+#[command(version, about, max_term_width(100), arg_required_else_help(true))]
 pub struct Opt {
     /// Directory to output generated files.
     ///
