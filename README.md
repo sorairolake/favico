@@ -115,7 +115,7 @@ licensing information.
 [license-badge]: https://img.shields.io/crates/l/favico?style=for-the-badge
 [release page]: https://github.com/sorairolake/favico/releases
 [BUILD.adoc]: BUILD.adoc
-[`favico(1)`]: https://sorairolake.github.io/favico/book/man/man1/favico.1.html
+[`favico(1)`]: docs/man/man1/favico.1.adoc
 [CHANGELOG.adoc]: CHANGELOG.adoc
 [CONTRIBUTING.adoc]: CONTRIBUTING.adoc
 [AUTHORS.adoc]: AUTHORS.adoc
