@@ -33,7 +33,7 @@ pub struct Opt {
     pub png: bool,
 
     /// Set the name member of the web app manifest.
-    #[arg(long, default_value_t, value_name("NAME"))]
+    #[arg(long, default_value_t)]
     pub name: String,
 
     /// Set the short_name member of the web app manifest.
@@ -57,20 +57,14 @@ pub struct Opt {
     pub background_color: Color,
 
     /// Sampling filter used to resize the input image.
-    #[arg(
-        long,
-        value_enum,
-        default_value_t,
-        value_name("FILTER"),
-        ignore_case(true)
-    )]
+    #[arg(long, value_enum, default_value_t, ignore_case(true))]
     pub filter: Filter,
 
     /// The format of the input.
     ///
     /// If <FORMAT> is not specified, the format is determined based on the
     /// extension or the magic number.
-    #[arg(short, long, value_enum, value_name("FORMAT"), ignore_case(true))]
+    #[arg(short, long, value_enum, ignore_case(true))]
     pub format: Option<Format>,
 
     /// Generate shell completion.
