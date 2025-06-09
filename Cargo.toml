@@ -23,7 +23,7 @@ bat = { version = "0.25.0", default-features = false, features = ["regex-fancy"]
 clap = { version = "4.5.39", features = ["derive", "wrap_help"] }
 clap_complete = "4.5.50"
 clap_complete_nushell = "4.5.6"
-csscolorparser = "0.7.1"
+csscolorparser = "0.7.2"
 image = { version = "0.25.6", default-features = false, features = ["bmp", "ico", "png", "rayon"] }
 indicatif = "0.17.11"
 serde_json = { version = "1.0.140", features = ["preserve_order"] }
