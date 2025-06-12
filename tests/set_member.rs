@@ -736,7 +736,7 @@ fn set_theme_color_member_from_invalid_rgb_color() {
         .stderr(predicate::str::contains(
             "invalid value 'rgb(0)' for '--theme-color <COLOR>'",
         ))
-        .stderr(predicate::str::contains("invalid rgb format"));
+        .stderr(predicate::str::contains("invalid color function"));
 }
 
 #[test]
@@ -757,7 +757,7 @@ fn set_background_color_member_from_invalid_rgb_color() {
         .stderr(predicate::str::contains(
             "invalid value 'rgb(0)' for '--background-color <COLOR>'",
         ))
-        .stderr(predicate::str::contains("invalid rgb format"));
+        .stderr(predicate::str::contains("invalid color function"));
 }
 
 #[test]
@@ -1030,7 +1030,7 @@ fn set_theme_color_member_from_invalid_hsl_color() {
         .stderr(predicate::str::contains(
             "invalid value 'hsl(0)' for '--theme-color <COLOR>'",
         ))
-        .stderr(predicate::str::contains("invalid hsl format"));
+        .stderr(predicate::str::contains("invalid color function"));
 }
 
 #[test]
@@ -1051,7 +1051,7 @@ fn set_background_color_member_from_invalid_hsl_color() {
         .stderr(predicate::str::contains(
             "invalid value 'hsl(0)' for '--background-color <COLOR>'",
         ))
-        .stderr(predicate::str::contains("invalid hsl format"));
+        .stderr(predicate::str::contains("invalid color function"));
 }
 
 #[test]
@@ -1156,7 +1156,7 @@ fn set_theme_color_member_from_invalid_hwb_color() {
         .stderr(predicate::str::contains(
             "invalid value 'hwb(0)' for '--theme-color <COLOR>'",
         ))
-        .stderr(predicate::str::contains("invalid hwb format"));
+        .stderr(predicate::str::contains("invalid color function"));
 }
 
 #[test]
@@ -1177,7 +1177,7 @@ fn set_background_color_member_from_invalid_hwb_color() {
         .stderr(predicate::str::contains(
             "invalid value 'hwb(0)' for '--background-color <COLOR>'",
         ))
-        .stderr(predicate::str::contains("invalid hwb format"));
+        .stderr(predicate::str::contains("invalid color function"));
 }
 
 #[test]
@@ -1282,7 +1282,7 @@ fn set_theme_color_member_from_invalid_oklab_color() {
         .stderr(predicate::str::contains(
             "invalid value 'oklab(0)' for '--theme-color <COLOR>'",
         ))
-        .stderr(predicate::str::contains("invalid oklab format"));
+        .stderr(predicate::str::contains("invalid color function"));
 }
 
 #[test]
@@ -1303,7 +1303,7 @@ fn set_background_color_member_from_invalid_oklab_color() {
         .stderr(predicate::str::contains(
             "invalid value 'oklab(0)' for '--background-color <COLOR>'",
         ))
-        .stderr(predicate::str::contains("invalid oklab format"));
+        .stderr(predicate::str::contains("invalid color function"));
 }
 
 #[test]
@@ -1408,7 +1408,7 @@ fn set_theme_color_member_from_invalid_oklch_color() {
         .stderr(predicate::str::contains(
             "invalid value 'oklch(0)' for '--theme-color <COLOR>'",
         ))
-        .stderr(predicate::str::contains("invalid oklch format"));
+        .stderr(predicate::str::contains("invalid color function"));
 }
 
 #[test]
@@ -1429,7 +1429,7 @@ fn set_background_color_member_from_invalid_oklch_color() {
         .stderr(predicate::str::contains(
             "invalid value 'oklch(0)' for '--background-color <COLOR>'",
         ))
-        .stderr(predicate::str::contains("invalid oklch format"));
+        .stderr(predicate::str::contains("invalid color function"));
 }
 
 #[test]

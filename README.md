@@ -1,7 +1,7 @@
 <!--
 SPDX-FileCopyrightText: 2024 Shun Sakai
 
-SPDX-License-Identifier: GPL-3.0-or-later
+SPDX-License-Identifier: CC-BY-4.0
 -->
 
 # favico
@@ -13,7 +13,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 **favico** is a command-line utility for creating favicons.
 
-![Screenshot of favico](assets/screenshot.webp)
+![Demo animation](assets/demo.gif)
 
 ## Installation
 
@@ -82,11 +82,6 @@ Please see the following:
 The upstream repository is available at
 <https://github.com/sorairolake/favico.git>.
 
-The source code is also available at:
-
-- <https://gitlab.com/sorairolake/favico.git>
-- <https://codeberg.org/sorairolake/favico.git>
-
 ## Changelog
 
 Please see [CHANGELOG.adoc].
@@ -120,7 +115,7 @@ licensing information.
 [license-badge]: https://img.shields.io/crates/l/favico?style=for-the-badge
 [release page]: https://github.com/sorairolake/favico/releases
 [BUILD.adoc]: BUILD.adoc
-[`favico(1)`]: https://sorairolake.github.io/favico/book/man/man1/favico.1.html
+[`favico(1)`]: docs/man/man1/favico.1.adoc
 [CHANGELOG.adoc]: CHANGELOG.adoc
 [CONTRIBUTING.adoc]: CONTRIBUTING.adoc
 [AUTHORS.adoc]: AUTHORS.adoc

@@ -1,6 +1,6 @@
 // SPDX-FileCopyrightText: 2024 Shun Sakai
 //
-// SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: CC-BY-4.0
 
 = Changelog
 :toc: preamble
@@ -13,6 +13,18 @@ All notable changes to this project will be documented in this file.
 
 The format is based on https://keepachangelog.com/[Keep a Changelog], and this
 project adheres to https://semver.org/[Semantic Versioning].
+
+== {compare-url}/v0.1.10\...v0.1.11[0.1.11] - 2025-06-12
+
+=== Changed
+
+* Restore demo animation ({pull-request-url}/281[#281])
+* Change the license for documents and assets to CC BY 4.0
+  ({pull-request-url}/292[#292])
+* Remove help text for after auto-generated `--help`
+  ({pull-request-url}/302[#302])
+* Make the message for `--version` the same as the message for `-V`
+  ({pull-request-url}/302[#302])
 
 == {compare-url}/v0.1.9\...v0.1.10[0.1.10] - 2025-03-24
 

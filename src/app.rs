@@ -105,8 +105,8 @@ pub fn run() -> anyhow::Result<()> {
                 "type": "image/png"
             }
         ],
-        "theme_color": opt.theme_color.to_hex_string(),
-        "background_color": opt.background_color.to_hex_string(),
+        "theme_color": opt.theme_color.to_css_hex(),
+        "background_color": opt.background_color.to_css_hex(),
         "display": "standalone"
     });
 
