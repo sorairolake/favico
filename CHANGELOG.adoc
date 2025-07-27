@@ -14,6 +14,13 @@ All notable changes to this project will be documented in this file.
 The format is based on https://keepachangelog.com/[Keep a Changelog], and this
 project adheres to https://semver.org/[Semantic Versioning].
 
+== {compare-url}/v0.1.11\...HEAD[Unreleased]
+
+=== Changed
+
+* Stop building a man page when compiling a package
+  ({pull-request-url}/332[#332])
+
 == {compare-url}/v0.1.10\...v0.1.11[0.1.11] - 2025-06-12
 
 === Changed
