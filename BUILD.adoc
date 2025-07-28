@@ -27,12 +27,6 @@ cd favico
 just build
 ----
 
-.To find the directory where a man page are generated
-[source,sh]
-----
-fd -t directory out ./target/*/build/favico-*
-----
-
 == Crate features
 
 `dds`::
