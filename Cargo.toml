@@ -27,7 +27,7 @@ csscolorparser = "0.7.2"
 image = { version = "0.25.7", default-features = false, features = ["bmp", "ico", "png", "rayon"] }
 indicatif = "0.18.0"
 serde_json = { version = "1.0.143", features = ["preserve_order"] }
-sysexits = "0.9.1"
+sysexits = "0.10.0"
 xbm = { version = "0.2.1", optional = true }
 
 [dev-dependencies]
