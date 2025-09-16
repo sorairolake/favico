@@ -24,7 +24,12 @@ clap = { version = "4.5.47", features = ["derive", "wrap_help"] }
 clap_complete = "4.5.57"
 clap_complete_nushell = "4.5.8"
 csscolorparser = "0.7.2"
-image = { version = "0.25.8", default-features = false, features = ["bmp", "ico", "png", "rayon"] }
+image = { version = "0.25.8", default-features = false, features = [
+  "bmp",
+  "ico",
+  "png",
+  "rayon",
+] }
 indicatif = "0.18.0"
 serde_json = { version = "1.0.145", features = ["preserve_order"] }
 sysexits = "0.10.0"
@@ -75,7 +80,7 @@ rust_2018_idioms = { level = "warn", priority = -1 }
 unsafe_code = "forbid"
 
 [profile.release]
-codegen-units = 1
+strip = true
 lto = true
 panic = "abort"
-strip = true
+codegen-units = 1
