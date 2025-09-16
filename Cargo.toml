@@ -5,11 +5,9 @@
 [package]
 name = "favico"
 version = "0.1.12"
-authors = ["Shun Sakai <sorairolake@protonmail.ch>"]
 edition = "2024"
 rust-version = "1.85.0"
 description = "An utility for creating favicons"
-readme = "README.md"
 homepage = "https://sorairolake.github.io/favico/"
 repository = "https://github.com/sorairolake/favico"
 license = "GPL-3.0-or-later"
