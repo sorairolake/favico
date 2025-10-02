@@ -6,39 +6,41 @@ mod utils;
 
 use predicates::prelude::predicate;
 
+use crate::utils::command;
+
 #[test]
 fn generate_completion() {
-    utils::command::command()
+    command::command()
         .arg("--generate-completion")
         .arg("bash")
         .assert()
         .success()
         .stdout(predicate::ne(""));
-    utils::command::command()
+    command::command()
         .arg("--generate-completion")
         .arg("elvish")
         .assert()
         .success()
         .stdout(predicate::ne(""));
-    utils::command::command()
+    command::command()
         .arg("--generate-completion")
         .arg("fish")
         .assert()
         .success()
         .stdout(predicate::ne(""));
-    utils::command::command()
+    command::command()
         .arg("--generate-completion")
         .arg("nushell")
         .assert()
         .success()
         .stdout(predicate::ne(""));
-    utils::command::command()
+    command::command()
         .arg("--generate-completion")
         .arg("powershell")
         .assert()
         .success()
         .stdout(predicate::ne(""));
-    utils::command::command()
+    command::command()
         .arg("--generate-completion")
         .arg("zsh")
         .assert()
@@ -48,7 +50,7 @@ fn generate_completion() {
 
 #[test]
 fn generate_completion_with_invalid_shell() {
-    utils::command::command()
+    command::command()
         .arg("--generate-completion")
         .arg("a")
         .assert()

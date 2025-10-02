@@ -8,11 +8,13 @@ use std::fs;
 
 use predicates::prelude::predicate;
 
+use crate::utils::command;
+
 #[test]
 fn set_name_member() {
     let out_dir = tempfile::tempdir().unwrap();
     let out_dir = out_dir.path();
-    utils::command::command()
+    command::command()
         .arg("-o")
         .arg(out_dir)
         .arg("--name")
@@ -31,7 +33,7 @@ fn set_name_member() {
 fn set_short_name_member() {
     let out_dir = tempfile::tempdir().unwrap();
     let out_dir = out_dir.path();
-    utils::command::command()
+    command::command()
         .arg("-o")
         .arg(out_dir)
         .arg("--short-name")
@@ -50,7 +52,7 @@ fn set_short_name_member() {
 fn set_theme_color_member_from_named_color() {
     let out_dir = tempfile::tempdir().unwrap();
     let out_dir = out_dir.path();
-    utils::command::command()
+    command::command()
         .arg("-o")
         .arg(out_dir)
         .arg("--theme-color")
@@ -71,7 +73,7 @@ fn set_theme_color_member_from_named_color() {
 fn set_background_color_member_from_named_color() {
     let out_dir = tempfile::tempdir().unwrap();
     let out_dir = out_dir.path();
-    utils::command::command()
+    command::command()
         .arg("-o")
         .arg(out_dir)
         .arg("--background-color")
@@ -93,7 +95,7 @@ fn set_theme_color_member_from_hex_color() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("--theme-color")
@@ -112,7 +114,7 @@ fn set_theme_color_member_from_hex_color() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("--theme-color")
@@ -135,7 +137,7 @@ fn set_background_color_member_from_hex_color() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("--background-color")
@@ -154,7 +156,7 @@ fn set_background_color_member_from_hex_color() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("--background-color")
@@ -177,7 +179,7 @@ fn set_theme_color_member_from_hex_color_with_alpha() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("--theme-color")
@@ -196,7 +198,7 @@ fn set_theme_color_member_from_hex_color_with_alpha() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("--theme-color")
@@ -219,7 +221,7 @@ fn set_background_color_member_from_hex_color_with_alpha() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("--background-color")
@@ -238,7 +240,7 @@ fn set_background_color_member_from_hex_color_with_alpha() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("--background-color")
@@ -261,7 +263,7 @@ fn set_theme_color_member_from_hex_short_color() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("--theme-color")
@@ -280,7 +282,7 @@ fn set_theme_color_member_from_hex_short_color() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("--theme-color")
@@ -303,7 +305,7 @@ fn set_background_color_member_from_hex_short_color() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("--background-color")
@@ -322,7 +324,7 @@ fn set_background_color_member_from_hex_short_color() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("--background-color")
@@ -345,7 +347,7 @@ fn set_theme_color_member_from_short_hex_color_with_alpha() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("--theme-color")
@@ -364,7 +366,7 @@ fn set_theme_color_member_from_short_hex_color_with_alpha() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("--theme-color")
@@ -387,7 +389,7 @@ fn set_background_color_member_from_short_hex_color_with_alpha() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("--background-color")
@@ -406,7 +408,7 @@ fn set_background_color_member_from_short_hex_color_with_alpha() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("--background-color")
@@ -428,7 +430,7 @@ fn set_background_color_member_from_short_hex_color_with_alpha() {
 fn set_theme_color_member_from_invalid_hex_color() {
     let out_dir = tempfile::tempdir().unwrap();
     let out_dir = out_dir.path();
-    utils::command::command()
+    command::command()
         .arg("-o")
         .arg(out_dir)
         .arg("--theme-color")
@@ -449,7 +451,7 @@ fn set_theme_color_member_from_invalid_hex_color() {
 fn set_background_color_member_from_invalid_hex_color() {
     let out_dir = tempfile::tempdir().unwrap();
     let out_dir = out_dir.path();
-    utils::command::command()
+    command::command()
         .arg("-o")
         .arg(out_dir)
         .arg("--background-color")
@@ -471,7 +473,7 @@ fn set_theme_color_member_from_rgb_color() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("--theme-color")
@@ -490,7 +492,7 @@ fn set_theme_color_member_from_rgb_color() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("--theme-color")
@@ -513,7 +515,7 @@ fn set_background_color_member_from_rgb_color() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("--background-color")
@@ -532,7 +534,7 @@ fn set_background_color_member_from_rgb_color() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("--background-color")
@@ -555,7 +557,7 @@ fn set_theme_color_member_from_rgb_color_with_alpha() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("--theme-color")
@@ -574,7 +576,7 @@ fn set_theme_color_member_from_rgb_color_with_alpha() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("--theme-color")
@@ -597,7 +599,7 @@ fn set_background_color_member_from_rgb_color_with_alpha() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("--background-color")
@@ -616,7 +618,7 @@ fn set_background_color_member_from_rgb_color_with_alpha() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("--background-color")
@@ -639,7 +641,7 @@ fn set_theme_color_member_from_rgba_color() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("--theme-color")
@@ -658,7 +660,7 @@ fn set_theme_color_member_from_rgba_color() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("--theme-color")
@@ -681,7 +683,7 @@ fn set_background_color_member_from_rgba_color() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("--background-color")
@@ -700,7 +702,7 @@ fn set_background_color_member_from_rgba_color() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("--background-color")
@@ -722,7 +724,7 @@ fn set_background_color_member_from_rgba_color() {
 fn set_theme_color_member_from_invalid_rgb_color() {
     let out_dir = tempfile::tempdir().unwrap();
     let out_dir = out_dir.path();
-    utils::command::command()
+    command::command()
         .arg("-o")
         .arg(out_dir)
         .arg("--theme-color")
@@ -743,7 +745,7 @@ fn set_theme_color_member_from_invalid_rgb_color() {
 fn set_background_color_member_from_invalid_rgb_color() {
     let out_dir = tempfile::tempdir().unwrap();
     let out_dir = out_dir.path();
-    utils::command::command()
+    command::command()
         .arg("-o")
         .arg(out_dir)
         .arg("--background-color")
@@ -765,7 +767,7 @@ fn set_theme_color_member_from_hsl_color() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("--theme-color")
@@ -784,7 +786,7 @@ fn set_theme_color_member_from_hsl_color() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("--theme-color")
@@ -807,7 +809,7 @@ fn set_background_color_member_from_hsl_color() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("--background-color")
@@ -826,7 +828,7 @@ fn set_background_color_member_from_hsl_color() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("--background-color")
@@ -849,7 +851,7 @@ fn set_theme_color_member_from_hsl_color_with_alpha() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("--theme-color")
@@ -868,7 +870,7 @@ fn set_theme_color_member_from_hsl_color_with_alpha() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("--theme-color")
@@ -891,7 +893,7 @@ fn set_background_color_member_from_hsl_color_with_alpha() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("--background-color")
@@ -910,7 +912,7 @@ fn set_background_color_member_from_hsl_color_with_alpha() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("--background-color")
@@ -933,7 +935,7 @@ fn set_theme_color_member_from_hsla_color() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("--theme-color")
@@ -952,7 +954,7 @@ fn set_theme_color_member_from_hsla_color() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("--theme-color")
@@ -975,7 +977,7 @@ fn set_background_color_member_from_hsla_color() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("--background-color")
@@ -994,7 +996,7 @@ fn set_background_color_member_from_hsla_color() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("--background-color")
@@ -1016,7 +1018,7 @@ fn set_background_color_member_from_hsla_color() {
 fn set_theme_color_member_from_invalid_hsl_color() {
     let out_dir = tempfile::tempdir().unwrap();
     let out_dir = out_dir.path();
-    utils::command::command()
+    command::command()
         .arg("-o")
         .arg(out_dir)
         .arg("--theme-color")
@@ -1037,7 +1039,7 @@ fn set_theme_color_member_from_invalid_hsl_color() {
 fn set_background_color_member_from_invalid_hsl_color() {
     let out_dir = tempfile::tempdir().unwrap();
     let out_dir = out_dir.path();
-    utils::command::command()
+    command::command()
         .arg("-o")
         .arg(out_dir)
         .arg("--background-color")
@@ -1058,7 +1060,7 @@ fn set_background_color_member_from_invalid_hsl_color() {
 fn set_theme_color_member_from_hwb_color() {
     let out_dir = tempfile::tempdir().unwrap();
     let out_dir = out_dir.path();
-    utils::command::command()
+    command::command()
         .arg("-o")
         .arg(out_dir)
         .arg("--theme-color")
@@ -1079,7 +1081,7 @@ fn set_theme_color_member_from_hwb_color() {
 fn set_background_color_member_from_hwb_color() {
     let out_dir = tempfile::tempdir().unwrap();
     let out_dir = out_dir.path();
-    utils::command::command()
+    command::command()
         .arg("-o")
         .arg(out_dir)
         .arg("--background-color")
@@ -1100,7 +1102,7 @@ fn set_background_color_member_from_hwb_color() {
 fn set_theme_color_member_from_hwb_color_with_alpha() {
     let out_dir = tempfile::tempdir().unwrap();
     let out_dir = out_dir.path();
-    utils::command::command()
+    command::command()
         .arg("-o")
         .arg(out_dir)
         .arg("--theme-color")
@@ -1121,7 +1123,7 @@ fn set_theme_color_member_from_hwb_color_with_alpha() {
 fn set_background_color_member_from_hwb_color_with_alpha() {
     let out_dir = tempfile::tempdir().unwrap();
     let out_dir = out_dir.path();
-    utils::command::command()
+    command::command()
         .arg("-o")
         .arg(out_dir)
         .arg("--background-color")
@@ -1142,7 +1144,7 @@ fn set_background_color_member_from_hwb_color_with_alpha() {
 fn set_theme_color_member_from_invalid_hwb_color() {
     let out_dir = tempfile::tempdir().unwrap();
     let out_dir = out_dir.path();
-    utils::command::command()
+    command::command()
         .arg("-o")
         .arg(out_dir)
         .arg("--theme-color")
@@ -1163,7 +1165,7 @@ fn set_theme_color_member_from_invalid_hwb_color() {
 fn set_background_color_member_from_invalid_hwb_color() {
     let out_dir = tempfile::tempdir().unwrap();
     let out_dir = out_dir.path();
-    utils::command::command()
+    command::command()
         .arg("-o")
         .arg(out_dir)
         .arg("--background-color")
@@ -1184,7 +1186,7 @@ fn set_background_color_member_from_invalid_hwb_color() {
 fn set_theme_color_member_from_oklab_color() {
     let out_dir = tempfile::tempdir().unwrap();
     let out_dir = out_dir.path();
-    utils::command::command()
+    command::command()
         .arg("-o")
         .arg(out_dir)
         .arg("--theme-color")
@@ -1205,7 +1207,7 @@ fn set_theme_color_member_from_oklab_color() {
 fn set_background_color_member_from_oklab_color() {
     let out_dir = tempfile::tempdir().unwrap();
     let out_dir = out_dir.path();
-    utils::command::command()
+    command::command()
         .arg("-o")
         .arg(out_dir)
         .arg("--background-color")
@@ -1226,7 +1228,7 @@ fn set_background_color_member_from_oklab_color() {
 fn set_theme_color_member_from_oklab_color_with_alpha() {
     let out_dir = tempfile::tempdir().unwrap();
     let out_dir = out_dir.path();
-    utils::command::command()
+    command::command()
         .arg("-o")
         .arg(out_dir)
         .arg("--theme-color")
@@ -1247,7 +1249,7 @@ fn set_theme_color_member_from_oklab_color_with_alpha() {
 fn set_background_color_member_from_oklab_color_with_alpha() {
     let out_dir = tempfile::tempdir().unwrap();
     let out_dir = out_dir.path();
-    utils::command::command()
+    command::command()
         .arg("-o")
         .arg(out_dir)
         .arg("--background-color")
@@ -1268,7 +1270,7 @@ fn set_background_color_member_from_oklab_color_with_alpha() {
 fn set_theme_color_member_from_invalid_oklab_color() {
     let out_dir = tempfile::tempdir().unwrap();
     let out_dir = out_dir.path();
-    utils::command::command()
+    command::command()
         .arg("-o")
         .arg(out_dir)
         .arg("--theme-color")
@@ -1289,7 +1291,7 @@ fn set_theme_color_member_from_invalid_oklab_color() {
 fn set_background_color_member_from_invalid_oklab_color() {
     let out_dir = tempfile::tempdir().unwrap();
     let out_dir = out_dir.path();
-    utils::command::command()
+    command::command()
         .arg("-o")
         .arg(out_dir)
         .arg("--background-color")
@@ -1310,7 +1312,7 @@ fn set_background_color_member_from_invalid_oklab_color() {
 fn set_theme_color_member_from_oklch_color() {
     let out_dir = tempfile::tempdir().unwrap();
     let out_dir = out_dir.path();
-    utils::command::command()
+    command::command()
         .arg("-o")
         .arg(out_dir)
         .arg("--theme-color")
@@ -1331,7 +1333,7 @@ fn set_theme_color_member_from_oklch_color() {
 fn set_background_color_member_from_oklch_color() {
     let out_dir = tempfile::tempdir().unwrap();
     let out_dir = out_dir.path();
-    utils::command::command()
+    command::command()
         .arg("-o")
         .arg(out_dir)
         .arg("--background-color")
@@ -1352,7 +1354,7 @@ fn set_background_color_member_from_oklch_color() {
 fn set_theme_color_member_from_oklch_color_with_alpha() {
     let out_dir = tempfile::tempdir().unwrap();
     let out_dir = out_dir.path();
-    utils::command::command()
+    command::command()
         .arg("-o")
         .arg(out_dir)
         .arg("--theme-color")
@@ -1373,7 +1375,7 @@ fn set_theme_color_member_from_oklch_color_with_alpha() {
 fn set_background_color_member_from_oklch_color_with_alpha() {
     let out_dir = tempfile::tempdir().unwrap();
     let out_dir = out_dir.path();
-    utils::command::command()
+    command::command()
         .arg("-o")
         .arg(out_dir)
         .arg("--background-color")
@@ -1394,7 +1396,7 @@ fn set_background_color_member_from_oklch_color_with_alpha() {
 fn set_theme_color_member_from_invalid_oklch_color() {
     let out_dir = tempfile::tempdir().unwrap();
     let out_dir = out_dir.path();
-    utils::command::command()
+    command::command()
         .arg("-o")
         .arg(out_dir)
         .arg("--theme-color")
@@ -1415,7 +1417,7 @@ fn set_theme_color_member_from_invalid_oklch_color() {
 fn set_background_color_member_from_invalid_oklch_color() {
     let out_dir = tempfile::tempdir().unwrap();
     let out_dir = out_dir.path();
-    utils::command::command()
+    command::command()
         .arg("-o")
         .arg(out_dir)
         .arg("--background-color")
@@ -1436,7 +1438,7 @@ fn set_background_color_member_from_invalid_oklch_color() {
 fn set_theme_color_member_from_invalid_color_function() {
     let out_dir = tempfile::tempdir().unwrap();
     let out_dir = out_dir.path();
-    utils::command::command()
+    command::command()
         .arg("-o")
         .arg(out_dir)
         .arg("--theme-color")
@@ -1457,7 +1459,7 @@ fn set_theme_color_member_from_invalid_color_function() {
 fn set_background_color_member_from_invalid_color_function() {
     let out_dir = tempfile::tempdir().unwrap();
     let out_dir = out_dir.path();
-    utils::command::command()
+    command::command()
         .arg("-o")
         .arg(out_dir)
         .arg("--background-color")
@@ -1478,7 +1480,7 @@ fn set_background_color_member_from_invalid_color_function() {
 fn set_theme_color_member_from_unknown_color() {
     let out_dir = tempfile::tempdir().unwrap();
     let out_dir = out_dir.path();
-    utils::command::command()
+    command::command()
         .arg("-o")
         .arg(out_dir)
         .arg("--theme-color")
@@ -1499,7 +1501,7 @@ fn set_theme_color_member_from_unknown_color() {
 fn set_background_color_member_from_unknown_color() {
     let out_dir = tempfile::tempdir().unwrap();
     let out_dir = out_dir.path();
-    utils::command::command()
+    command::command()
         .arg("-o")
         .arg(out_dir)
         .arg("--background-color")

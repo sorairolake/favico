@@ -7,9 +7,11 @@ use std::{
     path::PathBuf,
 };
 
-use clap::{CommandFactory, Parser, ValueEnum, ValueHint};
+use clap::{Command, CommandFactory, Parser, ValueEnum, ValueHint};
 use clap_complete::Generator;
 use csscolorparser::Color;
+#[cfg(feature = "xbm")]
+use image::error::ImageFormatHint;
 use image::{ImageError, ImageFormat, imageops::FilterType};
 
 #[derive(Debug, Parser)]
@@ -133,7 +135,7 @@ impl Generator for Shell {
         }
     }
 
-    fn generate(&self, cmd: &clap::Command, buf: &mut dyn Write) {
+    fn generate(&self, cmd: &Command, buf: &mut dyn Write) {
         match self {
             Self::Bash => clap_complete::Shell::Bash.generate(cmd, buf),
             Self::Elvish => clap_complete::Shell::Elvish.generate(cmd, buf),
@@ -272,9 +274,7 @@ impl TryFrom<Format> for ImageFormat {
             #[cfg(feature = "webp")]
             Format::WebP => Ok(Self::WebP),
             #[cfg(feature = "xbm")]
-            Format::Xbm => Err(Self::Error::Unsupported(
-                image::error::ImageFormatHint::Unknown.into(),
-            )),
+            Format::Xbm => Err(Self::Error::Unsupported(ImageFormatHint::Unknown.into())),
         }
     }
 }

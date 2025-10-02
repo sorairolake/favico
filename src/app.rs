@@ -2,6 +2,8 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
+#[cfg(feature = "xbm")]
+use std::io::Cursor;
 use std::{
     fs,
     io::{self, Read},
@@ -11,10 +13,16 @@ use std::{
 use anyhow::{Context, bail};
 use bat::PrettyPrinter;
 use clap::Parser;
+#[cfg(feature = "xbm")]
+use image::DynamicImage;
 use image::ImageFormat;
 use indicatif::ProgressBar;
 use serde_json::json;
+#[cfg(feature = "xbm")]
+use xbm::Decoder;
 
+#[cfg(feature = "xbm")]
+use crate::cli::Format;
 use crate::{cli::Opt, generate};
 
 const HTML: &str = concat!(
@@ -51,18 +59,14 @@ pub fn run() -> anyhow::Result<()> {
     };
     let format = opt.format;
     #[cfg(feature = "xbm")]
-    let format = format.or_else(|| {
-        input
-            .starts_with(b"#define")
-            .then_some(crate::cli::Format::Xbm)
-    });
+    let format = format.or_else(|| input.starts_with(b"#define").then_some(Format::Xbm));
     #[allow(clippy::option_if_let_else)]
     let image = match format {
         #[cfg(feature = "xbm")]
-        Some(crate::cli::Format::Xbm) => {
-            let decoder = xbm::Decoder::new(std::io::Cursor::new(input))
-                .context("could not create new XBM decoder")?;
-            image::DynamicImage::from_decoder(decoder).map_err(anyhow::Error::from)
+        Some(Format::Xbm) => {
+            let decoder =
+                Decoder::new(Cursor::new(input)).context("could not create new XBM decoder")?;
+            DynamicImage::from_decoder(decoder).map_err(anyhow::Error::from)
         }
         format => {
             let format = if let Some(f) = format {

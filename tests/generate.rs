@@ -8,11 +8,13 @@ use std::{env, fs};
 
 use predicates::prelude::predicate;
 
+use crate::utils::command;
+
 #[test]
 fn basic_generate() {
     let out_dir = tempfile::tempdir().unwrap();
     let out_dir = out_dir.path();
-    utils::command::command()
+    command::command()
         .arg("-o")
         .arg(out_dir)
         .arg("data/input/input.png")
@@ -70,7 +72,7 @@ fn generate_without_out_dir() {
     let current_dir = env::current_dir().unwrap();
     let out_dir = tempfile::tempdir().unwrap();
     let out_dir = out_dir.path();
-    utils::command::command()
+    command::command()
         .arg(current_dir.join("tests/data/input/input.png"))
         .current_dir(out_dir)
         .assert()
@@ -88,7 +90,7 @@ fn generate_without_out_dir() {
 fn generate_from_non_existent_file() {
     let out_dir = tempfile::tempdir().unwrap();
     let out_dir = out_dir.path();
-    let command = utils::command::command()
+    let command = command::command()
         .arg("-o")
         .arg(out_dir)
         .arg("--filter")
@@ -115,7 +117,7 @@ fn generate_from_non_existent_file() {
 fn generate_png_ico() {
     let out_dir = tempfile::tempdir().unwrap();
     let out_dir = out_dir.path();
-    utils::command::command()
+    command::command()
         .arg("-o")
         .arg(out_dir)
         .arg("--png")
@@ -139,7 +141,7 @@ fn generate_with_filter() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("--filter")
@@ -151,7 +153,7 @@ fn generate_with_filter() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("--filter")
@@ -163,7 +165,7 @@ fn generate_with_filter() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("--filter")
@@ -175,7 +177,7 @@ fn generate_with_filter() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("--filter")
@@ -187,7 +189,7 @@ fn generate_with_filter() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("--filter")
@@ -202,7 +204,7 @@ fn generate_with_filter() {
 fn generate_with_invalid_filter() {
     let out_dir = tempfile::tempdir().unwrap();
     let out_dir = out_dir.path();
-    utils::command::command()
+    command::command()
         .arg("-o")
         .arg(out_dir)
         .arg("--filter")

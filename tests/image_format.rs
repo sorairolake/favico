@@ -6,11 +6,13 @@ mod utils;
 
 use predicates::prelude::predicate;
 
+use crate::utils::command;
+
 #[test]
 fn generate_from_non_image_file() {
     let out_dir = tempfile::tempdir().unwrap();
     let out_dir = out_dir.path();
-    utils::command::command()
+    command::command()
         .arg("-o")
         .arg(out_dir)
         .arg("--filter")
@@ -29,7 +31,7 @@ fn generate_from_bmp() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("data/input/input.bmp")
@@ -80,7 +82,7 @@ fn generate_from_bmp() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .write_stdin(include_bytes!("data/input/input.bmp"))
@@ -131,7 +133,7 @@ fn generate_from_bmp() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("-f")
@@ -185,7 +187,7 @@ fn generate_from_bmp() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("-f")
@@ -204,7 +206,7 @@ fn generate_from_dds() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("data/input/input.dds")
@@ -255,7 +257,7 @@ fn generate_from_dds() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .write_stdin(include_bytes!("data/input/input.dds"))
@@ -306,7 +308,7 @@ fn generate_from_dds() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("-f")
@@ -360,7 +362,7 @@ fn generate_from_dds() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("-f")
@@ -379,7 +381,7 @@ fn generate_from_farbfeld() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("data/input/input.ff")
@@ -430,7 +432,7 @@ fn generate_from_farbfeld() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .write_stdin(include_bytes!("data/input/input.ff"))
@@ -481,7 +483,7 @@ fn generate_from_farbfeld() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("-f")
@@ -535,7 +537,7 @@ fn generate_from_farbfeld() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("-f")
@@ -554,7 +556,7 @@ fn generate_from_gif() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("data/input/input.gif")
@@ -605,7 +607,7 @@ fn generate_from_gif() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .write_stdin(include_bytes!("data/input/input.gif"))
@@ -656,7 +658,7 @@ fn generate_from_gif() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("-f")
@@ -710,7 +712,7 @@ fn generate_from_gif() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("-f")
@@ -729,7 +731,7 @@ fn generate_from_hdr() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("data/input/input.hdr")
@@ -780,7 +782,7 @@ fn generate_from_hdr() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .write_stdin(include_bytes!("data/input/input.hdr"))
@@ -831,7 +833,7 @@ fn generate_from_hdr() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("-f")
@@ -885,7 +887,7 @@ fn generate_from_hdr() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("-f")
@@ -903,7 +905,7 @@ fn generate_from_cur() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("data/input/input.cur")
@@ -919,7 +921,7 @@ fn generate_from_cur() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .write_stdin(include_bytes!("data/input/input.cur"))
@@ -935,7 +937,7 @@ fn generate_from_cur() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("-f")
@@ -957,7 +959,7 @@ fn generate_from_ico() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("data/input/input.ico")
@@ -973,7 +975,7 @@ fn generate_from_ico() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .write_stdin(include_bytes!("data/input/input.ico"))
@@ -989,7 +991,7 @@ fn generate_from_ico() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("-f")
@@ -1010,7 +1012,7 @@ fn generate_from_ico() {
 fn generate_from_ico_with_wrong_format() {
     let out_dir = tempfile::tempdir().unwrap();
     let out_dir = out_dir.path();
-    utils::command::command()
+    command::command()
         .arg("-o")
         .arg(out_dir)
         .arg("-f")
@@ -1028,7 +1030,7 @@ fn generate_from_jpeg() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("data/input/input.jpeg")
@@ -1079,7 +1081,7 @@ fn generate_from_jpeg() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .write_stdin(include_bytes!("data/input/input.jpeg"))
@@ -1130,7 +1132,7 @@ fn generate_from_jpeg() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("-f")
@@ -1184,7 +1186,7 @@ fn generate_from_jpeg() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("-f")
@@ -1203,7 +1205,7 @@ fn generate_from_open_exr() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("data/input/input.exr")
@@ -1254,7 +1256,7 @@ fn generate_from_open_exr() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .write_stdin(include_bytes!("data/input/input.exr"))
@@ -1305,7 +1307,7 @@ fn generate_from_open_exr() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("-f")
@@ -1359,7 +1361,7 @@ fn generate_from_open_exr() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("-f")
@@ -1377,7 +1379,7 @@ fn generate_from_png() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("data/input/input.png")
@@ -1428,7 +1430,7 @@ fn generate_from_png() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .write_stdin(include_bytes!("data/input/input.png"))
@@ -1479,7 +1481,7 @@ fn generate_from_png() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("-f")
@@ -1533,7 +1535,7 @@ fn generate_from_png() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("-f")
@@ -1552,7 +1554,7 @@ fn generate_from_pbm() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("data/input/input.pbm")
@@ -1603,7 +1605,7 @@ fn generate_from_pbm() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .write_stdin(include_bytes!("data/input/input.pbm"))
@@ -1654,7 +1656,7 @@ fn generate_from_pbm() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("-f")
@@ -1712,7 +1714,7 @@ fn generate_from_pgm() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("data/input/input.pgm")
@@ -1763,7 +1765,7 @@ fn generate_from_pgm() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .write_stdin(include_bytes!("data/input/input.pgm"))
@@ -1814,7 +1816,7 @@ fn generate_from_pgm() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("-f")
@@ -1872,7 +1874,7 @@ fn generate_from_ppm() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("data/input/input.ppm")
@@ -1923,7 +1925,7 @@ fn generate_from_ppm() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .write_stdin(include_bytes!("data/input/input.ppm"))
@@ -1974,7 +1976,7 @@ fn generate_from_ppm() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("-f")
@@ -2031,7 +2033,7 @@ fn generate_from_ppm() {
 fn generate_from_pnm_with_wrong_format() {
     let out_dir = tempfile::tempdir().unwrap();
     let out_dir = out_dir.path();
-    utils::command::command()
+    command::command()
         .arg("-o")
         .arg(out_dir)
         .arg("-f")
@@ -2049,7 +2051,7 @@ fn generate_from_qoi() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("data/input/input.qoi")
@@ -2100,7 +2102,7 @@ fn generate_from_qoi() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .write_stdin(include_bytes!("data/input/input.qoi"))
@@ -2151,7 +2153,7 @@ fn generate_from_qoi() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("-f")
@@ -2205,7 +2207,7 @@ fn generate_from_qoi() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("-f")
@@ -2224,7 +2226,7 @@ fn generate_from_tga() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("data/input/input.tga")
@@ -2275,7 +2277,7 @@ fn generate_from_tga() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .write_stdin(include_bytes!("data/input/input.tga"))
@@ -2289,7 +2291,7 @@ fn generate_from_tga() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("-f")
@@ -2343,7 +2345,7 @@ fn generate_from_tga() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("-f")
@@ -2362,7 +2364,7 @@ fn generate_from_tiff() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("data/input/input.tiff")
@@ -2413,7 +2415,7 @@ fn generate_from_tiff() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .write_stdin(include_bytes!("data/input/input.tiff"))
@@ -2464,7 +2466,7 @@ fn generate_from_tiff() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("-f")
@@ -2518,7 +2520,7 @@ fn generate_from_tiff() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("-f")
@@ -2537,7 +2539,7 @@ fn generate_from_web_p() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("data/input/input.webp")
@@ -2588,7 +2590,7 @@ fn generate_from_web_p() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .write_stdin(include_bytes!("data/input/input.webp"))
@@ -2639,7 +2641,7 @@ fn generate_from_web_p() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("-f")
@@ -2693,7 +2695,7 @@ fn generate_from_web_p() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("-f")
@@ -2712,7 +2714,7 @@ fn generate_from_xbm() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("data/input/input.xbm")
@@ -2763,7 +2765,7 @@ fn generate_from_xbm() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .write_stdin(include_bytes!("data/input/input.xbm"))
@@ -2814,7 +2816,7 @@ fn generate_from_xbm() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("-f")
@@ -2868,7 +2870,7 @@ fn generate_from_xbm() {
     {
         let out_dir = tempfile::tempdir().unwrap();
         let out_dir = out_dir.path();
-        utils::command::command()
+        command::command()
             .arg("-o")
             .arg(out_dir)
             .arg("-f")
@@ -2885,7 +2887,7 @@ fn generate_from_xbm() {
 fn generate_from_invalid_input_format() {
     let out_dir = tempfile::tempdir().unwrap();
     let out_dir = out_dir.path();
-    utils::command::command()
+    command::command()
         .arg("-o")
         .arg(out_dir)
         .arg("--filter")
