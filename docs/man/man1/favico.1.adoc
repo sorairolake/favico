@@ -4,7 +4,7 @@
 
 = favico(1)
 // Specify in UTC.
-:docdate: 2025-05-12
+:docdate: 2025-11-07
 :revnumber: 0.1.12
 :doctype: manpage
 :mansource: favico {revnumber}
@@ -37,7 +37,7 @@
 
 == NAME
 
-favico - an utility for creating favicons
+favico - a command-line utility for creating favicons
 
 == SYNOPSIS
 
