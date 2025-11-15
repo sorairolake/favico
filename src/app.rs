@@ -25,7 +25,7 @@ use xbm::Decoder;
 use crate::cli::Format;
 use crate::{cli::Opt, generate};
 
-const HTML: &str = concat!(
+static HTML: &str = concat!(
     r#"<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />"#,
     '\n',
     r#"<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />"#,
