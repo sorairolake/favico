@@ -20,6 +20,10 @@ project adheres to https://semver.org/[Semantic Versioning].
 
 * Add more archive formats for releases ({pull-request-url}/399[#399])
 
+=== Changed
+
+* Bump MSRV to 1.88.0 ({pull-request-url}/414[#414])
+
 == {compare-url}/v0.1.11\...v0.1.12[0.1.12] - 2025-07-28
 
 === Changed

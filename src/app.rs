@@ -46,16 +46,16 @@ pub fn run() -> anyhow::Result<()> {
         return Ok(());
     }
 
-    let input = match opt.input {
-        Some(ref path) if path.as_os_str() != "-" => fs::read(path)
-            .with_context(|| format!("could not read data from {}", path.display()))?,
-        _ => {
-            let mut buf = Vec::new();
-            io::stdin()
-                .read_to_end(&mut buf)
-                .context("could not read data from standard input")?;
-            buf
-        }
+    let input = if let Some(ref path) = opt.input
+        && path.as_os_str() != "-"
+    {
+        fs::read(path).with_context(|| format!("could not read data from {}", path.display()))?
+    } else {
+        let mut buf = Vec::new();
+        io::stdin()
+            .read_to_end(&mut buf)
+            .context("could not read data from standard input")?;
+        buf
     };
     let format = opt.format;
     #[cfg(feature = "xbm")]

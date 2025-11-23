@@ -6,7 +6,7 @@
 name = "favico"
 version = "0.1.12"
 edition = "2024"
-rust-version = "1.85.0"
+rust-version = "1.88.0"
 description = "A command-line utility for creating favicons"
 homepage = "https://sorairolake.github.io/favico/"
 repository = "https://github.com/sorairolake/favico"
