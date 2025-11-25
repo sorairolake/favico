@@ -18,7 +18,7 @@ include = ["/LICENSES", "/README.md", "/src"]
 [dependencies]
 anyhow = "1.0.100"
 bat = { version = "0.26.0", default-features = false, features = ["regex-fancy"] }
-clap = { version = "4.5.51", features = ["derive", "wrap_help"] }
+clap = { version = "4.5.53", features = ["derive", "wrap_help"] }
 clap_complete = "4.5.60"
 clap_complete_nushell = "4.5.10"
 csscolorparser = "0.8.0"
