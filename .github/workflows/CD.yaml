@@ -125,7 +125,7 @@ jobs:
           fi
           rm -rv favico-*/
       - name: Upload artifact
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
           name: "favico-${{ needs.get-version.outputs.version }}-${{ matrix.target }}"
           path: "favico-*-*"
