@@ -29,7 +29,7 @@ image = { version = "0.25.9", default-features = false, features = [
   "rayon",
 ] }
 indicatif = "0.18.3"
-serde_json = { version = "1.0.146", features = ["preserve_order"] }
+serde_json = { version = "1.0.149", features = ["preserve_order"] }
 sysexits = "0.10.0"
 xbm = { version = "0.3.0", optional = true }
 
