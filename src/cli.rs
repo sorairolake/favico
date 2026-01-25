@@ -83,8 +83,8 @@ pub struct Opt {
     /// determined based on the extension or the magic number if possible. If
     /// the format cannot be determined, use '--format'. Note that [IMAGE] must
     /// be square.
-    #[arg(value_name("IMAGE"), value_hint(ValueHint::FilePath))]
-    pub input: Option<PathBuf>,
+    #[arg(value_hint(ValueHint::FilePath))]
+    pub image: Option<PathBuf>,
 }
 
 impl Opt {

@@ -46,7 +46,7 @@ pub fn run() -> anyhow::Result<()> {
         return Ok(());
     }
 
-    let input = if let Some(ref path) = opt.input
+    let input = if let Some(ref path) = opt.image
         && path.as_os_str() != "-"
     {
         fs::read(path).with_context(|| format!("could not read data from {}", path.display()))?
@@ -73,7 +73,7 @@ pub fn run() -> anyhow::Result<()> {
                 f.try_into()
             } else {
                 image::guess_format(&input)
-                    .or_else(|err| opt.input.map_or_else(|| Err(err), ImageFormat::from_path))
+                    .or_else(|err| opt.image.map_or_else(|| Err(err), ImageFormat::from_path))
             }
             .context("could not determine the image format")?;
             image::load_from_memory_with_format(&input, format).map_err(anyhow::Error::from)
