@@ -37,7 +37,7 @@ static HTML: &str = concat!(
 );
 
 /// Runs the program and returns the result.
-#[allow(clippy::too_many_lines)]
+#[expect(clippy::too_many_lines)]
 pub fn run() -> anyhow::Result<()> {
     let opt = Opt::parse();
 
@@ -60,7 +60,7 @@ pub fn run() -> anyhow::Result<()> {
     let format = opt.format;
     #[cfg(feature = "xbm")]
     let format = format.or_else(|| input.starts_with(b"#define").then_some(Format::Xbm));
-    #[allow(clippy::option_if_let_else)]
+    #[expect(clippy::option_if_let_else)]
     let image = match format {
         #[cfg(feature = "xbm")]
         Some(Format::Xbm) => {

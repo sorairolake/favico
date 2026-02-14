@@ -15,7 +15,7 @@ use image::error::ImageFormatHint;
 use image::{ImageError, ImageFormat, imageops::FilterType};
 
 #[derive(Debug, Parser)]
-#[allow(clippy::doc_markdown)]
+#[expect(clippy::doc_markdown)]
 #[command(version, about, max_term_width(100), arg_required_else_help(true))]
 pub struct Opt {
     /// Directory to output generated files.
@@ -115,7 +115,7 @@ pub enum Shell {
     /// Nushell.
     Nushell,
 
-    #[allow(clippy::enum_variant_names)]
+    #[expect(clippy::enum_variant_names)]
     /// PowerShell.
     PowerShell,
 
