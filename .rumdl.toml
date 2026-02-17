@@ -1,0 +1,10 @@
+# SPDX-FileCopyrightText: 2026 Shun Sakai
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+[global]
+exclude = [".github/"]
+
+[MD030]
+ol-multi = 2
+ol-single = 2
