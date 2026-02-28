@@ -22,7 +22,7 @@ project adheres to https://semver.org/[Semantic Versioning].
 
 === Changed
 
-* Bump MSRV to 1.88.0 ({pull-request-url}/414[#414])
+* Bump MSRV to 1.89.0 ({pull-request-url}/482[#482])
 
 == {compare-url}/v0.1.11\...v0.1.12[0.1.12] - 2025-07-28
 

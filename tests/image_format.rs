@@ -2878,7 +2878,7 @@ fn generate_from_xbm() {
             .arg("data/output/site.webmanifest")
             .assert()
             .failure()
-            .code(1)
+            .code(65)
             .stderr(predicate::str::contains("could not create new XBM decoder"));
     }
 }

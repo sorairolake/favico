@@ -663,12 +663,12 @@ dependencies = [
  "clap_complete_nushell",
  "csscolorparser",
  "image",
+ "image-extras",
  "indicatif",
  "predicates",
  "serde_json",
  "sysexits",
  "tempfile",
- "xbm",
 ]
 
 [[package]]
@@ -816,6 +816,15 @@ dependencies = [
  "tiff",
  "zune-core 0.5.0",
  "zune-jpeg 0.5.5",
+]
+
+[[package]]
+name = "image-extras"
+version = "0.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "86d29ba92ef6970a2685cc758b455d190842b8b9e96c865ffd31cdb9954b7548"
+dependencies = [
+ "image",
 ]
 
 [[package]]
@@ -2234,16 +2243,6 @@ name = "wit-bindgen"
 version = "0.46.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "f17a85883d4e6d00e8a97c586de764dabcc06133f7f1d55dce5cdc070ad7fe59"
-
-[[package]]
-name = "xbm"
-version = "0.3.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "745a032431cc4b94c351731277178ae15afb9182b5f53f446f3d9545aa882987"
-dependencies = [
- "image",
- "unicode-ident",
-]
 
 [[package]]
 name = "xterm-color"

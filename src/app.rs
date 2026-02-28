@@ -16,10 +16,10 @@ use clap::Parser;
 #[cfg(feature = "xbm")]
 use image::DynamicImage;
 use image::ImageFormat;
+#[cfg(feature = "xbm")]
+use image_extras::xbm::XbmDecoder;
 use indicatif::ProgressBar;
 use serde_json::json;
-#[cfg(feature = "xbm")]
-use xbm::Decoder;
 
 #[cfg(feature = "xbm")]
 use crate::cli::Format;
@@ -65,7 +65,7 @@ pub fn run() -> anyhow::Result<()> {
         #[cfg(feature = "xbm")]
         Some(Format::Xbm) => {
             let decoder =
-                Decoder::new(Cursor::new(input)).context("could not create new XBM decoder")?;
+                XbmDecoder::new(Cursor::new(input)).context("could not create new XBM decoder")?;
             DynamicImage::from_decoder(decoder).map_err(anyhow::Error::from)
         }
         format => {
