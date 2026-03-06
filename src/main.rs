@@ -11,9 +11,6 @@ use std::{io, process::ExitCode};
 use image::ImageError;
 
 fn main() -> ExitCode {
-    #[cfg(feature = "xbm")]
-    image_extras::register();
-
     match app::run() {
         Ok(()) => ExitCode::SUCCESS,
         Err(err) => {
