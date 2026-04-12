@@ -2,8 +2,6 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-#[cfg(feature = "xbm")]
-use std::io::Cursor;
 use std::{
     fs,
     io::{self, Read},
@@ -13,16 +11,10 @@ use std::{
 use anyhow::{Context, bail};
 use bat::PrettyPrinter;
 use clap::Parser;
-#[cfg(feature = "xbm")]
-use image::DynamicImage;
 use image::ImageFormat;
-#[cfg(feature = "xbm")]
-use image_extras::xbm::XbmDecoder;
 use indicatif::ProgressBar;
 use serde_json::json;
 
-#[cfg(feature = "xbm")]
-use crate::cli::Format;
 use crate::{cli::Opt, generate};
 
 static HTML: &str = concat!(
@@ -57,29 +49,16 @@ pub fn run() -> anyhow::Result<()> {
             .context("could not read data from standard input")?;
         buf
     };
-    let format = opt.format;
-    #[cfg(feature = "xbm")]
-    let format = format.or_else(|| input.starts_with(b"#define").then_some(Format::Xbm));
-    #[expect(clippy::option_if_let_else)]
-    let image = match format {
-        #[cfg(feature = "xbm")]
-        Some(Format::Xbm) => {
-            let decoder =
-                XbmDecoder::new(Cursor::new(input)).context("could not create new XBM decoder")?;
-            DynamicImage::from_decoder(decoder).map_err(anyhow::Error::from)
-        }
-        format => {
-            let format = if let Some(f) = format {
-                f.try_into()
-            } else {
-                image::guess_format(&input)
-                    .or_else(|err| opt.image.map_or_else(|| Err(err), ImageFormat::from_path))
-            }
-            .context("could not determine the image format")?;
-            image::load_from_memory_with_format(&input, format).map_err(anyhow::Error::from)
-        }
-    }
-    .context("could not read the image")?;
+    let format = if let Some(f) = opt.format {
+        f.into()
+    } else {
+        image::guess_format(&input)
+            .or_else(|err| opt.image.map_or_else(|| Err(err), ImageFormat::from_path))
+            .context("could not determine the image format")?
+    };
+    let image = image::load_from_memory_with_format(&input, format)
+        .map_err(anyhow::Error::from)
+        .context("could not read the image")?;
     if image.width() != image.height() {
         bail!("image is not square");
     }

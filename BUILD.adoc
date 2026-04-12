@@ -80,7 +80,3 @@ The man page is generated in `docs/man/man1`.
 `webp`::
 
   Enable generating from the WebP image. This is enabled by default.
-
-`xbm`::
-
-  Enable generating from the XBM image. This is enabled by default.

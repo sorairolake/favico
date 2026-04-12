@@ -4,7 +4,7 @@
 
 = favico(1)
 // Specify in UTC.
-:docdate: 2025-11-07
+:docdate: 2026-04-12
 :revnumber: 0.1.12
 :doctype: manpage
 :mansource: favico {revnumber}
@@ -29,7 +29,6 @@
 :tga-url: {enwp-article-url}/Truevision_TGA
 :tiff-url: {enwp-article-url}/TIFF
 :webp-url: https://developers.google.com/speed/webp/
-:xbm-url: {enwp-article-url}/X_BitMap
 :image-crates-url: https://crates.io/crates/image
 :css-color-url: https://www.w3.org/TR/css-color-4/
 :sysexits-man-page-url: https://man.openbsd.org/sysexits
@@ -132,7 +131,6 @@ The {css-color-url}[CSS color string] can be specified as a value for
 * {tga-url}[TGA] (if enabled at compile time)
 * {tiff-url}[TIFF] (if enabled at compile time)
 * {webp-url}[WebP] (if enabled at compile time)
-* {xbm-url}[XBM] (if enabled at compile time)
 
 Use *-t* option to specify the image format. If this option is not specified,
 the image format is determined based on the extension or the magic number.
@@ -279,11 +277,6 @@ _IMAGE_::
 
       WebP. This value is available if the `webp` feature is enabled at compile
       time.
-
-    *xbm*::::
-
-      X BitMap. This value is available if the `xbm` feature is enabled at
-      compile time.
 
 *-h*, *--help*::
 
