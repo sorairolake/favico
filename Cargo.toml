@@ -17,7 +17,6 @@ include = ["/LICENSES", "/README.md", "/src"]
 
 [dependencies]
 anyhow = "1.0.102"
-bat = { version = "0.26.1", default-features = false, features = ["regex-fancy"] }
 clap = { version = "4.6.1", features = ["derive", "wrap_help"] }
 clap_complete = "4.6.3"
 clap_complete_nushell = "4.6.0"
@@ -25,6 +24,11 @@ csscolorparser = "0.8.3"
 indicatif = "0.18.4"
 serde_json = { version = "1.0.149", features = ["preserve_order"] }
 sysexits = "0.13.0"
+
+[dependencies.bat]
+version = "0.26.1"
+default-features = false
+features = ["regex-fancy"]
 
 [dependencies.image]
 version = "0.25.10"
