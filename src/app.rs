@@ -88,8 +88,8 @@ pub fn run() -> anyhow::Result<()> {
                 "type": "image/png"
             }
         ],
-        "theme_color": opt.theme_color.to_css_hex(),
-        "background_color": opt.background_color.to_css_hex(),
+        "theme_color": opt.theme_color.to_css_hex().to_string(),
+        "background_color": opt.background_color.to_css_hex().to_string(),
         "display": "standalone"
     });
 
