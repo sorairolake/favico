@@ -177,7 +177,7 @@ impl From<Filter> for FilterType {
 }
 
 #[derive(Clone, Debug, ValueEnum)]
-#[allow(clippy::doc_markdown)]
+#[expect(clippy::doc_markdown)]
 #[value(rename_all = "lower")]
 pub enum Format {
     /// Windows Bitmap.
