@@ -15,31 +15,6 @@ keywords = ["favicon", "icon"]
 categories = ["command-line-utilities"]
 include = ["/LICENSES", "/README.md", "/src"]
 
-[dependencies]
-anyhow = "1.0.102"
-clap = { version = "4.6.1", features = ["derive", "wrap_help"] }
-clap_complete = "4.6.3"
-clap_complete_nushell = "4.6.0"
-csscolorparser = "0.9.0"
-indicatif = "0.18.4"
-serde_json = { version = "1.0.149", features = ["preserve_order"] }
-sysexits = "0.13.0"
-
-[dependencies.bat]
-version = "0.26.1"
-default-features = false
-features = ["regex-fancy"]
-
-[dependencies.image]
-version = "0.25.10"
-default-features = false
-features = ["bmp", "ico", "png", "rayon"]
-
-[dev-dependencies]
-assert_cmd = "2.2.1"
-predicates = "3.1.4"
-tempfile = "3.27.0"
-
 [features]
 default = [
   "dds",
@@ -65,6 +40,31 @@ qoi = ["image/qoi"]
 tga = ["image/tga"]
 tiff = ["image/tiff"]
 webp = ["image/webp"]
+
+[dependencies]
+anyhow = "1.0.102"
+clap = { version = "4.6.1", features = ["derive", "wrap_help"] }
+clap_complete = "4.6.3"
+clap_complete_nushell = "4.6.0"
+csscolorparser = "0.9.0"
+indicatif = "0.18.4"
+serde_json = { version = "1.0.149", features = ["preserve_order"] }
+sysexits = "0.13.0"
+
+[dependencies.bat]
+version = "0.26.1"
+default-features = false
+features = ["regex-fancy"]
+
+[dependencies.image]
+version = "0.25.10"
+default-features = false
+features = ["bmp", "ico", "png", "rayon"]
+
+[dev-dependencies]
+assert_cmd = "2.2.1"
+predicates = "3.1.4"
+tempfile = "3.27.0"
 
 [lints.clippy]
 cargo = { level = "warn", priority = -1 }
